@@ -1,0 +1,145 @@
+{
+    "questions": [
+        {
+            "type": "text_input",
+            "title": "General Knowledge",
+            "question": "What is the capital of France?",
+            "info": [
+                {
+                    "info_title": "Paris",
+                    "info_description": "Paris is the capital and largest city of France.",
+                    "info_image_url": "https://example.com/paris.jpg",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "dropdown",
+            "title": "Science",
+            "question": "What is the largest planet in our solar system?",
+            "question_selection": {
+                "selection_value": [
+                    "Jupiter",
+                    "Saturn",
+                    "Neptune",
+                    "Earth"
+                ]
+            },
+            "info": [
+                {
+                    "info_title": "Jupiter",
+                    "info_description": "Jupiter is the largest planet in our solar system.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "dropdown_query",
+            "title": "History",
+            "question": "Which of the following countries were involved in World War II?",
+            "question_selection": {
+                "selection_value": [
+                    "USA",
+                    "Germany",
+                    "Japan",
+                    "Italy"
+                ]
+            },
+            "info": [
+                {
+                    "info_title": "World War II",
+                    "info_description": "World War II involved many countries, including the USA, Germany, Japan, and Italy.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "select_card",
+            "title": "Geography",
+            "question": "Select the continents of the world.",
+            "question_selection": {
+                "selection_value": [
+                    "Asia",
+                    "Africa",
+                    "Europe",
+                    "North America",
+                    "South America",
+                    "Australia",
+                    "Antarctica"
+                ]
+            },
+            "info": [
+                {
+                    "info_title": "Continent",
+                    "info_description": "There are seven continents in the world: Asia, Africa, Europe, North America, South America, Australia, and Antarctica.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "range_slider",
+            "title": "Math",
+            "question": "Rate your mathematical skills from 0 to 10.",
+            "question_selection": {
+                "selection_value": {
+                    "min": 0,
+                    "max": 10
+                }
+            },
+            "info": [
+                {
+                    "info_title": "Range Slider",
+                    "info_description": "The range slider allows you to select a value within a specified range.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "tag",
+            "title": "Interests",
+            "question": "What are your favorite hobbies or interests?",
+            "info": [
+                {
+                    "info_title": "Tags",
+                    "info_description": "You can create your own tags for hobbies or interests.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        },
+        {
+            "type": "select_pill",
+            "title": "Food",
+            "question": "Select your favorite cuisines.",
+            "question_selection": {
+                "selection_value": [
+                    "Italian",
+                    "Mexican",
+                    "Chinese",
+                    "Indian",
+                    "Japanese",
+                    "Mediterranean"
+                ]
+            },
+            "info": [
+                {
+                    "info_title": "Cuisines",
+                    "info_description": "There are various delicious cuisines around the world.",
+                    "info_image_url": "",
+                    "info_video_url": "",
+                    "info_type": "text"
+                }
+            ]
+        }
+    ]
+}

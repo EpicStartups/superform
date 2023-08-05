@@ -1,0 +1,117 @@
+<script lang="ts">
+	import GeneralBottomNav from './GeneralBottomNav.svelte';
+	import GeneralTopNav from './GeneralTopNav.svelte';
+
+	export let question: any;
+	export let index: number;
+	export let totalQuestions: number;
+	export let currentIndex: number;
+
+	// Function to go to the next question
+	const nextQuestion = () => {
+		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
+	};
+
+	// Function to go to the previous question
+	const prevQuestion = () => {
+		currentIndex = Math.max(currentIndex - 1, 0);
+	};
+
+	// Function to go to a specific question
+	const goToQuestion = (index: number) => {
+		currentIndex = Math.max(Math.min(index, totalQuestions - 1), 0);
+	};
+
+	// Function to submit answers
+    const submitAnswers = () => {
+
+    }
+</script>
+
+<GeneralTopNav class="">
+	<span class="{currentIndex > 0 ? 'block' : 'hidden'} " slot="back-button">
+		<button on:click={prevQuestion}>
+			<svg
+				width="41"
+				height="41"
+				viewBox="0 0 41 41"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle cx="20.5" cy="20.5" r="20" fill="#EDF5F2" stroke="#DAF0E7" />
+				<path
+					d="M15.1 21L22.5667 28.4667L20.6667 30.3333L10 19.6667L20.6667 9L22.5667 10.8667L15.1 18.3333H31.3333V21H15.1Z"
+					fill="black"
+				/>
+			</svg>
+		</button>
+	</span>
+</GeneralTopNav>
+
+<section
+	class="w-[90%] min-h-screen mx-auto md:w-[100%] py-2 md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl"
+>
+	<!-- Question -->
+	<div class="overflow-y-auto font-[800] text-primary-500 px-4 py-8">
+		<h1 class="uppercase text-4xl">{question.title}</h1>
+
+		<!-- Different types of questions   -->
+	</div>
+
+	<!-- Info cards  -->
+	<div />
+</section>
+
+<GeneralBottomNav class="">
+	<!-- Mobile view  -->
+	<button
+		on:click={nextQuestion}
+		class="md:hidden bg-primary-500 w-[90%] mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex gap-4 justify-between"
+	>
+		{index + 1}/{totalQuestions} to your results
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M7.93955 2.45401C7.65834 2.7353 7.50037 3.11676 7.50037 3.51451C7.50037 3.91226 7.65834 4.29372 7.93955 4.57501L15.3645 12L7.93955 19.425C7.66631 19.7079 7.51512 20.0868 7.51853 20.4801C7.52195 20.8734 7.67971 21.2496 7.95782 21.5277C8.23593 21.8059 8.61215 21.9636 9.00544 21.967C9.39874 21.9704 9.77764 21.8192 10.0605 21.546L18.546 13.0605C18.8273 12.7792 18.9852 12.3978 18.9852 12C18.9852 11.6023 18.8273 11.2208 18.546 10.9395L10.0605 2.45401C9.77925 2.1728 9.39779 2.01483 9.00005 2.01483C8.6023 2.01483 8.22084 2.1728 7.93955 2.45401Z"
+				fill="white"
+			/>
+		</svg>
+	</button>
+
+	<!-- Not mobile view  -->
+	<section
+		class="text-sm 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
+	>
+		<!-- Left section  -->
+		<div class="flex gap-4">
+			<div>ICON</div>
+			<div class="uppercase font-[700]">
+				{totalQuestions - currentIndex}
+				{totalQuestions - currentIndex > 1 ? 'questions' : 'question'} before your results!
+			</div>
+		</div>
+
+		<!-- Right section  -->
+		<div class="flex gap-2 items-center">
+			{#if currentIndex > 0}
+				<button
+					on:click={prevQuestion}
+					class="bg-[#ffffff] text-black font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+					>Back</button
+				>
+			{/if}
+			{#if currentIndex + 1 === totalQuestions}
+				<button
+					on:click={submitAnswers}
+					class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+					>Submit</button
+				>
+			{:else}
+				<button
+					on:click={nextQuestion}
+					class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+					>Next</button
+				>
+			{/if}
+		</div>
+	</section>
+</GeneralBottomNav>
