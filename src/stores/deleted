@@ -1,0 +1,22 @@
+  // {
+        //     "question_type": "dropdown_query",
+        //     "name": "Which of the following countries were involved in World War II?",
+        //     "label": "",
+        //     "question_selection": {
+        //         "selection_value": [
+        //             "USA",
+        //             "Germany",
+        //             "Japan",
+        //             "Italy"
+        //         ]
+        //     },
+        //     "info": [
+        //         {
+        //             "info_title": "World War II",
+        //             "info_description": "World War II involved many countries, including the USA, Germany, Japan, and Italy.",
+        //             "info_image_url": "",
+        //             "info_video_url": "",
+        //             "info_type": "text"
+        //         }
+        //     ]
+        // },

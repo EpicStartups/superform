@@ -1,9 +1,10 @@
 {
     "questions": [
         {
-            "type": "text_input",
-            "title": "General Knowledge",
-            "question": "What is the capital of France?",
+            "question_type": "text_input",
+            "name": "What is the capital of France?",
+            "label": "The capital of France is",
+            "icon": "Home",
             "info": [
                 {
                     "info_title": "Paris",
@@ -15,9 +16,10 @@
             ]
         },
         {
-            "type": "dropdown",
-            "title": "Science",
-            "question": "What is the largest planet in our solar system?",
+            "question_type": "dropdown",
+            "name": "What is the largest planet in our solar system?",
+            "label": "The largest planet in our solar system is",
+            "icon": "Home",
             "question_selection": {
                 "selection_value": [
                     "Jupiter",
@@ -37,21 +39,40 @@
             ]
         },
         {
-            "type": "dropdown_query",
-            "title": "History",
-            "question": "Which of the following countries were involved in World War II?",
-            "question_selection": {
-                "selection_value": [
-                    "USA",
-                    "Germany",
-                    "Japan",
-                    "Italy"
-                ]
-            },
+            "question_type": "select_pill",
+            "name": "Select your favorite cuisines.",
+            "label": "Unselecting any particular cuisine could potentially cause offense to people from the region where that cuisine originates.",
+            "icon": "Home",
+            "question_selection": [
+                {
+                    "value": "Italian",
+                    "frontIcon": "Home"
+                },
+                {
+                    "value": "Mexican",
+                    "frontIcon": "Home"
+                },
+                {
+                    "value": "Chinese",
+                    "frontIcon": "Home"
+                },
+                {
+                    "value": "Indian",
+                    "frontIcon": "Home"
+                },
+                {
+                    "value": "Japanese",
+                    "frontIcon": "Home"
+                },
+                {
+                    "value": "Mediterranean",
+                    "frontIcon": "Home"
+                }
+            ],
             "info": [
                 {
-                    "info_title": "World War II",
-                    "info_description": "World War II involved many countries, including the USA, Germany, Japan, and Italy.",
+                    "info_title": "Cuisines",
+                    "info_description": "There are various delicious cuisines around the world.",
                     "info_image_url": "",
                     "info_video_url": "",
                     "info_type": "text"
@@ -59,20 +80,24 @@
             ]
         },
         {
-            "type": "select_card",
-            "title": "Geography",
-            "question": "Select the continents of the world.",
-            "question_selection": {
-                "selection_value": [
-                    "Asia",
-                    "Africa",
-                    "Europe",
-                    "North America",
-                    "South America",
-                    "Australia",
-                    "Antarctica"
-                ]
-            },
+            "question_type": "select_card",
+            "name": "Select the ugliest continent of the world.",
+            "label": "",
+            "icon": "Home",
+            "question_selection": [
+                {
+                    "value": "Asia",
+                    "topIcon": "Home"
+                },
+                {
+                    "value": "Africa",
+                    "topIcon": "Home"
+                },
+                {
+                    "value": "Europe",
+                    "topIcon": "Home"
+                }
+            ],
             "info": [
                 {
                     "info_title": "Continent",
@@ -84,9 +109,10 @@
             ]
         },
         {
-            "type": "range_slider",
-            "title": "Math",
-            "question": "Rate your mathematical skills from 0 to 10.",
+            "question_type": "range_slider",
+            "name": "Rate your mathematical skills from 0 to 10.",
+            "label": "",
+            "icon": "Home",
             "question_selection": {
                 "selection_value": {
                     "min": 0,
@@ -97,44 +123,21 @@
                 {
                     "info_title": "Range Slider",
                     "info_description": "The range slider allows you to select a value within a specified range.",
-                    "info_image_url": "",
+                    "info_image_url": "0 as trash and 10 as god.",
                     "info_video_url": "",
                     "info_type": "text"
                 }
             ]
         },
         {
-            "type": "tag",
-            "title": "Interests",
-            "question": "What are your favorite hobbies or interests?",
+            "question_type": "tag",
+            "name": "What are your favorite hobbies or interests?",
+            "label": "",
+            "icon": "Home",
             "info": [
                 {
                     "info_title": "Tags",
                     "info_description": "You can create your own tags for hobbies or interests.",
-                    "info_image_url": "",
-                    "info_video_url": "",
-                    "info_type": "text"
-                }
-            ]
-        },
-        {
-            "type": "select_pill",
-            "title": "Food",
-            "question": "Select your favorite cuisines.",
-            "question_selection": {
-                "selection_value": [
-                    "Italian",
-                    "Mexican",
-                    "Chinese",
-                    "Indian",
-                    "Japanese",
-                    "Mediterranean"
-                ]
-            },
-            "info": [
-                {
-                    "info_title": "Cuisines",
-                    "info_description": "There are various delicious cuisines around the world.",
                     "info_image_url": "",
                     "info_video_url": "",
                     "info_type": "text"

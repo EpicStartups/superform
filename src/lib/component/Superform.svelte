@@ -26,6 +26,7 @@
 			{question}
 			{index}
 			totalQuestions={questions.questions.length}
+			icons={questions.questions.map((elem)=> elem.icon)}
 		/>
 	{/if}
 {/each}

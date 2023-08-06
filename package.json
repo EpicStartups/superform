@@ -28,6 +28,7 @@
 	"type": "module",
 	"svelte": "./swiper.esm.js",
 	"dependencies": {
+		"svelte-hero-icons": "^5.0.0",
 		"swiper": "^10.1.0"
 	}
 }

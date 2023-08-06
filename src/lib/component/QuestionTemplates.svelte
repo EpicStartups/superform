@@ -1,11 +1,17 @@
 <script lang="ts">
 	import GeneralBottomNav from './GeneralBottomNav.svelte';
 	import GeneralTopNav from './GeneralTopNav.svelte';
+	import Dropdown from './Input/Dropdown.svelte';
+	import Input from './Input/Input.svelte';
+	import { Icon, ChevronDown, Home, type IconSource } from 'svelte-hero-icons';
+	import SelectPill from './Input/SelectPill.svelte';
+	import SelectCard from './Input/SelectCard.svelte';
 
 	export let question: any;
 	export let index: number;
 	export let totalQuestions: number;
 	export let currentIndex: number;
+	export let icons: any[];
 
 	// Function to go to the next question
 	const nextQuestion = () => {
@@ -23,9 +29,7 @@
 	};
 
 	// Function to submit answers
-    const submitAnswers = () => {
-
-    }
+	const submitAnswers = () => {};
 </script>
 
 <GeneralTopNav class="">
@@ -52,10 +56,65 @@
 	class="w-[90%] min-h-screen mx-auto md:w-[100%] py-2 md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl"
 >
 	<!-- Question -->
-	<div class="overflow-y-auto font-[800] text-primary-500 px-4 py-8">
-		<h1 class="uppercase text-4xl">{question.title}</h1>
+	<div class="overflow-auto px-4 py-8 md:w-[60%] min-h-screen">
+		<h1 class="uppercase text-primary-500 font-[800] text-4xl md:text-5xl 2xl:text-6xl">
+			{question.name}
+		</h1>
 
-		<!-- Different types of questions   -->
+		<div class="mt-8 md:flex md:flex-col">
+			<!-- Different types of questions   -->
+			{#if question.question_type === 'text_input'}
+				<Input type="input" label={question.label} required={true} bind:value={question.value} />
+			{:else if question.question_type === 'dropdown'}
+				<Dropdown bind:showDropdown={question.showDropdown}>
+					<Input
+						slot="trigger"
+						label={question.label}
+						placeholder={'Select here'}
+						required={true}
+						readonly={true}
+						on:focus={() => (question.showDropdown = true)}
+						bind:value={question.value}
+						backIcon={ChevronDown}
+						class="cursor-pointer"
+					/>
+					<span slot="menu-items">
+						{#if question.question_selection.selection_value.length <= 0}
+							<p class="menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
+						{:else}
+							{#each question.question_selection.selection_value as selection}
+								<button
+									class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-50 items-center text-3xl text-primary-500 font-[700]"
+									role="menuitem"
+									tabindex="-1"
+									id="menu-item-0"
+									on:click={() => {
+										question.showDropdown = false;
+										question.value = selection;
+									}}
+								>
+									{selection}
+								</button>
+							{/each}
+						{/if}
+					</span>
+				</Dropdown>
+			{:else if question.question_type === 'select_pill'}
+				<SelectPill
+					selectionArr={question.question_selection}
+					required={true}
+					label={question.label}
+					bind:value={question.value}
+				/>
+			{:else if question.question_type === 'select_card'}
+				<SelectCard
+					selectionArr={question.question_selection}
+					required={true}
+					label={question.label}
+					bind:value={question.value}
+				/>
+			{/if}
+		</div>
 	</div>
 
 	<!-- Info cards  -->
@@ -82,8 +141,11 @@
 		class="text-sm 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
 	>
 		<!-- Left section  -->
-		<div class="flex gap-4">
-			<div>ICON</div>
+		<div class="flex gap-4 items-center">
+			{#each icons as icon, i}
+				<!-- <div>{icon}</div> -->
+				<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
+			{/each}
 			<div class="uppercase font-[700]">
 				{totalQuestions - currentIndex}
 				{totalQuestions - currentIndex > 1 ? 'questions' : 'question'} before your results!
