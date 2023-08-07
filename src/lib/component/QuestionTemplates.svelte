@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import GeneralBottomNav from './GeneralBottomNav.svelte';
 	import GeneralTopNav from './GeneralTopNav.svelte';
 	import Dropdown from './Input/Dropdown.svelte';
@@ -53,6 +54,7 @@
 </GeneralTopNav>
 
 <section
+	transition:fly={{ x: -1000, duration: 300 }}
 	class="w-[90%] min-h-screen mx-auto md:w-[100%] py-2 md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl"
 >
 	<!-- Question -->
