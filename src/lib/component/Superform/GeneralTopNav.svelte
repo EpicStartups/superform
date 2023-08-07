@@ -6,7 +6,7 @@
 	export { customClass1 as class };
 </script>
 
-<section class="{customClass1} sticky absolute top-0 left-0 bg-[#ffffff] z-[1000] w-full h-fit pt-4 pb-4 md:py-2">
+<section class="{customClass1} sticky absolute top-0 left-0 bg-[#ffffff] z-50 w-full h-fit pt-4 pb-4 md:py-2">
 	<!-- Mobile view  -->
 	<div class="md:hidden font-[700] text-base flex gap-4  w-[90%] mx-auto">
 		<div class="flex gap-12 items-center">

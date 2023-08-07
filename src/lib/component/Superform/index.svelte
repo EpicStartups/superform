@@ -1,6 +1,6 @@
 <script lang="ts">
 	import QuestionTemplates from './QuestionTemplates.svelte';
-	import questions from '../../stores/questions.json';
+	import questions from '../../../stores/questions.json';
 
 	// Get the list of questions
 	const questionList = questions.questions;

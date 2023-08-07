@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Superform from "$lib/component/Superform.svelte";
-
-
+	// import QuestionTemplatescopy from "../stores/QuestionTemplates copy.txt";
+	import Superform from '$lib/component/Superform/index.svelte';
 </script>
 
 <Superform />
+
+<!-- <QuestionTemplatescopy /> -->
