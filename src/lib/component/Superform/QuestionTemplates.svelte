@@ -8,6 +8,7 @@
 	import SelectPill from './Input/SelectPill.svelte';
 	import SelectCard from './Input/SelectCard.svelte';
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
+	import InfoCard from './InfoCard.svelte';
 
 	export let question: any;
 	export let index: number;
@@ -15,18 +16,11 @@
 	export let currentIndex: number;
 	export let icons: any[];
 
-	let showSidebar = false;
-
-	// Function to toggle sidebar at mobile view
-	const openSidebar = () => {
-		showSidebar = true;
-	};
-
 	// Function to change slider shape
 	const changeSliderShape = (e) => {
-		const slider = document.getElementsByClassName('slider')[0]
-		console.log(slider, e)
-	}
+		const slider = document.getElementsByClassName('slider')[0];
+		console.log(slider, e);
+	};
 
 	// Function to go to the next question
 	const nextQuestion = () => {
@@ -135,19 +129,7 @@
 	</div>
 
 	<!-- Info cards  -->
-	<div class="hidden md:block md:w-[40%] border py-12">
-		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id modi dolorum eaque veniam rerum,
-		nihil distinctio numquam, dolor cumque, natus labore assumenda tempore odio maxime atque
-		possimus neque quas esse qui ab. Iusto consectetur maxime quasi nostrum nemo laborum quia.
-		Corporis in quibusdam beatae dicta, sed ab est suscipit, nulla officiis et, esse dolorem
-		eligendi quo eveniet provident. Iure perferendis, quisquam tempore quo ea reprehenderit in
-		numquam repellendus minima veniam, totam error dolorem ipsam, repudiandae ipsum sed animi neque
-		illum reprehenderit. Molestias nulla ipsum totam quasi molestiae commodi nisi nam corrupti amet
-		itaque eum omnis cum assumenda eius harum sit, perspiciatis aliquid repellendus repudiandae
-		asperiores illo officia deserunt. Sapiente atque, iusto rem consequatur aliquam reprehenderit!
-		Aperiam laborum, explicabo, ipsum excepturi consequatur, maiores nesciunt illum incidunt magni
-		dolore cum modi maxime reiciendis itaque nisi mollitia. Ad excepturi ipsa porro sequi facilis.
-	</div>
+	<InfoCard {question} />
 </section>
 
 <GeneralBottomNav class="">
@@ -206,17 +188,3 @@
 		</div>
 	</section>
 </GeneralBottomNav>
-
-<!-- Mobile info sidebar toggle-->
-<button
-	on:mousedown={changeSliderShape}
-	on:mouseup={openSidebar}
-	class="slider fixed bg-[#77F8DF] h-fit w-fit border  flex justify-center items-center inset-y-[300px] right-0"
->
-	<div class="">
-		<p>{question.info[0].info_title}</p>
-	</div>
-</button>
-
-<!-- Mobile info sidebar -->
-<InfoSidebar bind:showSidebar />

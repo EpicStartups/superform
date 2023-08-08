@@ -12,11 +12,11 @@
         //     },
         //     "info": [
         //         {
-        //             "info_title": "World War II",
-        //             "info_description": "World War II involved many countries, including the USA, Germany, Japan, and Italy.",
-        //             "info_image_url": "",
-        //             "info_video_url": "",
-        //             "info_type": "text"
+        //             "title": "World War II",
+        //             "description": "World War II involved many countries, including the USA, Germany, Japan, and Italy.",
+        //             "image_url": "",
+        //             "video_url": "",
+        //             "type": "text"
         //         }
         //     ]
         // },

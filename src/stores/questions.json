@@ -5,13 +5,14 @@
             "name": "What is the capital of France?",
             "label": "The capital of France is",
             "icon": "Home",
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Paris",
-                    "info_description": "Paris is the capital and largest city of France.",
-                    "info_image_url": "https://example.com/paris.jpg",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Paris",
+                    "description": "Paris is the capital and largest city of France. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                    "image_url": "/info-icon.svg",
+                    "id": "htf6757",
+                    "video_url": "",
+                    "type": "text"
                 }
             ]
         },
@@ -28,20 +29,21 @@
                     "Earth"
                 ]
             },
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Jupiter",
-                    "info_description": "Jupiter is the largest planet in our solar system.",
-                    "info_image_url": "",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Jupiter",
+                    "description": "Jupiter is the largest planet in our solar system. Its immense size and swirling atmospheric patterns, including the iconic Great Red Spot, make it a subject of scientific fascination and space exploration.",
+                    "image_url": "",
+                    "id": "bgfh7r56",
+                    "video_url": "https://www.youtube.com/embed/PtkqwslbLY8",
+                    "type": "text"
                 }
             ]
         },
         {
             "question_type": "select_pill",
             "name": "Select your favorite cuisines.",
-            "label": "Unselecting any particular cuisine could potentially cause offense to people from the region where that cuisine originates.",
+            "label": "Unselecting any particular cuisine could potentially cause offense.",
             "icon": "Home",
             "question_selection": [
                 {
@@ -69,13 +71,14 @@
                     "frontIcon": "Home"
                 }
             ],
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Cuisines",
-                    "info_description": "There are various delicious cuisines around the world.",
-                    "info_image_url": "",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Cuisines",
+                    "description": "World cuisines offer a delightful array of flavors, from Italian pasta to spicy Mexican dishes, aromatic Chinese stir-fries, flavorful Indian curries, delicate Japanese sushi, and healthy Mediterranean options.",
+                    "image_url": "/info-icon.svg",
+                    "id": "awda453",
+                    "video_url": "",
+                    "type": "text"
                 }
             ]
         },
@@ -98,13 +101,14 @@
                     "topIcon": "Home"
                 }
             ],
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Continent",
-                    "info_description": "There are seven continents in the world: Asia, Africa, Europe, North America, South America, Australia, and Antarctica.",
-                    "info_image_url": "",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Continent",
+                    "description": "The Earth's continents each possess unique beauty and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
+                    "image_url": "/info-icon.svg",
+                    "id": "bdgsg546",
+                    "video_url": "",
+                    "type": "text"
                 }
             ]
         },
@@ -119,13 +123,14 @@
                     "max": 10
                 }
             },
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Range Slider",
-                    "info_description": "The range slider allows you to select a value within a specified range.",
-                    "info_image_url": "0 as trash and 10 as god.",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Range Slider",
+                    "description": "The range slider allows you to gauge and express your mathematical abilities on a scale from 0 to 10, reflecting your comfort and proficiency with numerical concepts and problem-solving.",
+                    "image_url": "/info-icon.svg",
+                    "id": "dsfse43653",
+                    "video_url": "",
+                    "type": "text"
                 }
             ]
         },
@@ -134,13 +139,14 @@
             "name": "What are your favorite hobbies or interests?",
             "label": "",
             "icon": "Home",
-            "info": [
+            "infos": [
                 {
-                    "info_title": "Tags",
-                    "info_description": "You can create your own tags for hobbies or interests.",
-                    "info_image_url": "",
-                    "info_video_url": "",
-                    "info_type": "text"
+                    "title": "Tags",
+                    "description": "Tags provide a way to showcase your diverse interests and activities. Whether it's art, sports, music, travel, or cooking, tags help define who you are and what you're passionate about.",
+                    "image_url": "/info-icon.svg",
+                    "id": "xegtr456",
+                    "video_url": "",
+                    "type": "text"
                 }
             ]
         }
