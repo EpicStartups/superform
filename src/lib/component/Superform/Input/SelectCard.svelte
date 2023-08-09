@@ -41,7 +41,7 @@
 
 <div class={customClass} bind:this={container}>
 	{#if label}
-		<label class="text-2xl font-[500] text-black" for={name}>
+		<label class="text-xl 2xl:text-2xl font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>
@@ -61,7 +61,7 @@
 								: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'
 					  ]
 					: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'}
-				class="flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-12 md:py-8 px-6 cursor-pointer text-lg text-black font-[400] py-2 w-full border border-1 {value
+				class="flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-4 md:py-6 px-6 md:px-4 cursor-pointer text-lg text-black font-[400] w-full border border-1 {value
 					? [
 							value.includes(elem.value)
 								? 'border-primary-500 border-2 bg-[#EDF5F2]'
@@ -74,13 +74,13 @@
 			>
 				{#if elem.topIcon}
 					<div class="">
-						<Icon src={Home} class="h-24 w-24 text-primary-500" />
+						<Icon src={Home} class="h-24 w-24 md:h-16 md:w-16 2xl:h-24 2xl:w-24 text-primary-500" />
 					</div>
 				{/if}
 				{elem.value}
 				{#if elem.bottomIcon}
 					<div class="">
-						<Icon src={elem.bottomIcon} class="h-24 w-24 text-primary-500" />
+						<Icon src={elem.bottomIcon} class="h-24 w-24 md:h-16 md:w-16 2xl:h-24 2xl:w-24 text-primary-500" />
 					</div>
 				{/if}
 			</div>

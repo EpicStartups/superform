@@ -58,7 +58,7 @@
 
 <div class={customClass} bind:this={container}>
 	{#if label}
-		<label class="text-2xl font-[500] text-black" for={name}>
+		<label class="text-xl 2xl:text-2xl font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>
@@ -75,7 +75,7 @@
 			{id}
 			{name}
 			placeholder={placeholder || 'Type your answer here'}
-			class="text-3xl text-primary-500 font-[700] py-2 focus:outline-none w-full {disabled
+			class="bg-primary-50 text-2xl 2xl:text-3xl text-primary-500 font-[700] py-2 focus:outline-none w-full {disabled
 				? disabledClass
 				: enabledClass}
 				{frontIcon ? 'pl-10' : null} {backIcon ? 'pr-10' : null}"

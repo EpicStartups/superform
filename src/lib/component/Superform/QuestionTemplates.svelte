@@ -68,11 +68,11 @@
 >
 	<!-- Question -->
 	<div class="overflow-auto px-4 py-8 md:w-[60%] min-h-screen">
-		<h1 class="uppercase text-primary-500 font-[800] text-4xl md:text-5xl 2xl:text-6xl">
+		<h1 class="uppercase text-primary-500 font-[800] text-3xl md:text-3xl 2xl:text-4xl">
 			{question.name}
 		</h1>
 
-		<div class="mt-8 md:flex md:flex-col">
+		<div class="mt-6 md:flex md:flex-col">
 			<!-- Different types of questions   -->
 			{#if question.question_type === 'text_input'}
 				<Input type="input" label={question.label} required={true} bind:value={question.value} />
@@ -95,7 +95,7 @@
 						{:else}
 							{#each question.question_selection.selection_value as selection}
 								<button
-									class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-50 items-center text-3xl text-primary-500 font-[700]"
+									class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
 									role="menuitem"
 									tabindex="-1"
 									id="menu-item-0"

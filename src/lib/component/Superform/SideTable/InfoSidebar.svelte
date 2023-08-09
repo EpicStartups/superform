@@ -1,15 +1,6 @@
 <script lang="ts">
 	import { afterUpdate, createEventDispatcher, onDestroy, onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import {
-		Icon,
-		XMark,
-		Trash,
-		Pencil,
-		ArrowsPointingOut,
-		ArrowRight,
-		ArrowRightCircle
-	} from 'svelte-hero-icons';
 	import { adjustTextareaHeight, checkTextareaHeight } from '$lib';
 
 	const dispatch = createEventDispatcher();
@@ -22,6 +13,7 @@
 
 	const toggleShowMore = (id) => {
 		showMore[id] = !showMore[id];
+		console.log(showMore ,'dsfsf')
 	};
 
 	afterUpdate(() => {
@@ -57,10 +49,10 @@
 </script>
 
 {#if showSidebar}
-	<section class="fixed z-[100] inset-0 bg-[#000000] bg-opacity-50 overscroll-contain">
+	<section class="h-screen fixed z-[100] inset-0 bg-[#000000] bg-opacity-50 overscroll-contain">
 		<div
 			bind:this={container}
-			class="rounded-lg drop-shadow-lg transition-all overscroll-contain fixed inset-y-0 right-0 overflow-y-auto bg-[#ffffff] scroller w-[90%]
+			class="h-screen rounded-lg drop-shadow-lg transition-all overscroll-contain fixed inset-y-0 right-0 overflow-y-auto bg-[#ffffff] scroller w-[90%]
 "
 			transition:fly={{ x: 600, y: 0 }}
 		>

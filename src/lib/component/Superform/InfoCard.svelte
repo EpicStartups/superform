@@ -4,27 +4,72 @@
 	export let question = {};
 
 	let showSidebar = false;
+	// let showMore: any = {};
 
 	// Function to toggle sidebar at mobile view
 	const openSidebar = () => {
 		showSidebar = true;
 	};
+
+	const toggleShowMore = (id: any) => {
+		// showMore[id] = !showMore[id];
+	};
 </script>
 
 <!-- Non mobile view info card  -->
-<div class="hidden md:block md:w-[40%] border py-12">
-	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id modi dolorum eaque veniam rerum,
-	nihil distinctio numquam, dolor cumque, natus labore assumenda tempore odio maxime atque possimus
-	neque quas esse qui ab. Iusto consectetur maxime quasi nostrum nemo laborum quia. Corporis in
-	quibusdam beatae dicta, sed ab est suscipit, nulla officiis et, esse dolorem eligendi quo eveniet
-	provident. Iure perferendis, quisquam tempore quo ea reprehenderit in numquam repellendus minima
-	veniam, totam error dolorem ipsam, repudiandae ipsum sed animi neque illum reprehenderit.
-	Molestias nulla ipsum totam quasi molestiae commodi nisi nam corrupti amet itaque eum omnis cum
-	assumenda eius harum sit, perspiciatis aliquid repellendus repudiandae asperiores illo officia
-	deserunt. Sapiente atque, iusto rem consequatur aliquam reprehenderit! Aperiam laborum, explicabo,
-	ipsum excepturi consequatur, maiores nesciunt illum incidunt magni dolore cum modi maxime
-	reiciendis itaque nisi mollitia. Ad excepturi ipsa porro sequi facilis.
-</div>
+{#each question.infos as info}
+	<div
+		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-8 p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] h-fit"
+	>
+		<div class=" flex flex-col overflow-x-hidden">
+			<!-- Bulb Icon  -->
+			<div class="absolute w-full flex justify-end top-[-38px]">
+				<img src="/bulb.svg" alt="bulb" />
+			</div>
+
+			<!-- Info card  -->
+			<div class=" w-full flex-col">
+				<!-- Icon and title -->
+				<div class="flex flex-col items-start justify-start gap-2 mb-2">
+					{#if info.image_url}
+						<img src={info.image_url} alt="" class="w-12 2xl:w-16 h-12 2xl:h-16" />
+					{/if}
+					<div class="text-[#434350] font-[800] text-2xl 2xl:text-3xl">{info.title}</div>
+				</div>
+
+				<!-- Description  -->
+				<textarea
+					disabled
+					class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
+					id="textarea-{info.id}"
+					value={info.description}
+				/>
+				<button
+					id="learnMoreButton-{info.id}"
+					on:click={() => toggleShowMore(info.id)}
+					class="self-end text-primary-500 font-[700] text:base 2xl:text-lg">Learn More</button
+				>
+
+				<!-- Video -->
+				{#if info.video_url}
+					<div
+						style="position:relative;padding-top:72%;"
+						class=" w-[115%] bg-[#000000] mt-4 ml-[-24px] mr-[-100px]"
+					>
+						<iframe
+							style="position:absolute;top:0;width:100%;height:100%;"
+							src={info.video_url}
+							title="video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+						/>
+					</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/each}
 
 <!-- Mobile info sidebar toggle-->
 <button

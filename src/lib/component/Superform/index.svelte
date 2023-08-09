@@ -19,14 +19,16 @@
 	};
 </script>
 
-{#each questions.questions as question, index (index)}
-	{#if currentIndex === index}
-		<QuestionTemplates
-			bind:currentIndex
-			{question}
-			{index}
-			totalQuestions={questions.questions.length}
-			icons={questions.questions.map((elem)=> elem.icon)}
-		/>
-	{/if}
-{/each}
+<section class="bg-primary-50">
+	{#each questions.questions as question, index (index)}
+		{#if currentIndex === index}
+			<QuestionTemplates
+				bind:currentIndex
+				{question}
+				{index}
+				totalQuestions={questions.questions.length}
+				icons={questions.questions.map((elem) => elem.icon)}
+			/>
+		{/if}
+	{/each}
+</section>
