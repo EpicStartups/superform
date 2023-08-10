@@ -62,8 +62,8 @@
 </GeneralTopNav>
 
 <!-- Questions and Info -->
+<!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	transition:fly={{ x: -1000, duration: 300 }}
 	class="relative w-[90%] min-h-screen mx-auto md:w-[100%] py-2 md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex"
 >
 	<!-- Question -->

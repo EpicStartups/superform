@@ -1,9 +1,8 @@
 <script lang="ts">
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
 
-	import { onDestroy, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import Swiper from 'swiper';
-	import { register } from 'swiper/element/bundle';
 	import { FreeMode } from 'swiper/modules';
 	// import Swiper and modules styles
 	import 'swiper/css';
@@ -11,14 +10,9 @@
 
 	export let question = {};
 
-	let swiper: Swiper | undefined;
-	let loading = true;
-
 	// init Swiper:
 	onMount(() => {
-		register();
-
-		swiper = new Swiper('.swiper', {
+		const swiper = new Swiper('.swiper', {
 			modules: [FreeMode],
 			freeMode: {
 				enabled: true,
@@ -28,13 +22,9 @@
 				momentumBounceRatio: 1,
 				minimumVelocity: 0.02,
 				momentumRatio: 1,
-				momentumVelocityRatio: 5
+				momentumVelocityRatio: 1
 			}
 		});
-	});
-
-	onDestroy(() => {
-		swiper = undefined;
 	});
 
 	let showSidebar = false;
@@ -61,17 +51,6 @@
 
 		console.log(swiper, 'swiper');
 	};
-
-	$: if (!swiper) {
-		console.log(swiper, 'no swiper');
-		loading = true;
-	} else {
-		setTimeout(() => {
-			loading = false;
-		}, 500);
-	}
-
-	$: console.log(swiper, 'ahs swiper');
 </script>
 
 <!-- Non mobile view info card  -->
@@ -130,24 +109,26 @@
 {/each}
 
 <!-- Slider main container -->
-<div class="swiper h-screen">
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div on:pointerdown={changeClass} class="swiper md:hidden bg-[#77F8DF]">
 	<!-- Additional required wrapper -->
 	<swiper class="swiper-wrapper">
 		<!-- Slides -->
-		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
-			<div class="absolute top-80 right-2 slider">Here</div>
+		<!-- Mobile info sidebar toggle-->
+		<!-- First Slide (Button) -->
+
+		<div class="swiper-slide border flex justify-center items-center">
+			<div class="">
+				<p>{question.infos[0].title}</p>
+			</div>
 		</div>
 
-		<div class="swiper-slide info-slide">
-			<!-- <div class="">Here</div> -->
-			<InfoSidebar infos={question.infos} />
-		</div>
+		<!-- Mobile info sidebar -->
+		<!-- First Slide (Button) -->
+
+		<InfoSidebar class={'swiper-slide info-slide'} infos={question.infos} bind:showSidebar />
 	</swiper>
 </div>
-
-{#if loading}
-	<div class="loader" />
-{/if}
 
 <style>
 	@media only screen and (min-width: 768px) {
@@ -160,38 +141,21 @@
 	.swiper {
 		position: fixed;
 		bottom: 0;
+		top: 40%;
+		left: 90%;
+		/* width: 100%; */
+		height: 100px;
+		z-index: 1000; /* Adjust as needed */
+	}
+
+	/* Make the InfoSidebar full-screen */
+	#info-slide {
+		/* position: fixed;
+		bottom: -300px;
 		top: 0;
-		left: 0%;
-		width: 100vw;
-		height: screen;
-		z-index: 100;
-		pointer-events: none; /* To prevent the div from capturing interactions */
-		overscroll-behavior: contain;
-		/* padding-bottom: 30px !important; */
-		/* overflow-y: visible !important; */
-	}
-
-	.swiper-wrapper {
-		overscroll-behavior: contain;
-	}
-
-	.slider-1 {
-		height: 0%;
-		z-index: -10;
-	}
-
-	.swiper-slide {
-		z-index: 200;
-		pointer-events: visible; /* To prevent the div from capturing interactions */
-	}
-
-	.info-slide {
-		/* border-radius: 10px; */
-		/* overscroll-behavior: contain; */
-		/* overflow-y: auto; */
-		/* background: #ffffff; */
-		/* width: 90%; */
-		height: 100vh;
-		overscroll-behavior: contain;
+		left: 0;
+		width: 100%;
+		height: screen; */
+		background-color: white;
 	}
 </style>
