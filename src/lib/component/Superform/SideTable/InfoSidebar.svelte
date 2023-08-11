@@ -42,18 +42,18 @@
 </script>
 
 <div
-	class=" rounded-lg drop-shadow-lg overscroll-contain w-full h-full flex justify-end"
+	class=" rounded-lg drop-shadow-lg  w-full h-full flex justify-end"
 >
 	<div class="w-[90%] bg-[#ffffff] ">
 		{#each infos as info}
-			<div class="relative flex flex-col px-6 overflow-x-hidden">
+			<div class="relative flex flex-col px-6 ">
 				<!-- Bulb Icon  -->
 				<div class="w-full flex justify-end">
 					<img src="/bulb.svg" alt="bulb" />
 				</div>
 
 				<!-- Info card  -->
-				<div class=" w-full flex-col">
+				<div class="w-full flex-col">
 					<!-- Icon and title -->
 					<div class="flex items-center gap-2 mb-2">
 						{#if info.image_url}

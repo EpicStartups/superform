@@ -25,11 +25,13 @@
 	// Function to go to the next question
 	const nextQuestion = () => {
 		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
+		window.scrollTo(0,0)
 	};
 
 	// Function to go to the previous question
 	const prevQuestion = () => {
 		currentIndex = Math.max(currentIndex - 1, 0);
+		window.scrollTo(0,0)
 	};
 
 	// Function to go to a specific question
