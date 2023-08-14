@@ -1,41 +1,9 @@
 <script lang="ts">
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
 
-	import { onDestroy, onMount } from 'svelte';
-	import Swiper from 'swiper';
-	import { register } from 'swiper/element/bundle';
-	import { FreeMode } from 'swiper/modules';
-	// import Swiper and modules styles
-	import 'swiper/css';
-	import 'swiper/css/free-mode';
-
 	export let question = {};
 
-	let swiper: Swiper | undefined;
-	let loading = true;
-
-	// init Swiper:
-	onMount(() => {
-		register();
-
-		swiper = new Swiper('.swiper', {
-			modules: [FreeMode],
-			freeMode: {
-				enabled: true,
-				sticky: true,
-				momentum: true,
-				momentumBounce: true,
-				momentumBounceRatio: 1,
-				minimumVelocity: 0.02,
-				momentumRatio: 1,
-				momentumVelocityRatio: 5
-			}
-		});
-	});
-
-	onDestroy(() => {
-		swiper = undefined;
-	});
+	let loading = false;
 
 	let showSidebar = false;
 	// let showMore: any = {};
@@ -48,36 +16,12 @@
 	const toggleShowMore = (id: any) => {
 		// showMore[id] = !showMore[id];
 	};
-
-	const changeClass = () => {
-		const swiper = document.querySelector('.swiper');
-
-		swiper.style.height = '100vh'; // Set height to 100vh for full screen height
-		swiper.style.width = '100vw'; // Set width to 100vw for full screen width
-		swiper.style.position = 'fixed'; // Fix the position to keep it in view
-		swiper.style.top = '0'; // Align it to the top of the screen
-		swiper.style.left = '0'; // Align it to the left of the screen
-		console.log(swiper, 'swiper');
-
-		console.log(swiper, 'swiper');
-	};
-
-	$: if (!swiper) {
-		console.log(swiper, 'no swiper');
-		loading = true;
-	} else {
-		setTimeout(() => {
-			loading = false;
-		}, 500);
-	}
-
-	$: console.log(swiper, 'ahs swiper');
 </script>
 
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-8 p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] h-fit"
+		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
 	>
 		<div class=" flex flex-col overflow-x-hidden">
 			<!-- Bulb Icon  -->
@@ -129,68 +73,97 @@
 	</div>
 {/each}
 
-<!-- Slider main container -->
-<div class="swiper h-screen">
-	<!-- Additional required wrapper -->
-	<swiper class="swiper-wrapper">
-		<!-- Slides -->
-		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
-			<div class="absolute top-80 right-2 slider">Here</div>
-		</div>
-
-		<div class="swiper-slide info-slide">
-			<!-- <div class="">Here</div> -->
-			<InfoSidebar infos={question.infos} />
-		</div>
-	</swiper>
-</div>
-
 {#if loading}
 	<div class="loader" />
 {/if}
 
+<!-- Slider main container -->
+<div class="scrollbar-hide container h-screen">
+	<!-- Additional required wrapper -->
+	<!-- <div class="wrapper"> -->
+
+	<!-- First Slides -->
+	<div class="box relative bg-primary-50 bg-primary-500 slider-1">
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div
+			on:mousedown={() => {
+				const container = document.querySelector('.container');
+				container.style.pointerEvents = 'auto';
+				console.log(container);
+			}}
+			on:mouseleave={() => {
+				const container = document.querySelector('.container');
+				container.style.pointerEvents = 'none';
+				console.log('npuse up')
+			}}
+			class="absolute top-80 right-2 slide-button bg-[#000000]"
+		>
+			Herehererer
+		</div>
+	</div>
+
+	<!-- Second Slides -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div
+		on:mousedown={() => {
+			const container = document.querySelector('.container');
+			container.style.pointerEvents = 'auto';
+			// console.log(container)
+		}}
+		
+		class="box w-screen info-slide"
+	>
+		<InfoSidebar infos={question.infos} />
+	</div>
+
+	<!-- </div> -->
+</div>
+
 <style>
 	@media only screen and (min-width: 768px) {
 		/* For mobile phones: */
-		.swiper {
+		.container,
+		.box {
 			display: none;
+			width: 0;
 		}
 	}
 
-	.swiper {
+	.container {
+		overflow: auto;
+		display: flex;
 		position: fixed;
-		bottom: 0;
-		top: 0;
-		left: 0%;
 		width: 100vw;
 		height: screen;
-		z-index: 100;
-		pointer-events: none; /* To prevent the div from capturing interactions */
+		z-index: 1000;
+		scroll-snap-type: x mandatory;
 		overscroll-behavior: contain;
-		/* padding-bottom: 30px !important; */
-		/* overflow-y: visible !important; */
+		pointer-events: none;
 	}
 
-	.swiper-wrapper {
-		overscroll-behavior: contain;
+	.box {
+		height: 100vh;
+		/* width: 100vw; */
+		background: red;
+		flex-shrink: 0;
+		scroll-snap-align: start;
+		pointer-events: auto; /* To prevent the div from capturing interactions */
+		z-index: 200;
 	}
 
 	.slider-1 {
 		height: 0%;
+		width: 100%;
 		z-index: -10;
+		pointer-events: none; /* To prevent the div from capturing interactions */
 	}
 
-	.swiper-slide {
-		z-index: 200;
-		pointer-events: visible; /* To prevent the div from capturing interactions */
+	.slide-button {
+		height: 0%;
+		pointer-events: auto; /* To prevent the div from capturing interactions */
 	}
 
 	.info-slide {
-		/* border-radius: 10px; */
-		/* overscroll-behavior: contain; */
-		/* overflow-y: auto; */
-		/* background: #ffffff; */
-		/* width: 90%; */
 		height: 100vh;
 		overscroll-behavior: contain;
 	}

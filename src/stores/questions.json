@@ -1,152 +1,293 @@
 {
-    "questions": [
+    "pages": [
         {
-            "question_type": "text_input",
-            "name": "What is the capital of France?",
-            "label": "The capital of France is",
-            "icon": "Home",
-            "infos": [
+            "page_title": "General Knowledge",
+            "questions": [
                 {
-                    "title": "Paris",
-                    "description": "Paris is the capital and largest city of France. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
-                    "image_url": "/info-icon.svg",
-                    "id": "htf6757",
-                    "video_url": "",
-                    "type": "text"
+                    "question_type": "text_input",
+                    "name": "What is the capital of France?",
+                    "label": "The capital of France is",
+                    "icon": "Home",
+                    "infos": [
+                        {
+                            "title": "Paris",
+                            "description": "Paris is the capital and largest city of France. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "image_url": "/info-icon.svg",
+                            "id": "htf6757",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "text_input",
+                    "name": "What is the capital of Germany?",
+                    "label": "The capital of Germany is",
+                    "icon": "Home",
+                    "infos": [
+                        {
+                            "title": "Berlin",
+                            "description": "Berlin is the capital and largest city of Germany. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "image_url": "/info-icon.svg",
+                            "id": "htf6757",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "text_input",
+                    "name": "What is the capital of Canada?",
+                    "label": "The capital of Canada is",
+                    "icon": "Home",
+                    "infos": [
+                        {
+                            "title": "Canada",
+                            "description": "Sd is the capital and largest city of Canada. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "image_url": "/info-icon.svg",
+                            "id": "htf6757",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "text_input",
+                    "name": "What is the capital of Sumeria?",
+                    "label": "The capital of Sumeria is",
+                    "icon": "Home",
+                    "infos": [
+                        {
+                            "title": "Sumeria",
+                            "description": "Sf is the capital and largest city of Sumeria. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "image_url": "/info-icon.svg",
+                            "id": "htf6757",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "dropdown",
+                    "name": "What is the largest planet in our solar system?",
+                    "label": "The largest planet in our solar system is",
+                    "icon": "Home",
+                    "question_selection": {
+                        "selection_value": [
+                            "Jupiter",
+                            "Saturn",
+                            "Neptune",
+                            "Earth"
+                        ]
+                    },
+                    "infos": [
+                        {
+                            "title": "Jupiter",
+                            "description": "Jupiter is the largest planet in our solar system. Its immense size and swirling atmospheric patterns, including the iconic Great Red Spot, make it a subject of scientific fascination and space exploration.",
+                            "image_url": "",
+                            "id": "bgfh7r56",
+                            "video_url": "https://www.youtube.com/embed/PtkqwslbLY8",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "tag",
+                    "name": "What are your favorite hobbies or interests?",
+                    "label": "",
+                    "icon": "Home",
+                    "infos": [
+                        {
+                            "title": "Tags",
+                            "description": "Tags provide a way to showcase your diverse interests and activities. Whether it's art, sports, music, travel, or cooking, tags help define who you are and what you're passionate about.",
+                            "image_url": "/info-icon.svg",
+                            "id": "xegtr456",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "question_type": "dropdown",
-            "name": "What is the largest planet in our solar system?",
-            "label": "The largest planet in our solar system is",
-            "icon": "Home",
-            "question_selection": {
-                "selection_value": [
-                    "Jupiter",
-                    "Saturn",
-                    "Neptune",
-                    "Earth"
-                ]
-            },
-            "infos": [
+            "page_title": "Culinary Delights",
+            "questions": [
                 {
-                    "title": "Jupiter",
-                    "description": "Jupiter is the largest planet in our solar system. Its immense size and swirling atmospheric patterns, including the iconic Great Red Spot, make it a subject of scientific fascination and space exploration.",
-                    "image_url": "",
-                    "id": "bgfh7r56",
-                    "video_url": "https://www.youtube.com/embed/PtkqwslbLY8",
-                    "type": "text"
+                    "question_type": "select_pill",
+                    "name": "Select your favorite cuisines.",
+                    "label": "Unselecting any particular cuisine could potentially cause offense.",
+                    "icon": "Home",
+                    "question_selection": [
+                        {
+                            "value": "Italian",
+                            "frontIcon": "Home"
+                        },
+                        {
+                            "value": "Mexican",
+                            "frontIcon": "Home"
+                        },
+                        {
+                            "value": "Chinese",
+                            "frontIcon": "Home"
+                        },
+                        {
+                            "value": "Indian",
+                            "frontIcon": "Home"
+                        },
+                        {
+                            "value": "Japanese",
+                            "frontIcon": "Home"
+                        },
+                        {
+                            "value": "Mediterranean",
+                            "frontIcon": "Home"
+                        }
+                    ],
+                    "infos": [
+                        {
+                            "title": "Cuisines",
+                            "description": "World cuisines offer a delightful array of flavors, from Italian pasta to spicy Mexican dishes, aromatic Chinese stir-fries, flavorful Indian curries, delicate Japanese sushi, and healthy Mediterranean options.",
+                            "image_url": "/info-icon.svg",
+                            "id": "awda453",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "select_card",
+                    "name": "Select the most beautiful continent of the world.",
+                    "label": "",
+                    "icon": "Home",
+                    "question_selection": [
+                        {
+                            "value": "Asia",
+                            "topIcon": "Home"
+                        },
+                        {
+                            "value": "Africa",
+                            "topIcon": "Home"
+                        },
+                        {
+                            "value": "Europe",
+                            "topIcon": "Home"
+                        }
+                    ],
+                    "infos": [
+                        {
+                            "title": "Continent",
+                            "description": "The Earth's continents each possess unique beauty and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
+                            "image_url": "/info-icon.svg",
+                            "id": "bdgsg546",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "dropdown",
+                    "name": "Which planet is known as the 'Red Planet'?",
+                    "label": "",
+                    "icon": "Home",
+                    "question_selection": {
+                        "selection_value": [
+                            "Mars",
+                            "Venus",
+                            "Mercury",
+                            "Uranus"
+                        ]
+                    },
+                    "infos": [
+                        {
+                            "title": "Mars",
+                            "description": "Mars, often referred to as the 'Red Planet' due to its reddish appearance, is the fourth planet from the Sun in our solar system. It has been a subject of interest for space exploration and the search for past or present life.",
+                            "image_url": "",
+                            "id": "dsf3247",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "select_card",
+                    "name": "Select the ugliest continent of the world.",
+                    "label": "",
+                    "icon": "Home",
+                    "question_selection": [
+                        {
+                            "value": "Asia",
+                            "topIcon": "Home"
+                        },
+                        {
+                            "value": "Africa",
+                            "topIcon": "Home"
+                        },
+                        {
+                            "value": "Europe",
+                            "topIcon": "Home"
+                        }
+                    ],
+                    "infos": [
+                        {
+                            "title": "Continent",
+                            "description": "The Earth's continents each possess unique ugliness and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
+                            "image_url": "/info-icon.svg",
+                            "id": "bdgsg546",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "question_type": "select_pill",
-            "name": "Select your favorite cuisines.",
-            "label": "Unselecting any particular cuisine could potentially cause offense.",
-            "icon": "Home",
-            "question_selection": [
+            "page_title": "Personal Traits",
+            "questions": [
                 {
-                    "value": "Italian",
-                    "frontIcon": "Home"
+                    "question_type": "range_slider",
+                    "name": "Rate your mathematical skills from 0 to 10.",
+                    "label": "",
+                    "icon": "Home",
+                    "question_selection": {
+                        "selection_value": {
+                            "min": 0,
+                            "max": 10
+                        }
+                    },
+                    "infos": [
+                        {
+                            "title": "Range Slider",
+                            "description": "The range slider allows you to gauge and express your mathematical abilities on a scale from 0 to 10, reflecting your comfort and proficiency with numerical concepts and problem-solving.",
+                            "image_url": "/info-icon.svg",
+                            "id": "dsfse43653",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
                 },
                 {
-                    "value": "Mexican",
-                    "frontIcon": "Home"
-                },
-                {
-                    "value": "Chinese",
-                    "frontIcon": "Home"
-                },
-                {
-                    "value": "Indian",
-                    "frontIcon": "Home"
-                },
-                {
-                    "value": "Japanese",
-                    "frontIcon": "Home"
-                },
-                {
-                    "value": "Mediterranean",
-                    "frontIcon": "Home"
-                }
-            ],
-            "infos": [
-                {
-                    "title": "Cuisines",
-                    "description": "World cuisines offer a delightful array of flavors, from Italian pasta to spicy Mexican dishes, aromatic Chinese stir-fries, flavorful Indian curries, delicate Japanese sushi, and healthy Mediterranean options.",
-                    "image_url": "/info-icon.svg",
-                    "id": "awda453",
-                    "video_url": "",
-                    "type": "text"
-                }
-            ]
-        },
-        {
-            "question_type": "select_card",
-            "name": "Select the ugliest continent of the world.",
-            "label": "",
-            "icon": "Home",
-            "question_selection": [
-                {
-                    "value": "Asia",
-                    "topIcon": "Home"
-                },
-                {
-                    "value": "Africa",
-                    "topIcon": "Home"
-                },
-                {
-                    "value": "Europe",
-                    "topIcon": "Home"
-                }
-            ],
-            "infos": [
-                {
-                    "title": "Continent",
-                    "description": "The Earth's continents each possess unique beauty and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
-                    "image_url": "/info-icon.svg",
-                    "id": "bdgsg546",
-                    "video_url": "",
-                    "type": "text"
-                }
-            ]
-        },
-        {
-            "question_type": "range_slider",
-            "name": "Rate your mathematical skills from 0 to 10.",
-            "label": "",
-            "icon": "Home",
-            "question_selection": {
-                "selection_value": {
-                    "min": 0,
-                    "max": 10
-                }
-            },
-            "infos": [
-                {
-                    "title": "Range Slider",
-                    "description": "The range slider allows you to gauge and express your mathematical abilities on a scale from 0 to 10, reflecting your comfort and proficiency with numerical concepts and problem-solving.",
-                    "image_url": "/info-icon.svg",
-                    "id": "dsfse43653",
-                    "video_url": "",
-                    "type": "text"
-                }
-            ]
-        },
-        {
-            "question_type": "tag",
-            "name": "What are your favorite hobbies or interests?",
-            "label": "",
-            "icon": "Home",
-            "infos": [
-                {
-                    "title": "Tags",
-                    "description": "Tags provide a way to showcase your diverse interests and activities. Whether it's art, sports, music, travel, or cooking, tags help define who you are and what you're passionate about.",
-                    "image_url": "/info-icon.svg",
-                    "id": "xegtr456",
-                    "video_url": "",
-                    "type": "text"
+                    "question_type": "dropdown",
+                    "name": "Select your favorite season.",
+                    "label": "My favorite season is",
+                    "icon": "Home",
+                    "question_selection": {
+                        "selection_value": [
+                            "Spring",
+                            "Summer",
+                            "Autumn",
+                            "Winter"
+                        ]
+                    },
+                    "infos": [
+                        {
+                            "title": "Seasons",
+                            "description": "Each season brings its own unique charm and characteristics. Spring is known for new growth, while summer offers warmth and outdoor activities. Autumn is famous for colorful foliage, and winter brings snow and cozy festivities.",
+                            "image_url": "/info-icon.svg",
+                            "id": "sdfg123",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
                 }
             ]
         }

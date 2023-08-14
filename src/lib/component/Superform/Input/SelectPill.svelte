@@ -74,6 +74,8 @@
 						<Icon src={Home} class="h-8 w-8" />
 					</div>
 				{/if}
+				<!-- <input value={elem.value} /> -->
+
 				{elem.value}
 				{#if elem.backIcon}
 					<div class="">

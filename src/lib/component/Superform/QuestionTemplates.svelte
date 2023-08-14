@@ -10,28 +10,31 @@
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
 	import InfoCard from './InfoCard.svelte';
 
-	export let question: any;
+	export let questions: any;
 	export let index: number;
 	export let totalQuestions: number;
 	export let currentIndex: number;
 	export let icons: any[];
+	export let pageTitle: any;
+
+	let selectedQuestion = 0;
 
 	// Function to change slider shape
-	const changeSliderShape = (e) => {
-		const slider = document.getElementsByClassName('slider')[0];
-		console.log(slider, e);
-	};
+	// const changeSliderShape = (e) => {
+	// 	const slider = document.getElementsByClassName('slider')[0];
+	// 	console.log(slider, e);
+	// };
 
 	// Function to go to the next question
 	const nextQuestion = () => {
 		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
-		window.scrollTo(0,0)
+		window.scrollTo(0, 0);
 	};
 
 	// Function to go to the previous question
 	const prevQuestion = () => {
 		currentIndex = Math.max(currentIndex - 1, 0);
-		window.scrollTo(0,0)
+		window.scrollTo(0, 0);
 	};
 
 	// Function to go to a specific question
@@ -41,6 +44,8 @@
 
 	// Function to submit answers
 	const submitAnswers = () => {};
+
+	$: console.log(currentIndex, index, totalQuestions, 'ttoL');
 </script>
 
 <GeneralTopNav class="">
@@ -66,127 +71,159 @@
 <!-- Questions and Info -->
 <!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	class="relative w-[90%] min-h-screen mx-auto md:w-[100%] py-2 md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex"
+	class="relative w-[90%] mx-auto md:w-[100%] md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex flex-col"
 >
-	<!-- Question -->
-	<div class="overflow-auto px-4 py-8 md:w-[60%] min-h-screen">
-		<h1 class="uppercase text-primary-500 font-[800] text-3xl md:text-3xl 2xl:text-4xl">
-			{question.name}
-		</h1>
-
-		<div class="mt-6 md:flex md:flex-col">
-			<!-- Different types of questions   -->
-			{#if question.question_type === 'text_input'}
-				<Input type="input" label={question.label} required={true} bind:value={question.value} />
-			{:else if question.question_type === 'dropdown'}
-				<Dropdown bind:showDropdown={question.showDropdown}>
-					<Input
-						slot="trigger"
-						label={question.label}
-						placeholder={'Select here'}
-						required={true}
-						readonly={true}
-						on:focus={() => (question.showDropdown = true)}
-						bind:value={question.value}
-						backIcon={ChevronDown}
-						class="cursor-pointer"
-					/>
-					<span slot="menu-items">
-						{#if question.question_selection.selection_value.length <= 0}
-							<p class="menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
-						{:else}
-							{#each question.question_selection.selection_value as selection}
-								<button
-									class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
-									role="menuitem"
-									tabindex="-1"
-									id="menu-item-0"
-									on:click={() => {
-										question.showDropdown = false;
-										question.value = selection;
-									}}
-								>
-									{selection}
-								</button>
-							{/each}
+	<div class="flex">
+		<div class=" md:h-screen md:overflow-auto px-4 py-8 md:w-[60%]">
+			<!-- Question -->
+			<form
+				class="mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
+				on:submit={() => {
+					currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
+				}}
+			>
+				<h1 class="uppercase text-primary-500 font-[800] text-3xl md:text-3xl 2xl:text-4xl">
+					{pageTitle}
+				</h1>
+				{#each questions as question, index}
+					<!-- svelte-ignore a11y-no-static-element-interactions -->
+					<div
+						on:focusin={() => {
+							selectedQuestion = index;
+						}}
+						on:mouseenter={() => {
+							selectedQuestion = index;
+						}}
+						class="mt-6 md:flex md:flex-col"
+					>
+						<!-- Different types of questions   -->
+						{#if question.question_type === 'text_input'}
+							<Input
+								type="input"
+								label={question.name}
+								required={true}
+								bind:value={question.value}
+							/>
+						{:else if question.question_type === 'dropdown'}
+							<Dropdown bind:showDropdown={question.showDropdown}>
+								<Input
+									slot="trigger"
+									label={question.name}
+									placeholder={'Select here'}
+									required={true}
+									readonly={true}
+									on:focus={() => (question.showDropdown = true)}
+									bind:value={question.value}
+									backIcon={ChevronDown}
+									class="cursor-pointer"
+								/>
+								<span slot="menu-items">
+									{#if question.question_selection.selection_value.length <= 0}
+										<p class="menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
+									{:else}
+										{#each question.question_selection.selection_value as selection}
+											<button
+												class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
+												role="menuitem"
+												tabindex="-1"
+												id="menu-item-0"
+												on:click={() => {
+													question.showDropdown = false;
+													question.value = selection;
+												}}
+											>
+												{selection}
+											</button>
+										{/each}
+									{/if}
+								</span>
+							</Dropdown>
+						{:else if question.question_type === 'select_pill'}
+							<SelectPill
+								selectionArr={question.question_selection}
+								required={true}
+								label={question.name}
+								bind:value={question.value}
+							/>
+						{:else if question.question_type === 'select_card'}
+							<SelectCard
+								selectionArr={question.question_selection}
+								required={true}
+								label={question.name}
+								bind:value={question.value}
+							/>
 						{/if}
-					</span>
-				</Dropdown>
-			{:else if question.question_type === 'select_pill'}
-				<SelectPill
-					selectionArr={question.question_selection}
-					required={true}
-					label={question.label}
-					bind:value={question.value}
-				/>
-			{:else if question.question_type === 'select_card'}
-				<SelectCard
-					selectionArr={question.question_selection}
-					required={true}
-					label={question.label}
-					bind:value={question.value}
-				/>
-			{/if}
+					</div>
+				{/each}
+
+				<GeneralBottomNav class="">
+					<!-- Mobile view  -->
+					<button
+						on:click={nextQuestion}
+						class="md:hidden bg-primary-500 w-[90%] mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex gap-4 justify-between"
+					>
+						{index + 1}/{totalQuestions} to your results
+						<svg
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M7.93955 2.45401C7.65834 2.7353 7.50037 3.11676 7.50037 3.51451C7.50037 3.91226 7.65834 4.29372 7.93955 4.57501L15.3645 12L7.93955 19.425C7.66631 19.7079 7.51512 20.0868 7.51853 20.4801C7.52195 20.8734 7.67971 21.2496 7.95782 21.5277C8.23593 21.8059 8.61215 21.9636 9.00544 21.967C9.39874 21.9704 9.77764 21.8192 10.0605 21.546L18.546 13.0605C18.8273 12.7792 18.9852 12.3978 18.9852 12C18.9852 11.6023 18.8273 11.2208 18.546 10.9395L10.0605 2.45401C9.77925 2.1728 9.39779 2.01483 9.00005 2.01483C8.6023 2.01483 8.22084 2.1728 7.93955 2.45401Z"
+								fill="white"
+							/>
+						</svg>
+					</button>
+
+					<!-- Not mobile view  -->
+					<section
+						class="text-sm 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
+					>
+						<!-- Left section  -->
+						<div class="flex gap-4 items-center">
+							{#each icons as icon, i}
+								<!-- <div>{icon}</div> -->
+								<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
+							{/each}
+							<div class="uppercase font-[700]">
+								{totalQuestions - currentIndex}
+								{totalQuestions - currentIndex > 1 ? 'questions' : 'question'} before your results!
+							</div>
+						</div>
+
+						<!-- Right section  -->
+						<div class="flex gap-2 items-center">
+							{#if currentIndex > 0}
+								<button
+									on:click={prevQuestion}
+									class="bg-[#ffffff] text-black font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									>Back</button
+								>
+							{/if}
+							{#if currentIndex + 1 === totalQuestions}
+								<button
+									type="submit"
+									on:click={submitAnswers}
+									class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									>Submit</button
+								>
+							{:else}
+								<button
+									type="submit"
+									on:click={nextQuestion}
+									class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									>Next</button
+								>
+							{/if}
+						</div>
+					</section>
+				</GeneralBottomNav>
+			</form>
 		</div>
+
+		<!-- Info cards  -->
+		<InfoCard question={questions[selectedQuestion]} />
 	</div>
-
-	<!-- Info cards  -->
-	<InfoCard {question} />
 </section>
-
-<GeneralBottomNav class="">
-	<!-- Mobile view  -->
-	<button
-		on:click={nextQuestion}
-		class="md:hidden bg-primary-500 w-[90%] mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex gap-4 justify-between"
-	>
-		{index + 1}/{totalQuestions} to your results
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="M7.93955 2.45401C7.65834 2.7353 7.50037 3.11676 7.50037 3.51451C7.50037 3.91226 7.65834 4.29372 7.93955 4.57501L15.3645 12L7.93955 19.425C7.66631 19.7079 7.51512 20.0868 7.51853 20.4801C7.52195 20.8734 7.67971 21.2496 7.95782 21.5277C8.23593 21.8059 8.61215 21.9636 9.00544 21.967C9.39874 21.9704 9.77764 21.8192 10.0605 21.546L18.546 13.0605C18.8273 12.7792 18.9852 12.3978 18.9852 12C18.9852 11.6023 18.8273 11.2208 18.546 10.9395L10.0605 2.45401C9.77925 2.1728 9.39779 2.01483 9.00005 2.01483C8.6023 2.01483 8.22084 2.1728 7.93955 2.45401Z"
-				fill="white"
-			/>
-		</svg>
-	</button>
-
-	<!-- Not mobile view  -->
-	<section
-		class="text-sm 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
-	>
-		<!-- Left section  -->
-		<div class="flex gap-4 items-center">
-			{#each icons as icon, i}
-				<!-- <div>{icon}</div> -->
-				<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
-			{/each}
-			<div class="uppercase font-[700]">
-				{totalQuestions - currentIndex}
-				{totalQuestions - currentIndex > 1 ? 'questions' : 'question'} before your results!
-			</div>
-		</div>
-
-		<!-- Right section  -->
-		<div class="flex gap-2 items-center">
-			{#if currentIndex > 0}
-				<button
-					on:click={prevQuestion}
-					class="bg-[#ffffff] text-black font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
-					>Back</button
-				>
-			{/if}
-			{#if currentIndex + 1 === totalQuestions}
-				<button
-					on:click={submitAnswers}
-					class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
-					>Submit</button
-				>
-			{:else}
-				<button
-					on:click={nextQuestion}
-					class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
-					>Next</button
-				>
-			{/if}
-		</div>
-	</section>
-</GeneralBottomNav>

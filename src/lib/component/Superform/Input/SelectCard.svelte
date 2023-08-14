@@ -77,6 +77,7 @@
 						<Icon src={Home} class="h-24 w-24 md:h-16 md:w-16 2xl:h-24 2xl:w-24 text-primary-500" />
 					</div>
 				{/if}
+				<!-- <input type="text" value={elem.value} class="focus:outline-none focus:border-none bg-transparent w-fit" /> -->
 				{elem.value}
 				{#if elem.bottomIcon}
 					<div class="">

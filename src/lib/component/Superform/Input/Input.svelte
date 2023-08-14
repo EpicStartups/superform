@@ -56,9 +56,9 @@
 	});
 </script>
 
-<div class={customClass} bind:this={container}>
+<div class={`${customClass}' focus:text-black  text-[#191C1B]`} bind:this={container}>
 	{#if label}
-		<label class="text-xl 2xl:text-2xl font-[500] text-black" for={name}>
+		<label class="text-xl 2xl:text-2xl font-[500] text-[#191C1B]" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>

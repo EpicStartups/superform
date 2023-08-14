@@ -3,7 +3,7 @@
 	import questions from '../../../stores/questions.json';
 
 	// Get the list of questions
-	const questionList = questions.questions;
+	const questionList = questions.pages;
 
 	// State variable to track the current question index
 	let currentIndex = 0;
@@ -20,14 +20,15 @@
 </script>
 
 <section class="bg-primary-50">
-	{#each questions.questions as question, index (index)}
+	{#each questions.pages as page, index (index)}
 		{#if currentIndex === index}
 			<QuestionTemplates
 				bind:currentIndex
-				{question}
+				questions={page.questions}
+				pageTitle={page.page_title}
 				{index}
-				totalQuestions={questions.questions.length}
-				icons={questions.questions.map((elem) => elem.icon)}
+				totalQuestions={Object.entries(page).length+1}
+				icons={page.questions.map((elem) => elem.icon)}
 			/>
 		{/if}
 	{/each}
