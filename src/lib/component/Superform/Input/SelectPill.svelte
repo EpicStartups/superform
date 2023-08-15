@@ -41,7 +41,7 @@
 
 <div class={customClass} bind:this={container}>
 	{#if label}
-		<label class="text-xl 2xl:text-2xl font-[500] text-black" for={name}>
+		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>
@@ -54,15 +54,9 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
 				id={elem.value}
-				style={value
-					? [
-							value.includes(elem.value)
-								? 'border-width: 3px; box-shadow: 0px 0px 5px 0px rgba(28, 136, 121, 1);'
-								: ''
-					  ]
-					: ''}
-				class="flex bg-[#ffffff] items-center gap-4 px-6 cursor-pointer text-base 2xl:text-lg text-[#475467] font-[600] py-2 w-full border border-1 {value
-					? [value.includes(elem.value) ? 'border-primary-500 border-2' : ' border-[#D0D5DD]']
+				
+				class="flex bg-[#ffffff] items-center gap-4 px-6 cursor-pointer text-base 2xl:text-lg text-[#475467] font-[600] py-2 w-full border border-2 shadow-md {value
+					? [value.includes(elem.value) ? 'border-[#FDA31C] border-4' : ' border-[#D0D5DD]']
 					: 'border-[#D0D5DD]'} rounded-full
 					{elem.frontIcon ? 'pl-10' : null} {elem.backIcon ? 'pr-10' : null}"
 				on:click={() => {

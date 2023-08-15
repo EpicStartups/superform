@@ -11,12 +11,12 @@
 	<div class="md:hidden font-[700] text-base flex gap-4  w-[90%] mx-auto">
 		<div class="flex gap-12 items-center">
 			<slot name="back-button" />
-            <img class="h-12 w-12 " src="/project-logo.svg" alt="project-name" />
+            <img class="w-36 " src="/project-logo.svg" alt="project-name" />
 		</div>
 	</div>
 
 	<!-- Non mobile view  -->
 	<div class="text-sm 2xl:text-base hidden md:flex px-28 2xl:px-32 justify-between items-center">
-		<img class="h-8 w-8 md:h-12 md:w-12 2xl:h-16 2xl:w-16" src="/project-logo.svg" alt="project-name" />
+		<img class="w-12 md:w-36 2xl:w-40" src="/project-logo.svg" alt="project-name" />
 	</div>
 </section>

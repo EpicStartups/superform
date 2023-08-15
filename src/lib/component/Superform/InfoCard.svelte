@@ -1,31 +1,63 @@
 <script lang="ts">
+	import InfoModal from './Modal/InfoModal.svelte';
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
+
+	import { onDestroy, onMount } from 'svelte';
+	import Swiper from 'swiper';
+	import { register } from 'swiper/element/bundle';
+	import { FreeMode } from 'swiper/modules';
+	// import Swiper and modules styles
+	import 'swiper/css';
+	import 'swiper/css/free-mode';
 
 	export let question = {};
 
-	let loading = false;
+	let swiper: Swiper | undefined;
+	let loading = true;
+	let isShowUserCard = false;
+	let selectedInfo = '';
 
-	let showSidebar = false;
-	// let showMore: any = {};
+	// init Swiper:
+	onMount(() => {
+		register();
 
-	// Function to toggle sidebar at mobile view
-	const openSidebar = () => {
-		// showSidebar = true;
-	};
+		swiper = new Swiper('.swiper', {
+			modules: [FreeMode],
+			freeMode: {
+				enabled: true,
+				sticky: true,
+				momentum: true,
+				momentumBounce: true,
+				momentumBounceRatio: 1,
+				minimumVelocity: 0.02,
+				momentumRatio: 1,
+				momentumVelocityRatio: 5
+			}
+		});
+	});
 
-	const toggleShowMore = (id: any) => {
-		// showMore[id] = !showMore[id];
-	};
+	onDestroy(() => {
+		swiper = undefined;
+	});
+
+	$: if (!swiper) {
+		loading = true;
+	} else {
+		setTimeout(() => {
+			loading = false;
+		}, 500);
+	}
+
 </script>
 
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
+		class="relative hidden md:block md:w-[40%] shadow-md shadow-primary-500 rounded-md mt-28 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
 	>
 		<div class=" flex flex-col overflow-x-hidden">
 			<!-- Bulb Icon  -->
-			<div class="absolute w-full flex justify-end top-[-38px]">
+			<div class="absolute w-full flex justify-end top-[-20px]">
 				<img src="/bulb.svg" alt="bulb" />
 			</div>
 
@@ -48,7 +80,10 @@
 				/>
 				<button
 					id="learnMoreButton-{info.id}"
-					on:click={() => toggleShowMore(info.id)}
+					on:click={() => {
+						selectedInfo = info.id;
+						isShowUserCard = true;
+					}}
 					class="self-end text-primary-500 font-[700] text:base 2xl:text-lg">Learn More</button
 				>
 
@@ -73,97 +108,81 @@
 	</div>
 {/each}
 
+<!-- Modal for info at non mobile view -->
+{#if isShowUserCard}
+	{#await question.infos.filter((info) => info.id === selectedInfo) then information}
+		<InfoModal bind:isShowUserCard information={information[0]} />
+	{/await}
+{/if}
+
+<!-- Slider main container for mobile -->
+<div class="swiper h-screen">
+	<!-- Additional required wrapper -->
+	<swiper class="swiper-wrapper">
+		<!-- Slides -->
+		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
+			<div class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-4 rounded-l-full">Info</div>
+		</div>
+
+		<div class="swiper-slide info-slide">
+			<!-- <div class="">Here</div> -->
+			<InfoSidebar infos={question.infos} />
+		</div>
+	</swiper>
+</div>
+
 {#if loading}
 	<div class="loader" />
 {/if}
 
-<!-- Slider main container -->
-<div class="scrollbar-hide container h-screen">
-	<!-- Additional required wrapper -->
-	<!-- <div class="wrapper"> -->
-
-	<!-- First Slides -->
-	<div class="box relative bg-primary-50 bg-primary-500 slider-1">
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<div
-			on:mousedown={() => {
-				const container = document.querySelector('.container');
-				container.style.pointerEvents = 'auto';
-				console.log(container);
-			}}
-			on:mouseleave={() => {
-				const container = document.querySelector('.container');
-				container.style.pointerEvents = 'none';
-				console.log('npuse up')
-			}}
-			class="absolute top-80 right-2 slide-button bg-[#000000]"
-		>
-			Herehererer
-		</div>
-	</div>
-
-	<!-- Second Slides -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div
-		on:mousedown={() => {
-			const container = document.querySelector('.container');
-			container.style.pointerEvents = 'auto';
-			// console.log(container)
-		}}
-		
-		class="box w-screen info-slide"
-	>
-		<InfoSidebar infos={question.infos} />
-	</div>
-
-	<!-- </div> -->
-</div>
-
 <style>
 	@media only screen and (min-width: 768px) {
 		/* For mobile phones: */
-		.container,
-		.box {
+		.swiper {
 			display: none;
-			width: 0;
 		}
 	}
 
-	.container {
-		overflow: auto;
-		display: flex;
+	.swiper {
 		position: fixed;
+		bottom: 0;
+		top: 0;
+		left: 0%;
 		width: 100vw;
 		height: screen;
-		z-index: 1000;
+		z-index: 100;
 		scroll-snap-type: x mandatory;
+		pointer-events: none; /* To prevent the div from capturing interactions */
 		overscroll-behavior: contain;
-		pointer-events: none;
+		overflow: auto;
+
+		/* padding-bottom: 30px !important; */
+		/* overflow-y: visible !important; */
 	}
 
-	.box {
-		height: 100vh;
-		/* width: 100vw; */
-		background: red;
-		flex-shrink: 0;
-		scroll-snap-align: start;
-		pointer-events: auto; /* To prevent the div from capturing interactions */
-		z-index: 200;
-	}
+	/* .swiper-wrapper {
+		overscroll-behavior: contain;
+	} */
 
 	.slider-1 {
 		height: 0%;
-		width: 100%;
 		z-index: -10;
-		pointer-events: none; /* To prevent the div from capturing interactions */
 	}
 
-	.slide-button {
-		height: 0%;
-		pointer-events: auto; /* To prevent the div from capturing interactions */
+	.swiper-slide {
+		z-index: 200;
+		pointer-events: visible; /* To prevent the div from capturing interactions */
+		flex-shrink: 0;
+		scroll-snap-align: start;
+		pointer-events: auto;
 	}
 
 	.info-slide {
+		/* border-radius: 10px; */
+		/* overscroll-behavior: contain; */
+		/* overflow-y: auto; */
+		/* background: #ffffff; */
+		/* width: 90%; */
 		height: 100vh;
 		overscroll-behavior: contain;
 	}

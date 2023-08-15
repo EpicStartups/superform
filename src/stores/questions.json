@@ -2,16 +2,16 @@
     "pages": [
         {
             "page_title": "General Knowledge",
+            "icon": "Home",
             "questions": [
                 {
                     "question_type": "text_input",
                     "name": "What is the capital of France?",
                     "label": "The capital of France is",
-                    "icon": "Home",
                     "infos": [
                         {
                             "title": "Paris",
-                            "description": "Paris is the capital and largest city of France. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "description": "Paris, the capital and largest city of France, is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub that captivates visitors with its enchanting atmosphere. With its romantic allure and diverse culinary scene, Paris remains an eternal inspiration for artists, writers, and dreamers worldwide. \n\nBaris, the capital and largest city of France, is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub that captivates visitors with its enchanting atmosphere. With its romantic allure and diverse culinary scene, Paris remains an eternal inspiration for artists, writers, and dreamers worldwide. Paris, the capital and largest city of France, is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub that captivates visitors with its enchanting atmosphere. With its romantic allure and diverse culinary scene, Paris remains an eternal inspiration for artists, writers, and dreamers worldwide.\n\nLimParis, the capital and largest city of France, is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub that captivates visitors with its enchanting atmosphere. With its romantic allure and diverse culinary scene, Paris remains an eternal inspiration for artists, writers, and dreamers worldwide. Paris, the capital and largest city of France, is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub that captivates visitors with its enchanting atmosphere. With its romantic allure and diverse culinary scene, Paris remains an eternal inspiration for artists, writers, and dreamers worldwide.",
                             "image_url": "/info-icon.svg",
                             "id": "htf6757",
                             "video_url": "",
@@ -23,11 +23,10 @@
                     "question_type": "text_input",
                     "name": "What is the capital of Germany?",
                     "label": "The capital of Germany is",
-                    "icon": "Home",
                     "infos": [
                         {
                             "title": "Berlin",
-                            "description": "Berlin is the capital and largest city of Germany. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "description": "Berlin, the capital and largest city of Germany, is renowned for its historic significance, vibrant culture, and dynamic atmosphere. From the Berlin Wall to modern art galleries, Berlin captivates with its blend of old and new. As a hub for creativity and innovation, the city resonates with a palpable energy that draws in people from all corners of the globe. Its multicultural essence, coupled with its intriguing history, makes Berlin a captivating destination that continuously reinvents itself while embracing its roots.",
                             "image_url": "/info-icon.svg",
                             "id": "htf6757",
                             "video_url": "",
@@ -39,11 +38,10 @@
                     "question_type": "text_input",
                     "name": "What is the capital of Canada?",
                     "label": "The capital of Canada is",
-                    "icon": "Home",
                     "infos": [
                         {
-                            "title": "Canada",
-                            "description": "Sd is the capital and largest city of Canada. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "title": "Ottawa",
+                            "description": "Ottawa, the capital and fourth-largest city of Canada, is known for its historic landmarks, government institutions, and cultural events. Situated along the Ottawa River, the city's blend of history and modernity offers a captivating experience. With its picturesque waterways and architecture, Ottawa serves as a living tapestry of Canadian heritage. From Parliament Hill to the Rideau Canal, Ottawa's charm lies in its ability to balance tradition with a modern and diverse outlook. This makes it a city where history meets innovation, creating a vibrant and welcoming atmosphere for both residents and visitors.",
                             "image_url": "/info-icon.svg",
                             "id": "htf6757",
                             "video_url": "",
@@ -55,11 +53,10 @@
                     "question_type": "text_input",
                     "name": "What is the capital of Sumeria?",
                     "label": "The capital of Sumeria is",
-                    "icon": "Home",
                     "infos": [
                         {
-                            "title": "Sumeria",
-                            "description": "Sf is the capital and largest city of Sumeria. It is renowned for its iconic landmarks, rich history, and cultural significance. The Eiffel Tower, Louvre Museum, and charming streets make Paris a global tourist hub.",
+                            "title": "Ur",
+                            "description": "Ur, the capital and ancient city of Sumeria, held cultural and historical significance in Mesopotamia. Renowned for its ziggurat and contributions to early civilization, Ur's archaeological remains provide insight into early urban life. As a cradle of human advancement, Ur's legacy endures through its artifacts and architectural marvels. The city's ancient glory reveals insights into the birth of complex societies and the origins of various human achievements. Unearthing the mysteries of Ur allows us to glimpse the roots of human ingenuity and explore the foundations upon which modern civilization stands.",
                             "image_url": "/info-icon.svg",
                             "id": "htf6757",
                             "video_url": "",
@@ -71,7 +68,6 @@
                     "question_type": "dropdown",
                     "name": "What is the largest planet in our solar system?",
                     "label": "The largest planet in our solar system is",
-                    "icon": "Home",
                     "question_selection": {
                         "selection_value": [
                             "Jupiter",
@@ -83,7 +79,7 @@
                     "infos": [
                         {
                             "title": "Jupiter",
-                            "description": "Jupiter is the largest planet in our solar system. Its immense size and swirling atmospheric patterns, including the iconic Great Red Spot, make it a subject of scientific fascination and space exploration.",
+                            "description": "Jupiter, the largest planet in our solar system, stands out with its immense size and captivating atmospheric patterns, including the iconic Great Red Spot. Its role in planetary exploration and scientific research makes it a subject of ongoing fascination. The planet's colossal magnetic field and diverse moons offer endless opportunities for scientific discovery. As humanity looks to the stars, Jupiter serves as a beacon of curiosity and exploration, inviting us to unlock the mysteries of our cosmic neighborhood and expand our understanding of the universe.",
                             "image_url": "",
                             "id": "bgfh7r56",
                             "video_url": "https://www.youtube.com/embed/PtkqwslbLY8",
@@ -95,11 +91,10 @@
                     "question_type": "tag",
                     "name": "What are your favorite hobbies or interests?",
                     "label": "",
-                    "icon": "Home",
                     "infos": [
                         {
                             "title": "Tags",
-                            "description": "Tags provide a way to showcase your diverse interests and activities. Whether it's art, sports, music, travel, or cooking, tags help define who you are and what you're passionate about.",
+                            "description": "Tags provide an avenue to express diverse interests and activities, defining individuals through their passions. Whether it's art, sports, music, travel, or cooking, tags create a multifaceted profile that reflects the uniqueness of each person. Embracing various interests enriches life's tapestry, allowing individuals to connect, learn, and grow while celebrating the kaleidoscope of human experiences.",
                             "image_url": "/info-icon.svg",
                             "id": "xegtr456",
                             "video_url": "",
@@ -111,12 +106,12 @@
         },
         {
             "page_title": "Culinary Delights",
+            "icon": "Home",
             "questions": [
                 {
                     "question_type": "select_pill",
                     "name": "Select your favorite cuisines.",
                     "label": "Unselecting any particular cuisine could potentially cause offense.",
-                    "icon": "Home",
                     "question_selection": [
                         {
                             "value": "Italian",
@@ -146,7 +141,7 @@
                     "infos": [
                         {
                             "title": "Cuisines",
-                            "description": "World cuisines offer a delightful array of flavors, from Italian pasta to spicy Mexican dishes, aromatic Chinese stir-fries, flavorful Indian curries, delicate Japanese sushi, and healthy Mediterranean options.",
+                            "description": "World cuisines offer a delightful array of flavors, from Italian pasta to spicy Mexican dishes, aromatic Chinese stir-fries, flavorful Indian curries, delicate Japanese sushi, and healthy Mediterranean options. Exploring diverse cuisines brings a tapestry of tastes to life, enriching our palates and broadening our cultural horizons. Each dish tells a story of history, tradition, and innovation, uniting people across continents through the universal language of food.",
                             "image_url": "/info-icon.svg",
                             "id": "awda453",
                             "video_url": "",
@@ -158,7 +153,6 @@
                     "question_type": "select_card",
                     "name": "Select the most beautiful continent of the world.",
                     "label": "",
-                    "icon": "Home",
                     "question_selection": [
                         {
                             "value": "Asia",
@@ -176,7 +170,7 @@
                     "infos": [
                         {
                             "title": "Continent",
-                            "description": "The Earth's continents each possess unique beauty and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
+                            "description": "Earth's continents each boast unique beauty and diversity. Asia captivates with its vast landscapes, Africa enchants with its rich wildlife and cultures, and Europe dazzles with its historical richness, all contributing to the intricate tapestry of global wonders. Exploring these continents unveils a kaleidoscope of landscapes, traditions, and people, highlighting the awe-inspiring beauty of our planet's diverse regions.",
                             "image_url": "/info-icon.svg",
                             "id": "bdgsg546",
                             "video_url": "",
@@ -188,7 +182,6 @@
                     "question_type": "dropdown",
                     "name": "Which planet is known as the 'Red Planet'?",
                     "label": "",
-                    "icon": "Home",
                     "question_selection": {
                         "selection_value": [
                             "Mars",
@@ -200,7 +193,7 @@
                     "infos": [
                         {
                             "title": "Mars",
-                            "description": "Mars, often referred to as the 'Red Planet' due to its reddish appearance, is the fourth planet from the Sun in our solar system. It has been a subject of interest for space exploration and the search for past or present life.",
+                            "description": "Mars, often dubbed the 'Red Planet' due to its distinct reddish appearance, stands as the fourth planet from the Sun in our solar system. The subject of exploration and intrigue, Mars remains a focal point for scientific study and potential extraterrestrial life. Scientists and space enthusiasts alike are drawn to Mars' mysteries, seeking answers about its history, geology, and potential habitability. As we send rovers and probes to its surface, Mars symbolizes humanity's relentless quest to uncover the secrets of our celestial neighbors and unlock the story of our solar system's evolution.",
                             "image_url": "",
                             "id": "dsf3247",
                             "video_url": "",
@@ -210,9 +203,8 @@
                 },
                 {
                     "question_type": "select_card",
-                    "name": "Select the ugliest continent of the world.",
+                    "name": "Select the least attractive continent of the world.",
                     "label": "",
-                    "icon": "Home",
                     "question_selection": [
                         {
                             "value": "Asia",
@@ -230,7 +222,7 @@
                     "infos": [
                         {
                             "title": "Continent",
-                            "description": "The Earth's continents each possess unique ugliness and diversity. Asia's vast landscapes, Africa's wildlife and cultures, and Europe's historical richness all contribute to the world's fascinating tapestry of human and natural wonders.",
+                            "description": "Earth's continents each embody distinct characteristics and appeal. While Asia showcases vast landscapes, Africa captivates with its wildlife and cultures, and Europe offers historical richness, all together creating a captivating tapestry of global diversity. Recognizing the beauty and significance of each continent fosters a deeper understanding of our interconnected world and encourages us to celebrate the differences that shape our shared human experience.",
                             "image_url": "/info-icon.svg",
                             "id": "bdgsg546",
                             "video_url": "",
@@ -242,12 +234,12 @@
         },
         {
             "page_title": "Personal Traits",
+            "icon": "Home",
             "questions": [
                 {
                     "question_type": "range_slider",
                     "name": "Rate your mathematical skills from 0 to 10.",
                     "label": "",
-                    "icon": "Home",
                     "question_selection": {
                         "selection_value": {
                             "min": 0,
@@ -257,7 +249,7 @@
                     "infos": [
                         {
                             "title": "Range Slider",
-                            "description": "The range slider allows you to gauge and express your mathematical abilities on a scale from 0 to 10, reflecting your comfort and proficiency with numerical concepts and problem-solving.",
+                            "description": "The range slider empowers you to assess and communicate your proficiency in mathematics on a scale of 0 to 10. By indicating your comfort with numerical concepts and problem-solving, you provide valuable insight into your mathematical capabilities. Whether you're a casual math enthusiast or a seasoned mathematician, the slider captures your unique relationship with numbers and your ability to navigate the world of quantitative reasoning.",
                             "image_url": "/info-icon.svg",
                             "id": "dsfse43653",
                             "video_url": "",
@@ -269,7 +261,6 @@
                     "question_type": "dropdown",
                     "name": "Select your favorite season.",
                     "label": "My favorite season is",
-                    "icon": "Home",
                     "question_selection": {
                         "selection_value": [
                             "Spring",
@@ -281,7 +272,7 @@
                     "infos": [
                         {
                             "title": "Seasons",
-                            "description": "Each season brings its own unique charm and characteristics. Spring is known for new growth, while summer offers warmth and outdoor activities. Autumn is famous for colorful foliage, and winter brings snow and cozy festivities.",
+                            "description": "Each season brings its unique allure and attributes. Spring symbolizes renewal, summer radiates warmth and outdoor delights, autumn showcases vibrant foliage, and winter envelops us in snow and cozy celebrations. Your favorite season reflects your personal preferences and the emotional connections you have with the changing rhythms of nature. Whether you're drawn to the blossoming of life or the serenity of a snowy landscape, your chosen season speaks volumes about your inner world and the experiences that resonate with your soul.",
                             "image_url": "/info-icon.svg",
                             "id": "sdfg123",
                             "video_url": "",

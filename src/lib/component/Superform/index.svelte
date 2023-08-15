@@ -19,7 +19,7 @@
 	};
 </script>
 
-<section class="bg-primary-50">
+<section class="bg-primary-25 min-h-screen">
 	{#each questions.pages as page, index (index)}
 		{#if currentIndex === index}
 			<QuestionTemplates
@@ -27,8 +27,8 @@
 				questions={page.questions}
 				pageTitle={page.page_title}
 				{index}
-				totalQuestions={Object.entries(page).length+1}
-				icons={page.questions.map((elem) => elem.icon)}
+				totalQuestions={Object.entries(page).length}
+				icons={questions.pages.map((elem) => elem.icon)}
 			/>
 		{/if}
 	{/each}

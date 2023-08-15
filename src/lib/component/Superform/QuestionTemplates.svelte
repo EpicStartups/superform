@@ -27,6 +27,7 @@
 
 	// Function to go to the next question
 	const nextQuestion = () => {
+		console.log(currentIndex, totalQuestions, 'freg')
 		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
 		window.scrollTo(0, 0);
 	};
@@ -49,7 +50,7 @@
 </script>
 
 <GeneralTopNav class="">
-	<span class="{currentIndex > 0 ? 'block' : 'hidden'} " slot="back-button">
+	<span class="{currentIndex > 0 ? 'block' : 'hidden'} flex items-center" slot="back-button">
 		<button on:click={prevQuestion}>
 			<svg
 				width="41"
@@ -58,7 +59,7 @@
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<circle cx="20.5" cy="20.5" r="20" fill="#EDF5F2" stroke="#DAF0E7" />
+				<circle cx="20.5" cy="20.5" r="20" fill="primary-500" stroke="#2E1A69" />
 				<path
 					d="M15.1 21L22.5667 28.4667L20.6667 30.3333L10 19.6667L20.6667 9L22.5667 10.8667L15.1 18.3333H31.3333V21H15.1Z"
 					fill="black"
@@ -74,15 +75,15 @@
 	class="relative w-[90%] mx-auto md:w-[100%] md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex flex-col"
 >
 	<div class="flex">
-		<div class=" md:h-screen md:overflow-auto px-4 py-8 md:w-[60%]">
+		<div class=" md:h-screen md:overflow-auto px-4 py-16 md:w-[60%]">
 			<!-- Question -->
 			<form
-				class="mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
+				class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
 				on:submit={() => {
 					currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
 				}}
 			>
-				<h1 class="uppercase text-primary-500 font-[800] text-3xl md:text-3xl 2xl:text-4xl">
+				<h1 class="uppercase text-primary-900 font-[1000] text-3xl md:text-3xl 2xl:text-4xl">
 					{pageTitle}
 				</h1>
 				{#each questions as question, index}
@@ -160,9 +161,9 @@
 					<!-- Mobile view  -->
 					<button
 						on:click={nextQuestion}
-						class="md:hidden bg-primary-500 w-[90%] mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex gap-4 justify-between"
+						class="md:hidden w-[90%] mx-auto text-[#FFFFFF] rounded-md py-1 px-12 font-[700] text-base flex items-center gap-4 justify-between"
 					>
-						{index + 1}/{totalQuestions} to your results
+						{currentIndex + 1}/{totalQuestions} to your results
 						<svg
 							width="24"
 							height="24"
@@ -179,26 +180,38 @@
 
 					<!-- Not mobile view  -->
 					<section
-						class="text-sm 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
+						class="text-sm text-[#FFFFFF] 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
 					>
 						<!-- Left section  -->
 						<div class="flex gap-4 items-center">
 							{#each icons as icon, i}
 								<!-- <div>{icon}</div> -->
-								<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
+								{#if currentIndex+1 > i}
+									<Icon
+										src={Home}
+										solid
+										class="bg-primary-600 rounded-full h-10 w-10 p-2 text-white"
+									/>
+								{:else}
+									<Icon
+										src={Home}
+										solid
+										class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white"
+									/>
+								{/if}
 							{/each}
 							<div class="uppercase font-[700]">
-								{totalQuestions - currentIndex}
-								{totalQuestions - currentIndex > 1 ? 'questions' : 'question'} before your results!
+								{totalQuestions - 1 - currentIndex}
+								{totalQuestions - 1 - currentIndex > 1 ? 'questions' : 'question'} before your results!
 							</div>
 						</div>
 
 						<!-- Right section  -->
-						<div class="flex gap-2 items-center">
+						<div class="flex gap-4 items-center">
 							{#if currentIndex > 0}
 								<button
 									on:click={prevQuestion}
-									class="bg-[#ffffff] text-black font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									class="bg-[#ffffff] text-[#000000] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
 									>Back</button
 								>
 							{/if}
@@ -206,14 +219,14 @@
 								<button
 									type="submit"
 									on:click={submitAnswers}
-									class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
 									>Submit</button
 								>
 							{:else}
 								<button
 									type="submit"
 									on:click={nextQuestion}
-									class="bg-primary-500 text-[#ffffff] font-[700] rounded-lg px-6 py-3 2xl:px-8 2xl:py-4"
+									class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
 									>Next</button
 								>
 							{/if}

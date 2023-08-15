@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--primary-25: #F9F8FC;
+	--primary-50: #EAE7F9;
+	--primary-100: #DBD5F7;
+	--primary-200: #CCC2F4;
+	--primary-300: #BDACF2;
+	--primary-400: #AE95EF;
+	--primary-500: #9F7EEC;
+	--primary-600: #8E66FF;
+	--primary-700: #6E3DFF;
+	--primary-800: #4E14FF;
+	--primary-900: #2E1A69
+}
+
 /* Absolute Center Spinner */
 .loader {
 	position: fixed;
@@ -132,7 +146,7 @@
 /* scrollbar  */
 /* width */
 ::-webkit-scrollbar {
-	width: 20px;
+	width: 4px;
 }
 
 /* Track */
@@ -144,13 +158,13 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: red;
+	background: var(--primary-900);
 	border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #b30000;
+	background: var(--primary-900);
 }
 
 .scrollbar-hide {
@@ -160,4 +174,12 @@
 .scrollbar-hide::-webkit-scrollbar {
 	width: 0;
 	height: 0;
+}
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+		display: none;
+	}
+
 }

@@ -14,6 +14,7 @@ export const checkTextareaHeight = async (id: any) => {
 
 	if (textarea) {
 		textareaHeight = textarea.scrollHeight;
+		console.log(textareaHeight, 'textareaHeight');
 		clientHeight = textarea.clientHeight;
 	}
 
@@ -22,6 +23,23 @@ export const checkTextareaHeight = async (id: any) => {
 			button.style.display = 'inline-block';
 		} else {
 			button.style.display = 'none';
+		}
+	}
+};
+
+export const fullTextareaHeight = async (id: any) => {
+	const textarea = document.getElementById(`myTextarea-${id}`);
+	let textareaHeight;
+	let clientHeight;
+
+	if (textarea) {
+		textareaHeight = textarea.scrollHeight;
+		clientHeight = textarea.clientHeight;
+	}
+
+	if (textarea) {
+		if (textareaHeight < clientHeight) {
+			textareaHeight = clientHeight;
 		}
 	}
 };

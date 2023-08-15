@@ -41,12 +41,14 @@
 	});
 </script>
 
+<div class="absolute top-80 left-0 slider text-primary-900 bg-primary-900 px-4 py-4">Back</div>
+
 <div
 	class=" rounded-lg drop-shadow-lg  w-full h-full flex justify-end"
 >
 	<div class="w-[90%] bg-[#ffffff] ">
 		{#each infos as info}
-			<div class="relative flex flex-col px-6 ">
+			<div class="relative flex flex-col px-6 py-8">
 				<!-- Bulb Icon  -->
 				<div class="w-full flex justify-end">
 					<img src="/bulb.svg" alt="bulb" />
@@ -64,9 +66,9 @@
 
 					<!-- Description  -->
 					{#if showMore[info.id]}
-						<textarea
+						<textarea style="pointer-events: none;"
 							disabled
-							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-hidden text-ellipsis"
+							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis"
 							id="myTextarea-{info.id}"
 							value={info.description}
 						/>
