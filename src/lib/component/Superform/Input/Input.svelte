@@ -18,6 +18,7 @@
 	export let frontIcon = '';
 	export let backIcon = '';
 	export let readonly = false;
+	export let autofocus = false;
 	export let container: HTMLElement;
 
 	let customClass = '';
@@ -87,6 +88,7 @@
 			{required}
 			{autocomplete}
 			{readonly}
+			{autofocus}
 			on:focus={onFocus}
 			on:blur={onBlur}
 			on:input={onInput}

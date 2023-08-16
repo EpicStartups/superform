@@ -7,7 +7,6 @@
 	export let validation = false;
 	export let label: string;
 	export let value: any;
-	export let container: HTMLElement;
 	export let selectionArr: any[] = [];
 	export let required = false;
 
@@ -39,7 +38,7 @@
 	};
 </script>
 
-<div class={customClass} bind:this={container}>
+<div class={customClass} >
 	{#if label}
 		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
@@ -48,7 +47,7 @@
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 relative flex flex-col  md:flex-row gap-4 md:gap-8">
+	<div class="mt-4 relative flex flex-col  md:flex-row gap-4 md:gap-6">
 		{#each selectionArr as elem (elem.value)}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->

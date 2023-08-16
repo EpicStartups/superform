@@ -86,21 +86,6 @@
                             "type": "text"
                         }
                     ]
-                },
-                {
-                    "question_type": "tag",
-                    "name": "What are your favorite hobbies or interests?",
-                    "label": "",
-                    "infos": [
-                        {
-                            "title": "Tags",
-                            "description": "Tags provide an avenue to express diverse interests and activities, defining individuals through their passions. Whether it's art, sports, music, travel, or cooking, tags create a multifaceted profile that reflects the uniqueness of each person. Embracing various interests enriches life's tapestry, allowing individuals to connect, learn, and grow while celebrating the kaleidoscope of human experiences.",
-                            "image_url": "/info-icon.svg",
-                            "id": "xegtr456",
-                            "video_url": "",
-                            "type": "text"
-                        }
-                    ]
                 }
             ]
         },
@@ -241,10 +226,8 @@
                     "name": "Rate your mathematical skills from 0 to 10.",
                     "label": "",
                     "question_selection": {
-                        "selection_value": {
-                            "min": 0,
-                            "max": 10
-                        }
+                        "min": 0,
+                        "max": 140
                     },
                     "infos": [
                         {
@@ -252,6 +235,21 @@
                             "description": "The range slider empowers you to assess and communicate your proficiency in mathematics on a scale of 0 to 10. By indicating your comfort with numerical concepts and problem-solving, you provide valuable insight into your mathematical capabilities. Whether you're a casual math enthusiast or a seasoned mathematician, the slider captures your unique relationship with numbers and your ability to navigate the world of quantitative reasoning.",
                             "image_url": "/info-icon.svg",
                             "id": "dsfse43653",
+                            "video_url": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "question_type": "tag",
+                    "name": "What are your favorite hobbies or interests?",
+                    "label": "",
+                    "infos": [
+                        {
+                            "title": "Tags",
+                            "description": "Tags provide an avenue to express diverse interests and activities, defining individuals through their passions. Whether it's art, sports, music, travel, or cooking, tags create a multifaceted profile that reflects the uniqueness of each person. Embracing various interests enriches life's tapestry, allowing individuals to connect, learn, and grow while celebrating the kaleidoscope of human experiences.",
+                            "image_url": "/info-icon.svg",
+                            "id": "xegtr456",
                             "video_url": "",
                             "type": "text"
                         }

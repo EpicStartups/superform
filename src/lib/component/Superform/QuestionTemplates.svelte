@@ -9,6 +9,8 @@
 	import SelectCard from './Input/SelectCard.svelte';
 	import InfoSidebar from './SideTable/InfoSidebar.svelte';
 	import InfoCard from './InfoCard.svelte';
+	import DoubleRangeSlider from './Input/DoubleRangeSlider.svelte';
+	import InputTag from './Input/InputTag.svelte';
 
 	export let questions: any;
 	export let index: number;
@@ -27,7 +29,7 @@
 
 	// Function to go to the next question
 	const nextQuestion = () => {
-		console.log(currentIndex, totalQuestions, 'freg')
+		console.log(currentIndex, totalQuestions, 'freg');
 		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
 		window.scrollTo(0, 0);
 	};
@@ -75,14 +77,15 @@
 	class="relative w-[90%] mx-auto md:w-[100%] md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex flex-col"
 >
 	<div class="flex">
-		<div class=" md:h-screen md:overflow-auto px-4 py-16 md:w-[60%]">
+		<div class=" md:h-screen md:overflow-auto px-8 md:px-16 py-16 md:w-[60%]">
 			<!-- Question -->
 			<form
 				class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
-				on:submit={() => {
-					currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
-				}}
+				
 			>
+			<!-- on:submit={() => {
+				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
+			}} -->
 				<h1 class="uppercase text-primary-900 font-[1000] text-3xl md:text-3xl 2xl:text-4xl">
 					{pageTitle}
 				</h1>
@@ -153,6 +156,16 @@
 								label={question.name}
 								bind:value={question.value}
 							/>
+						{:else if question.question_type === 'range_slider'}
+							<DoubleRangeSlider
+								bind:start={question.question_selection.min}
+								bind:end={question.question_selection.max}
+								required={true}
+								label={question.name}
+								bind:value={question.value}
+							/>
+						{:else if question.question_type === 'tag'}
+							<InputTag required={true} label={question.name} bind:value={question.value} />
 						{/if}
 					</div>
 				{/each}
@@ -186,7 +199,7 @@
 						<div class="flex gap-4 items-center">
 							{#each icons as icon, i}
 								<!-- <div>{icon}</div> -->
-								{#if currentIndex+1 > i}
+								{#if currentIndex + 1 > i}
 									<Icon
 										src={Home}
 										solid

@@ -7,7 +7,6 @@
 	export let validation = false;
 	export let label: string;
 	export let value: any;
-	export let container: HTMLElement;
 	export let selectionArr: any[] = [];
 	export let required = false;
 
@@ -39,7 +38,7 @@
 	};
 </script>
 
-<div class={customClass} bind:this={container}>
+<div class={customClass} >
 	{#if label}
 		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
