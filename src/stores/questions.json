@@ -243,6 +243,7 @@
                 {
                     "question_type": "tag",
                     "name": "What are your favorite hobbies or interests?",
+                    "table": "hobbies",
                     "label": "",
                     "infos": [
                         {

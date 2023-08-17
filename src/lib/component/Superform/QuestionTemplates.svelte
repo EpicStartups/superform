@@ -29,7 +29,6 @@
 
 	// Function to go to the next question
 	const nextQuestion = () => {
-		console.log(currentIndex, totalQuestions, 'freg');
 		currentIndex = Math.min(currentIndex + 1, totalQuestions - 1);
 		window.scrollTo(0, 0);
 	};
@@ -48,7 +47,6 @@
 	// Function to submit answers
 	const submitAnswers = () => {};
 
-	$: console.log(currentIndex, index, totalQuestions, 'ttoL');
 </script>
 
 <GeneralTopNav class="">
@@ -79,11 +77,8 @@
 	<div class="flex">
 		<div class=" md:h-screen md:overflow-auto px-8 md:px-16 py-16 md:w-[60%]">
 			<!-- Question -->
-			<form
-				class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
-				
-			>
-			<!-- on:submit={() => {
+			<form class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start">
+				<!-- on:submit={() => {
 				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
 			}} -->
 				<h1 class="uppercase text-primary-900 font-[1000] text-3xl md:text-3xl 2xl:text-4xl">
@@ -119,15 +114,15 @@
 									on:focus={() => (question.showDropdown = true)}
 									bind:value={question.value}
 									backIcon={ChevronDown}
-									class="cursor-pointer"
+									class=""
 								/>
-								<span slot="menu-items">
+								<span class="dropdown-toggle" slot="menu-items">
 									{#if question.question_selection.selection_value.length <= 0}
-										<p class="menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
+										<p class="dropdown-toggle menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
 									{:else}
 										{#each question.question_selection.selection_value as selection}
 											<button
-												class="menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
+												class="dropdown-toggle menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
 												role="menuitem"
 												tabindex="-1"
 												id="menu-item-0"
@@ -165,7 +160,12 @@
 								bind:value={question.value}
 							/>
 						{:else if question.question_type === 'tag'}
-							<InputTag required={true} label={question.name} bind:value={question.value} />
+							<InputTag
+								table={question.table}
+								required={true}
+								label={question.name}
+								bind:value={question.value}
+							/>
 						{/if}
 					</div>
 				{/each}

@@ -17,7 +17,6 @@
 		isShowUserCard = false;
 	});
 
-	$: console.log(information, 'info');
 </script>
 
 <div

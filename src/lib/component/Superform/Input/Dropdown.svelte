@@ -11,7 +11,15 @@
 
 	const action = (e) => {
 		// hide dropdown if clicked outside or clicked on the trigger again
-		if (container && container !== e.target && !container.contains(e.target)) {
+		// if (container && container !== e.target && !container.contains(e.target)) {
+		// 	showDropdown = false;
+		// }
+
+		if (
+			container &&
+			!container.contains(e.target) &&
+			!e.target.classList.contains('dropdown-toggle')
+		) {
 			showDropdown = false;
 		}
 	};
@@ -30,7 +38,7 @@
 	});
 </script>
 
-<div class="relative  {customClass}" bind:this={container}>
+<div class="relative {customClass}" bind:this={container}>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="h-full" bind:this={trigger}>
@@ -39,7 +47,7 @@
 	{#if showDropdown}
 		<div
 			id="dropdown"
-			class=" origin-top-right absolute shadow-lg bg-white ring-1 w-full rounded-md ring-black ring-opacity-5 focus:outline-none z-20 max-h-[150px] overflow-y-auto mt-1"
+			class=" origin-top-right absolute shadow-lg bg-white ring-1 w-full rounded-md ring-black ring-opacity-5 focus:outline-none z-[100] max-h-[150px] overflow-y-auto mt-1"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"

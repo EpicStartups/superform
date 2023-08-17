@@ -15,7 +15,6 @@
 
 	const toggleShowMore = (id) => {
 		showMore[id] = !showMore[id];
-		console.log(showMore ,'dsfsf')
 	};
 
 	afterUpdate(() => {

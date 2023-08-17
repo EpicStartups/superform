@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Input from './Input.svelte';
+	import hobbies from '../../../../stores/hobbies.json';
 
 	export let name = '';
 	export let validation = false;
@@ -7,29 +9,78 @@
 	export let value: any[] = [];
 	export let rangeArr: any[] = [];
 	export let required = false;
+	export let table: any;
 
 	let customClass = '';
 	export { customClass as class };
 	let disabledClass = 'cursor-not-allowed opacity-80 hover:opacity-80';
 	let enabledClass = '';
 	let input = '';
+	let timer: number | undefined;
+	let showDropDown = false;
+
+	$: options = [];
+	$: container = '';
+
+	const action = (e: any) => {
+		// hide dropdown if clicked outside
+		if (
+			container &&
+			!container.contains(e.target) &&
+			!e.target.classList.contains('dropdown-toggle')
+		) {
+			showDropDown = false;
+		}
+	};
+
+	const toggleDropdown = () => {
+		showDropDown = !showDropDown;
+	};
+
+	onMount(async () => {
+		document.addEventListener('click', action, true);
+		return () => document.removeEventListener('click', action, true);
+	});
 
 	const removeTag = (name: any) => {
 		value = value.filter((elem) => elem.name !== name);
 		value = value;
 	};
 
-	const addTag = (event: any) => {
+	const addTag = (inputValue: any) => {
 		// Your code to handle Enter key press here
-		value.push({ name: input });
+		const containsOnlyWhitespace = /^\s*$/.test(inputValue);
+
+		if (inputValue.length > 0 && !containsOnlyWhitespace) value.push({ name: inputValue });
 		value = value;
 		input = '';
+		showDropDown = false;
+	};
+
+	const validateInput = (selection: '') => {
+		if (selection.length > 0) {
+			if (!value.some((tag) => tag.name === selection)) addTag(selection);
+		} else {
+			if (!value.some((tag) => tag.name === input)) addTag(input);
+		}
+	};
+
+	async function handleQuery() {
+		// Assume this json is coming from backend
+		options = hobbies.filter((hobby) => hobby.includes(input)).slice(0, 5);
+	}
+
+	const debounce = (v: any) => {
+		clearTimeout(timer);
+		timer = setTimeout(async () => {
+			await handleQuery();
+		}, 500);
 	};
 
 	// $: value = value;
 </script>
 
-<section class={customClass}>
+<section class="{customClass} relative">
 	{#if label}
 		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
@@ -39,7 +90,7 @@
 		>
 	{/if}
 
-	<div class="flex gap-2 flex-wrap mt-3">
+	<div class="relative flex gap-2 flex-wrap mt-3">
 		{#each value as tag, index}
 			<div
 				class="{tag.class} bg-[#ffffff] border-[#D0D5DD] text-base md:text-sm md:text-sm py-1 px-3 flex items-center gap-2 border rounded-md leading-[150%] font-[400]"
@@ -67,13 +118,53 @@
 			</div>
 		{/each}
 		<Input
-			on:enter={addTag}
+			on:enter={validateInput}
+			on:keyup={async () => {
+				debounce(value);
+			}}
+			on:focus={async () => {
+				showDropDown = true;
+				await handleQuery();
+			}}
 			type="input"
 			label={''}
 			placeholder={'Type and click enter'}
 			required={false}
-			autofocus={true}
+			autofocus={false}
 			bind:value={input}
+			bind:container
 		/>
 	</div>
+
+	{#if showDropDown}
+		<div
+			id="dropdown"
+			class="origin-top-right absolute shadow-lg bg-white ring-1 w-full rounded-md ring-black ring-opacity-5 focus:outline-none z-20 max-h-[150px] overflow-y-auto mt-1"
+			role="menu"
+			aria-orientation="vertical"
+			aria-labelledby="menu-button"
+			tabindex="-1"
+		>
+			<div class=" bg-[#ffffff] py-1" role="none">
+				{#if options.length <= 0}
+					<p class="menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
+				{:else}
+					{#each options as selection}
+						<button
+							class="dropdown-toggle menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
+							role="menuitem"
+							tabindex="-1"
+							id="menu-item-0"
+							on:click={() => {
+								validateInput(selection);
+								input = '';
+							}}
+						>
+							{selection}
+						</button>
+					{/each}
+				{/if}
+			</div>
+		</div>
+	{/if}
 </section>
