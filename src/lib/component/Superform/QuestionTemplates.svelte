@@ -7,7 +7,6 @@
 	import { Icon, ChevronDown, Home, type IconSource } from 'svelte-hero-icons';
 	import SelectPill from './Input/SelectPill.svelte';
 	import SelectCard from './Input/SelectCard.svelte';
-	import InfoSidebar from './SideTable/InfoSidebar.svelte';
 	import InfoCard from './InfoCard.svelte';
 	import DoubleRangeSlider from './Input/DoubleRangeSlider.svelte';
 	import InputTag from './Input/InputTag.svelte';
@@ -46,7 +45,6 @@
 
 	// Function to submit answers
 	const submitAnswers = () => {};
-
 </script>
 
 <GeneralTopNav class="">
@@ -87,13 +85,23 @@
 				{#each questions as question, index}
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
 					<div
-						on:focusin={() => {
+						on:focusin|preventDefault={() => {
 							selectedQuestion = index;
+							// const elem = document
+							// 	.getElementsByClassName(`elem-${index}`)[0]
+							// 	.getBoundingClientRect();
+								// const elem = document.getElementsByClassName(`elem-${index}`)[0].scrollIntoView()
+								// location.href = `#elem-${index}`;							const offset = 20; // Adjust this value as needed
+
+							// console.log(elem, 'elem');
+							// console.log(selectedQuestion, 'selectedQuestion');
+							// window.scrollTo(0, 0);
+							// document.body.scrollTo({ top: 0 })
 						}}
 						on:mouseenter={() => {
 							selectedQuestion = index;
 						}}
-						class="mt-6 md:flex md:flex-col"
+						class="mt-6 md:flex md:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -102,9 +110,10 @@
 								label={question.name}
 								required={true}
 								bind:value={question.value}
+								class={`elem-${index}`}
 							/>
 						{:else if question.question_type === 'dropdown'}
-							<Dropdown bind:showDropdown={question.showDropdown}>
+							<Dropdown bind:showDropdown={question.showDropdown} class={`elem-${index}`}>
 								<Input
 									slot="trigger"
 									label={question.name}
@@ -114,11 +123,12 @@
 									on:focus={() => (question.showDropdown = true)}
 									bind:value={question.value}
 									backIcon={ChevronDown}
-									class=""
 								/>
 								<span class="dropdown-toggle" slot="menu-items">
 									{#if question.question_selection.selection_value.length <= 0}
-										<p class="dropdown-toggle menu-item flex space-x-2 items-center" tabindex="-1">No result</p>
+										<p class="dropdown-toggle menu-item flex space-x-2 items-center" tabindex="-1">
+											No result
+										</p>
 									{:else}
 										{#each question.question_selection.selection_value as selection}
 											<button
@@ -143,6 +153,7 @@
 								required={true}
 								label={question.name}
 								bind:value={question.value}
+								class={`elem-${index}`}
 							/>
 						{:else if question.question_type === 'select_card'}
 							<SelectCard
@@ -150,6 +161,7 @@
 								required={true}
 								label={question.name}
 								bind:value={question.value}
+								class={`elem-${index}`}
 							/>
 						{:else if question.question_type === 'range_slider'}
 							<DoubleRangeSlider
@@ -158,6 +170,7 @@
 								required={true}
 								label={question.name}
 								bind:value={question.value}
+								class={`elem-${index}`}
 							/>
 						{:else if question.question_type === 'tag'}
 							<InputTag
@@ -165,6 +178,7 @@
 								required={true}
 								label={question.name}
 								bind:value={question.value}
+								class={`elem-${index}`}
 							/>
 						{/if}
 					</div>
@@ -253,3 +267,14 @@
 		<InfoCard question={questions[selectedQuestion]} />
 	</div>
 </section>
+
+<style>
+	.questionFocus {
+		opacity: 60%;
+	}
+
+	.questionFocus:hover,
+	.questionFocus:focus-within {
+		opacity: 100%;
+	}
+</style>

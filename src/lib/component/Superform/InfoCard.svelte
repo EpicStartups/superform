@@ -47,13 +47,12 @@
 			loading = false;
 		}, 500);
 	}
-
 </script>
 
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] shadow-md shadow-primary-500 rounded-md mt-28 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
+		class="relative hidden md:block md:w-[40%] shadow-md shadow-primary-500 rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
 	>
 		<div class=" flex flex-col overflow-x-hidden">
 			<!-- Bulb Icon  -->
@@ -77,6 +76,7 @@
 					class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
 					id="textarea-{info.id}"
 					value={info.description}
+					rows={info.video_url ? 2 : 8}
 				/>
 				<button
 					id="learnMoreButton-{info.id}"
@@ -121,7 +121,11 @@
 	<swiper class="swiper-wrapper">
 		<!-- Slides -->
 		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
-			<div class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-4 rounded-l-full">Info</div>
+			<div
+				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-4 rounded-l-full animate-pulse"
+			>
+				Info
+			</div>
 		</div>
 
 		<div class="swiper-slide info-slide">

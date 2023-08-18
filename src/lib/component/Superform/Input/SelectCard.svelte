@@ -38,7 +38,7 @@
 	};
 </script>
 
-<div class={customClass} >
+<div class={customClass}>
 	{#if label}
 		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
@@ -47,7 +47,7 @@
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 relative flex flex-col  md:flex-row gap-4 md:gap-6">
+	<div class="mt-4 relative flex flex-col md:flex-row gap-4 md:gap-6">
 		{#each selectionArr as elem (elem.value)}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -60,7 +60,7 @@
 								: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'
 					  ]
 					: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'}
-				class="flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-4 md:py-6 px-6 md:px-4 cursor-pointer text-lg text-black font-[400] w-full border border-4 {value
+				class="transform transition duration-600 hover:scale-110 flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-4 md:py-6 px-6 md:px-4 cursor-pointer text-lg text-black font-[400] w-full border border-4 {value
 					? [
 							value.includes(elem.value)
 								? 'border-primary-800 border-2 bg-primary-25'
@@ -80,7 +80,10 @@
 				{elem.value}
 				{#if elem.bottomIcon}
 					<div class="">
-						<Icon src={elem.bottomIcon} class="h-24 w-24 md:h-16 md:w-16 2xl:h-24 2xl:w-24 text-primary-500" />
+						<Icon
+							src={elem.bottomIcon}
+							class="h-24 w-24 md:h-16 md:w-16 2xl:h-24 2xl:w-24 text-primary-500"
+						/>
 					</div>
 				{/if}
 			</div>

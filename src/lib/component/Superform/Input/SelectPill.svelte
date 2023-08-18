@@ -54,7 +54,7 @@
 			<div
 				id={elem.value}
 				
-				class="flex bg-[#ffffff] items-center gap-4 px-6 cursor-pointer text-base 2xl:text-lg text-[#475467] font-[600] py-2 w-full border border-2 shadow-md {value
+				class="transform transition duration-600 hover:scale-110 flex bg-[#ffffff] items-center gap-4 px-6 cursor-pointer text-base 2xl:text-lg text-[#475467] font-[600] py-2 w-full border border-2 shadow-md {value
 					? [value.includes(elem.value) ? 'border-[#FDA31C] border-4' : ' border-[#D0D5DD]']
 					: 'border-[#D0D5DD]'} rounded-full
 					{elem.frontIcon ? 'pl-10' : null} {elem.backIcon ? 'pr-10' : null}"

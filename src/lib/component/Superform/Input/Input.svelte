@@ -55,9 +55,11 @@
 		if (type === 'number' && value === undefined) placeholder = 0;
 		dispatch('blur', value);
 	});
+
+	$: console.log(customClass, 'custom')
 </script>
 
-<div class={`${customClass}' focus:text-black  text-[#191C1B]`} bind:this={container}>
+<div class={`${customClass} focus:text-black  text-[#191C1B]`} bind:this={container}>
 	{#if label}
 		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-[#191C1B]" for={name}>
 			{label}
@@ -76,7 +78,7 @@
 			{id}
 			{name}
 			placeholder={placeholder || 'Type your answer here'}
-			class="bg-primary-25 text-2xl md:text-xl 2xl:text-2xl text-primary-500 font-[700] py-2 focus:outline-none w-full {disabled
+			class="hover bg-primary-25 text-2xl md:text-xl 2xl:text-2xl text-primary-700 font-[700] py-2 focus:outline-none w-full {disabled
 				? disabledClass
 				: enabledClass}
 				{frontIcon ? 'pl-10' : null} {backIcon ? 'pr-10' : null}"
@@ -111,3 +113,22 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.hover {
+		border-bottom: 4px solid;
+		border-image: repeating-linear-gradient(135deg, #f8ca00 0 10px, #e97f02 0 20px, #bd1550 0 30px)
+			8;
+		-webkit-mask: conic-gradient(from 180deg at top 8px right 8px, #0000 90deg, #000 0)
+				var(--_i, 200%) 0 /200% var(--_i, 8px) border-box no-repeat,
+			conic-gradient(at bottom 8px left 8px, #0000 90deg, #000 0) 0 var(--_i, 200%) / var(--_i, 8px)
+				200% border-box no-repeat,
+			linear-gradient(#000 0 0) padding-box no-repeat;
+		transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
+	}
+	.hover:hover, .hover:focus {
+		--_i: 100%;
+		/* color: #cc333f; */
+		transition: 0.3s, -webkit-mask-size 0.3s 0.3s;
+	}
+</style>

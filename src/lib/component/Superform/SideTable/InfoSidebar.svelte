@@ -2,6 +2,7 @@
 	import { afterUpdate, createEventDispatcher, onDestroy, onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { adjustTextareaHeight, checkTextareaHeight } from '$lib';
+	import { ChevronLeft, Icon } from 'svelte-hero-icons';
 
 	const dispatch = createEventDispatcher();
 
@@ -40,12 +41,12 @@
 	});
 </script>
 
-<div class="absolute top-80 left-0 slider text-primary-900 bg-primary-900 px-4 py-4">Back</div>
+<div class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 py-4 text-[#ffffff] font-bold flex animate-pulse">
+	<Icon src={ChevronLeft} class="flex-shrink-0 h-6 w-6 text-gray-700 " />
+</div>
 
-<div
-	class=" rounded-lg drop-shadow-lg  w-full h-full flex justify-end"
->
-	<div class="w-[90%] bg-[#ffffff] ">
+<div class=" rounded-lg drop-shadow-lg w-full h-full flex justify-end">
+	<div style="overflow-y:auto; " class="w-[90%] bg-[#ffffff]">
 		{#each infos as info}
 			<div class="relative flex flex-col px-6 py-8">
 				<!-- Bulb Icon  -->
@@ -65,7 +66,8 @@
 
 					<!-- Description  -->
 					{#if showMore[info.id]}
-						<textarea style="pointer-events: none;"
+						<textarea
+							style="pointer-events: none;"
 							disabled
 							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis"
 							id="myTextarea-{info.id}"

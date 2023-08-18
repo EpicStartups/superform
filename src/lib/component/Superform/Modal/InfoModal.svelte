@@ -33,7 +33,7 @@
 		</div>
 
 		<!-- Info card  -->
-		<div class=" w-full p-4 overflow-y-auto">
+		<div class=" w-full p-4 overflow-y-auto h-[500px] 2xl:h-[550px]">
 			<!-- Icon and title -->
 			<div class="flex items-center justify-start gap-2 mb-2">
 				{#if information.image_url}
