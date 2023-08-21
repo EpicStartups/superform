@@ -14,7 +14,6 @@ export const checkTextareaHeight = async (id: any) => {
 
 	if (textarea) {
 		textareaHeight = textarea.scrollHeight;
-		console.log(textareaHeight, 'textareaHeight');
 		clientHeight = textarea.clientHeight;
 	}
 

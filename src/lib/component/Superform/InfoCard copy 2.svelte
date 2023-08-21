@@ -57,13 +57,9 @@
 	// 	swiper.style.position = 'fixed'; // Fix the position to keep it in view
 	// 	swiper.style.top = '0'; // Align it to the top of the screen
 	// 	swiper.style.left = '0'; // Align it to the left of the screen
-	// 	console.log(swiper, 'swiper');
-
-	// 	console.log(swiper, 'swiper');
 	// };
 
 	$: if (!swiper) {
-		console.log(swiper, 'no swiper');
 		loading = true;
 	} else {
 		setTimeout(() => {
@@ -71,7 +67,6 @@
 		}, 500);
 	}
 
-	$: console.log(swiper, 'ahs swiper');
 </script>
 
 <!-- Non mobile view info card  -->

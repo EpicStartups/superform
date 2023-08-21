@@ -1,6 +1,6 @@
 <script lang="ts">
-	import InfoModal from './Modal/InfoModal.svelte';
-	import InfoSidebar from './SideTable/InfoSidebar.svelte';
+	import InfoModal from '../Modal/InfoModal.svelte';
+	import InfoSidebar from '../SideTable/InfoSidebar.svelte';
 
 	import { onDestroy, onMount } from 'svelte';
 	import Swiper from 'swiper';

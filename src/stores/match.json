@@ -1,0 +1,56 @@
+[
+    {
+        "img_url": "https://example.com/property1.jpg",
+        "property_name": "Spacious Bungalow",
+        "property_price": 2800000,
+        "num_bedrooms": 5,
+        "num_toilets": 6,
+        "num_carparks": 4,
+        "address": "1A Jalan Seri Makmur, Mont Kiara, Kuala Lumpur"
+    },
+    {
+        "img_url": "https://example.com/property2.jpg",
+        "property_name": "Cosy Terrace House",
+        "property_price": 750000,
+        "num_bedrooms": 3,
+        "num_toilets": 2,
+        "num_carparks": 2,
+        "address": "23 Jalan Harmoni, Setia Indah, Johor Bahru"
+    },
+    {
+        "img_url": "https://example.com/property3.jpg",
+        "property_name": "Modern Apartment",
+        "property_price": 500000,
+        "num_bedrooms": 2,
+        "num_toilets": 2,
+        "num_carparks": 1,
+        "address": "8B Jalan Damai, Bukit Jalil, Kuala Lumpur"
+    },
+    {
+        "img_url": "https://example.com/property4.jpg",
+        "property_name": "Elegant Condo",
+        "property_price": 1200000,
+        "num_bedrooms": 4,
+        "num_toilets": 3,
+        "num_carparks": 2,
+        "address": "56 Lebuh Ria, Bayan Lepas, Penang"
+    },
+    {
+        "img_url": "https://example.com/property5.jpg",
+        "property_name": "Charming Townhouse",
+        "property_price": 900000,
+        "num_bedrooms": 3,
+        "num_toilets": 3,
+        "num_carparks": 2,
+        "address": "14 Jalan Indah, Desa Bahagia, Kuching"
+    },
+    {
+        "img_url": "https://example.com/property6.jpg",
+        "property_name": "Riverside Villa",
+        "property_price": 3200000,
+        "num_bedrooms": 6,
+        "num_toilets": 5,
+        "num_carparks": 3,
+        "address": "29 Lorong Senja, Ipoh, Perak"
+    }
+]

@@ -1,18 +1,17 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import GeneralBottomNav from './GeneralBottomNav.svelte';
-	import GeneralTopNav from './GeneralTopNav.svelte';
-	import Dropdown from './Input/Dropdown.svelte';
-	import Input from './Input/Input.svelte';
+	import GeneralBottomNav from '../GeneralBottomNav.svelte';
+	import GeneralTopNav from '../GeneralTopNav.svelte';
+	import Dropdown from '../Input/Dropdown.svelte';
+	import Input from '../Input/Input.svelte';
 	import { Icon, ChevronDown, Home, type IconSource } from 'svelte-hero-icons';
-	import SelectPill from './Input/SelectPill.svelte';
-	import SelectCard from './Input/SelectCard.svelte';
-	import InfoCard from './InfoCard.svelte';
-	import DoubleRangeSlider from './Input/DoubleRangeSlider.svelte';
-	import InputTag from './Input/InputTag.svelte';
+	import SelectPill from '../Input/SelectPill.svelte';
+	import SelectCard from '../Input/SelectCard.svelte';
+	import InfoCard from '../Card/InfoCard.svelte';
+	import DoubleRangeSlider from '../Input/DoubleRangeSlider.svelte';
+	import InputTag from '../Input/InputTag.svelte';
 
 	export let questions: any;
-	export let index: number;
 	export let totalQuestions: number;
 	export let currentIndex: number;
 	export let icons: any[];
@@ -23,7 +22,6 @@
 	// Function to change slider shape
 	// const changeSliderShape = (e) => {
 	// 	const slider = document.getElementsByClassName('slider')[0];
-	// 	console.log(slider, e);
 	// };
 
 	// Function to go to the next question
@@ -44,7 +42,11 @@
 	};
 
 	// Function to submit answers
-	const submitAnswers = () => {};
+	const submitAnswers = () => {
+		// Temporary way to indicate submission
+		currentIndex = -1;
+		window.scrollTo(0, 0);
+	};
 </script>
 
 <GeneralTopNav class="">
@@ -90,11 +92,9 @@
 							// const elem = document
 							// 	.getElementsByClassName(`elem-${index}`)[0]
 							// 	.getBoundingClientRect();
-								// const elem = document.getElementsByClassName(`elem-${index}`)[0].scrollIntoView()
-								// location.href = `#elem-${index}`;							const offset = 20; // Adjust this value as needed
+							// const elem = document.getElementsByClassName(`elem-${index}`)[0].scrollIntoView()
+							// location.href = `#elem-${index}`;							const offset = 20; // Adjust this value as needed
 
-							// console.log(elem, 'elem');
-							// console.log(selectedQuestion, 'selectedQuestion');
 							// window.scrollTo(0, 0);
 							// document.body.scrollTo({ top: 0 })
 						}}
@@ -183,83 +183,6 @@
 						{/if}
 					</div>
 				{/each}
-
-				<GeneralBottomNav class="">
-					<!-- Mobile view  -->
-					<button
-						on:click={nextQuestion}
-						class="md:hidden w-[90%] mx-auto text-[#FFFFFF] rounded-md py-1 px-12 font-[700] text-base flex items-center gap-4 justify-between"
-					>
-						{currentIndex + 1}/{totalQuestions} to your results
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M7.93955 2.45401C7.65834 2.7353 7.50037 3.11676 7.50037 3.51451C7.50037 3.91226 7.65834 4.29372 7.93955 4.57501L15.3645 12L7.93955 19.425C7.66631 19.7079 7.51512 20.0868 7.51853 20.4801C7.52195 20.8734 7.67971 21.2496 7.95782 21.5277C8.23593 21.8059 8.61215 21.9636 9.00544 21.967C9.39874 21.9704 9.77764 21.8192 10.0605 21.546L18.546 13.0605C18.8273 12.7792 18.9852 12.3978 18.9852 12C18.9852 11.6023 18.8273 11.2208 18.546 10.9395L10.0605 2.45401C9.77925 2.1728 9.39779 2.01483 9.00005 2.01483C8.6023 2.01483 8.22084 2.1728 7.93955 2.45401Z"
-								fill="white"
-							/>
-						</svg>
-					</button>
-
-					<!-- Not mobile view  -->
-					<section
-						class="text-sm text-[#FFFFFF] 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
-					>
-						<!-- Left section  -->
-						<div class="flex gap-4 items-center">
-							{#each icons as icon, i}
-								<!-- <div>{icon}</div> -->
-								{#if currentIndex + 1 > i}
-									<Icon
-										src={Home}
-										solid
-										class="bg-primary-600 rounded-full h-10 w-10 p-2 text-white"
-									/>
-								{:else}
-									<Icon
-										src={Home}
-										solid
-										class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white"
-									/>
-								{/if}
-							{/each}
-							<div class="uppercase font-[700]">
-								{totalQuestions - 1 - currentIndex}
-								{totalQuestions - 1 - currentIndex > 1 ? 'questions' : 'question'} before your results!
-							</div>
-						</div>
-
-						<!-- Right section  -->
-						<div class="flex gap-4 items-center">
-							{#if currentIndex > 0}
-								<button
-									on:click={prevQuestion}
-									class="bg-[#ffffff] text-[#000000] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
-									>Back</button
-								>
-							{/if}
-							{#if currentIndex + 1 === totalQuestions}
-								<button
-									type="submit"
-									on:click={submitAnswers}
-									class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
-									>Submit</button
-								>
-							{:else}
-								<button
-									type="submit"
-									on:click={nextQuestion}
-									class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
-									>Next</button
-								>
-							{/if}
-						</div>
-					</section>
-				</GeneralBottomNav>
 			</form>
 		</div>
 
@@ -267,6 +190,69 @@
 		<InfoCard question={questions[selectedQuestion]} />
 	</div>
 </section>
+
+<GeneralBottomNav class="">
+	<!-- Mobile view  -->
+	<button
+		on:click={currentIndex + 1 === totalQuestions ? submitAnswers : nextQuestion}
+		class="md:hidden w-[90%] mx-auto text-[#FFFFFF] rounded-md py-1 px-12 font-[700] text-base flex items-center gap-4 justify-between"
+	>
+		{currentIndex + 1}/{totalQuestions} to your results
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M7.93955 2.45401C7.65834 2.7353 7.50037 3.11676 7.50037 3.51451C7.50037 3.91226 7.65834 4.29372 7.93955 4.57501L15.3645 12L7.93955 19.425C7.66631 19.7079 7.51512 20.0868 7.51853 20.4801C7.52195 20.8734 7.67971 21.2496 7.95782 21.5277C8.23593 21.8059 8.61215 21.9636 9.00544 21.967C9.39874 21.9704 9.77764 21.8192 10.0605 21.546L18.546 13.0605C18.8273 12.7792 18.9852 12.3978 18.9852 12C18.9852 11.6023 18.8273 11.2208 18.546 10.9395L10.0605 2.45401C9.77925 2.1728 9.39779 2.01483 9.00005 2.01483C8.6023 2.01483 8.22084 2.1728 7.93955 2.45401Z"
+				fill="white"
+			/>
+		</svg>
+	</button>
+
+	<!-- Not mobile view  -->
+	<section
+		class="text-sm text-[#FFFFFF] 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
+	>
+		<!-- Left section  -->
+		<div class="flex gap-4 items-center">
+			{#each icons as icon, i}
+				<!-- <div>{icon}</div> -->
+				{#if currentIndex + 1 > i}
+					<Icon src={Home} solid class="bg-primary-600 rounded-full h-10 w-10 p-2 text-white" />
+				{:else}
+					<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
+				{/if}
+			{/each}
+			<div class="uppercase font-[700]">
+				{totalQuestions - 1 - currentIndex}
+				{totalQuestions - 1 - currentIndex > 1 ? 'questions' : 'question'} before your results!
+			</div>
+		</div>
+
+		<!-- Right section  -->
+		<div class="flex gap-4 items-center">
+			{#if currentIndex > 0}
+				<button
+					on:click={prevQuestion}
+					class="bg-[#ffffff] text-[#000000] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
+					>Back</button
+				>
+			{/if}
+			{#if currentIndex + 1 === totalQuestions}
+				<button
+					type="submit"
+					on:click={submitAnswers}
+					class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
+					>Submit</button
+				>
+			{:else}
+				<button
+					type="submit"
+					on:click={nextQuestion}
+					class="bg-primary-600 text-[#ffffff] font-[700] rounded-full px-6 py-3 2xl:px-8 2xl:py-4"
+					>Next</button
+				>
+			{/if}
+		</div>
+	</section>
+</GeneralBottomNav>
 
 <style>
 	.questionFocus {

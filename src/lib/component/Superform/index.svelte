@@ -1,9 +1,7 @@
 <script lang="ts">
-	import QuestionTemplates from './QuestionTemplates.svelte';
+	import QuestionTemplates from '../Superform/Module/QuestionTemplates.svelte';
 	import questions from '../../../stores/questions.json';
-
-	// Get the list of questions
-	const questionList = questions.pages;
+	import MatchTemplate from './Module/MatchTemplate.svelte';
 
 	// State variable to track the current question index
 	let currentIndex = 0;
@@ -17,19 +15,27 @@
 	const handlePrev = () => {
 		currentIndex--;
 	};
+
 </script>
 
 <section class="bg-primary-25 min-h-screen">
-	{#each questions.pages as page, index (index)}
-		{#if currentIndex === index}
-			<QuestionTemplates
-				bind:currentIndex
-				questions={page.questions}
-				pageTitle={page.page_title}
-				{index}
-				totalQuestions={Object.entries(page).length}
-				icons={questions.pages.map((elem) => elem.icon)}
-			/>
-		{/if}
-	{/each}
+	<!-- Before submission -->
+	{#if currentIndex >= 0}
+		{#each questions.pages as page, index (index)}
+			{#if currentIndex === index}
+				<QuestionTemplates
+					bind:currentIndex
+					questions={page.questions}
+					pageTitle={page.page_title}
+					totalQuestions={Object.entries(page).length}
+					icons={questions.pages.map((elem) => elem.icon)}
+				/>
+			{/if}
+		{/each}
+	{/if}
+
+	<!-- After submission -->
+	{#if currentIndex < 0}
+		<MatchTemplate />
+	{/if}
 </section>

@@ -56,7 +56,6 @@
 		dispatch('blur', value);
 	});
 
-	$: console.log(customClass, 'custom')
 </script>
 
 <div class={`${customClass} focus:text-black  text-[#191C1B]`} bind:this={container}>

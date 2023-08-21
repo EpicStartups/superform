@@ -88,12 +88,10 @@
 		<!-- on:mousedown={() => {
 			const container = document.querySelector('.container');
 				container.style.pointerEvents = 'auto';
-				console.log(container);
 			}}
 			on:mouseleave={() => {
 				const container = document.querySelector('.container');
 				container.style.pointerEvents = 'none';
-				console.log('npuse up')
 			}} -->
 		<div class="absolute top-80 right-2 slide-button bg-[#000000]">Herehererer</div>
 	</div>

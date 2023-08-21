@@ -47,9 +47,6 @@
 		swiper.style.position = 'fixed'; // Fix the position to keep it in view
 		swiper.style.top = '0'; // Align it to the top of the screen
 		swiper.style.left = '0'; // Align it to the left of the screen
-		console.log(swiper, 'swiper');
-
-		console.log(swiper, 'swiper');
 	};
 </script>
 
