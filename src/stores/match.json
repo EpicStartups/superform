@@ -1,56 +1,80 @@
 [
     {
+        "id": "e0b4b721-0f4f-4d2c-b92c-5a2ef6d8f1a1",
         "img_url": "https://example.com/property1.jpg",
         "property_name": "Spacious Bungalow",
         "property_price": 2800000,
         "num_bedrooms": 5,
         "num_toilets": 6,
         "num_carparks": 4,
-        "address": "1A Jalan Seri Makmur, Mont Kiara, Kuala Lumpur"
+        "address": "1A Jalan Seri Makmur, Mont Kiara, Kuala Lumpur",
+        "owner_name": "John Doe",
+        "description": "This exquisite Spacious Bungalow offers luxurious living in the heart of Mont Kiara. Boasting 5 bedrooms and 6 bathrooms, this home provides ample space for your family to thrive. The property features high-end finishes, a modern kitchen, and a sprawling backyard, perfect for entertaining guests. With 4 dedicated parking spaces, convenience is at your doorstep. The lot size spans approximately 10,000 sqft, providing ample outdoor space for relaxation and recreation. Don't miss the opportunity to own this elegant home.",
+        "lot_size_sqft": 10000
     },
     {
+        "id": "c7d80ec9-3b5e-42cd-85b2-998b5ca579e7",
         "img_url": "https://example.com/property2.jpg",
         "property_name": "Cosy Terrace House",
         "property_price": 750000,
         "num_bedrooms": 3,
         "num_toilets": 2,
         "num_carparks": 2,
-        "address": "23 Jalan Harmoni, Setia Indah, Johor Bahru"
+        "address": "23 Jalan Harmoni, Setia Indah, Johor Bahru",
+        "owner_name": "Jane Smith",
+        "description": "Welcome to this charming Cosy Terrace House nestled in Setia Indah. With 3 bedrooms and 2 bathrooms, it's the perfect home for a growing family. The well-maintained interior features a cozy living area, a functional kitchen, and a private garden. The property comes with 2 parking spaces and offers a tranquil living experience. The lot size spans approximately 1,800 sqft, providing outdoor space for gardening and relaxation.",
+        "lot_size_sqft": 1800
     },
     {
+        "id": "a8f6e5d3-3c14-4e77-90b3-29e6a00b80f2",
         "img_url": "https://example.com/property3.jpg",
         "property_name": "Modern Apartment",
         "property_price": 500000,
         "num_bedrooms": 2,
         "num_toilets": 2,
         "num_carparks": 1,
-        "address": "8B Jalan Damai, Bukit Jalil, Kuala Lumpur"
+        "address": "8B Jalan Damai, Bukit Jalil, Kuala Lumpur",
+        "owner_name": "Michael Lee",
+        "description": "Experience contemporary living in this Modern Apartment located in Bukit Jalil. With 2 bedrooms and 2 bathrooms, this apartment offers a sleek design and functional layout. Enjoy the open-concept kitchen and living area, perfect for urban living. The property includes 1 parking space and offers easy access to amenities. The lot size spans approximately 800 sqft, making it a low-maintenance and stylish choice for city living.",
+        "lot_size_sqft": 800
     },
     {
+        "id": "b2265f7d-03e0-431b-9e7f-0f3a8a3b8a34",
         "img_url": "https://example.com/property4.jpg",
         "property_name": "Elegant Condo",
         "property_price": 1200000,
         "num_bedrooms": 4,
         "num_toilets": 3,
         "num_carparks": 2,
-        "address": "56 Lebuh Ria, Bayan Lepas, Penang"
+        "address": "56 Lebuh Ria, Bayan Lepas, Penang",
+        "owner_name": "David Tan",
+        "description": "Indulge in luxury with this Elegant Condo in Bayan Lepas. Boasting 4 bedrooms and 3 bathrooms, this condo offers spacious and comfortable living. The interior features high-quality finishes, a gourmet kitchen, and panoramic views of the city. With 2 parking spaces, security and convenience are prioritized. The lot size spans approximately 2,000 sqft, providing ample space for relaxation and outdoor activities.",
+        "lot_size_sqft": 2000
     },
     {
+        "id": "de9a8cfb-19dd-4870-9820-32a6d4c39429",
         "img_url": "https://example.com/property5.jpg",
         "property_name": "Charming Townhouse",
         "property_price": 900000,
         "num_bedrooms": 3,
         "num_toilets": 3,
         "num_carparks": 2,
-        "address": "14 Jalan Indah, Desa Bahagia, Kuching"
+        "address": "14 Jalan Indah, Desa Bahagia, Kuching",
+        "owner_name": "Sarah Lim",
+        "description": "Discover the allure of this Charming Townhouse in Desa Bahagia. Offering 3 bedrooms and 3 bathrooms, this townhouse provides a cozy and inviting atmosphere. The interior boasts tasteful design, a functional kitchen, and ample storage. With 2 parking spaces, convenience is a given. The lot size spans approximately 1,500 sqft, featuring a lovely outdoor space for gardening and relaxation.",
+        "lot_size_sqft": 1500
     },
     {
+        "id": "fa1d7e3a-2b09-4a0f-bfce-75ee4e1d960c",
         "img_url": "https://example.com/property6.jpg",
         "property_name": "Riverside Villa",
         "property_price": 3200000,
         "num_bedrooms": 6,
         "num_toilets": 5,
         "num_carparks": 3,
-        "address": "29 Lorong Senja, Ipoh, Perak"
+        "address": "29 Lorong Senja, Ipoh, Perak",
+        "owner_name": "William Chan",
+        "description": "Embrace the serenity of this Riverside Villa in Ipoh. With 6 bedrooms and 5 bathrooms, this villa offers a spacious and tranquil retreat. The interior features elegant design, a gourmet kitchen, and breathtaking views of the river. With 3 parking spaces, convenience and security are assured. The lot size spans approximately 15,000 sqft, offering a vast outdoor area for recreation and relaxation.",
+        "lot_size_sqft": 15000
     }
 ]

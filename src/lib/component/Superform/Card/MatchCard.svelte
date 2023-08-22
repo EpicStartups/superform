@@ -1,10 +1,22 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { EllipsisHorizontal, Icon } from 'svelte-hero-icons';
+	import { selectedProductId } from '../../../../stores/product';
 
 	export let match = {};
+
+	const selectedProduct = () => {
+		$selectedProductId = match?.id;
+		goto(`product/${$selectedProductId}`);
+	};
 </script>
 
-<section class="rounded-lg border flex flex-col">
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<section
+	on:click|preventDefault={selectedProduct}
+	class="cursor-pointer rounded-lg border flex flex-col"
+>
 	<!-- Image -->
 	<div>
 		<img src="" alt="" />
@@ -37,22 +49,22 @@
 			</div>
 
 			<!-- Three icons -->
-            <div class="flex items-center gap-2">
-                <div class="flex items-center gap-1">
-                    <img src={'/bed.svg'} alt="bedroom" class="w-5 h-5" />
-                    <p>{match?.num_bedrooms}</p>
-                </div>
+			<div class="flex items-center gap-2">
+				<div class="flex items-center gap-1">
+					<img src={'/bed.svg'} alt="bedroom" class="w-5 h-5" />
+					<p>{match?.num_bedrooms}</p>
+				</div>
 
-                <div class="flex items-center gap-1">
-                    <img src={'/bathroom.svg'} alt="bathroom" class="w-4 h-4 mb-1" />
-                    <p>{match?.num_toilets}</p>
-                </div>
+				<div class="flex items-center gap-1">
+					<img src={'/bathroom.svg'} alt="bathroom" class="w-4 h-4 mb-1" />
+					<p>{match?.num_toilets}</p>
+				</div>
 
-                <div class="flex items-center gap-1">
-                    <img src={'/car.svg'} alt="carpark" class="w-6 h-6" />
-                    <p>{match?.num_carparks}</p>
-                </div>
-            </div>
+				<div class="flex items-center gap-1">
+					<img src={'/car.svg'} alt="carpark" class="w-6 h-6" />
+					<p>{match?.num_carparks}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
