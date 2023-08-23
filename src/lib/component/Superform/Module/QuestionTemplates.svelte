@@ -49,7 +49,7 @@
 	};
 </script>
 
-<GeneralTopNav class="">
+<GeneralTopNav class="md:hidden">
 	<span class="{currentIndex > 0 ? 'block' : 'hidden'} flex items-center" slot="back-button">
 		<button on:click={prevQuestion}>
 			<svg
@@ -72,16 +72,28 @@
 <!-- Questions and Info -->
 <!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	class="relative w-[90%] mx-auto md:w-[100%] md:px-28 2xl:px-32 2xl:px-20 text-base 2xl:text-xl flex flex-col"
+	class="md:bg-primary-800 relative w-[90%] mx-auto md:w-[100%] text-base 2xl:text-xl flex flex-col"
 >
-	<div class="flex">
-		<div class=" md:h-screen md:overflow-auto px-8 md:px-16 py-16 md:w-[60%]">
+	<div class="md:px-12 bg-[#ffffff] rounded-r-[36px] md:w-[55%] flex flex-col">
+		<!-- Navbar -->
+		<section
+			class="hidden md:block bg-[#ffffff] fixed z-50 w-[40%] h-fit"
+		>
+			<div
+				class="text-sm 2xl:text-base hidden md:flex px-14 2xl:px-16 py-6 justify-between items-center"
+			>
+				<img class="w-12 md:w-36 2xl:w-40" src="/project-logo.svg" alt="project-name" />
+			</div>
+		</section>
+
+		<!-- Content -->
+		<div class="md:h-screen md:overflow-auto px-8 md:px-16 pt-14 pb-16">
 			<!-- Question -->
 			<form class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start">
 				<!-- on:submit={() => {
 				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
 			}} -->
-				<h1 class="uppercase text-primary-900 font-[1000] text-3xl md:text-3xl 2xl:text-4xl">
+				<h1 class="w-[80%] uppercase text-primary-900 font-[700] text-3xl md:text-4xl 2xl:text-5xl">
 					{pageTitle}
 				</h1>
 				{#each questions as question, index}
@@ -185,17 +197,17 @@
 				{/each}
 			</form>
 		</div>
-
-		<!-- Info cards  -->
-		<InfoCard question={questions[selectedQuestion]} />
 	</div>
+
+	<!-- Info cards  -->
+	<!-- <InfoCard question={questions[selectedQuestion]} /> -->
 </section>
 
 <GeneralBottomNav class="">
 	<!-- Mobile view  -->
 	<button
 		on:click={currentIndex + 1 === totalQuestions ? submitAnswers : nextQuestion}
-		class="md:hidden w-[90%] mx-auto text-[#FFFFFF] rounded-md py-1 px-12 font-[700] text-base flex items-center gap-4 justify-between"
+		class="md:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
 	>
 		{currentIndex + 1}/{totalQuestions} to your results
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +227,7 @@
 			{#each icons as icon, i}
 				<!-- <div>{icon}</div> -->
 				{#if currentIndex + 1 > i}
-					<Icon src={Home} solid class="bg-primary-600 rounded-full h-10 w-10 p-2 text-white" />
+					<Icon src={Home} solid class="bg-[#FEAC4B] rounded-full h-10 w-10 p-2 text-white" />
 				{:else}
 					<Icon src={Home} solid class="bg-[#CDCDCD] rounded-full h-10 w-10 p-2 text-white" />
 				{/if}
