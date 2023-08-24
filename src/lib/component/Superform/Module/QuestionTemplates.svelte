@@ -72,12 +72,12 @@
 <!-- Questions and Info -->
 <!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	class="md:bg-primary-800 relative w-[90%] mx-auto md:w-[100%] text-base 2xl:text-xl flex flex-col"
+	class="md:bg-primary-800 h-screen relative w-[90%] mx-auto md:w-[100%] text-base 2xl:text-xl flex"
 >
-	<div class="md:px-12 bg-[#ffffff] rounded-r-[36px] md:w-[55%] flex flex-col">
+	<div class="md:z-[10] md:px-12 bg-[#ffffff] rounded-r-[36px] md:w-[55%] flex flex-col drop-shadow-2xl">
 		<!-- Navbar -->
 		<section
-			class="hidden md:block bg-[#ffffff] fixed z-50 w-[40%] h-fit"
+			class="hidden md:block bg-[#ffffff] fixed z-[50] w-[45%] h-fit"
 		>
 			<div
 				class="text-sm 2xl:text-base hidden md:flex px-14 2xl:px-16 py-6 justify-between items-center"
@@ -200,7 +200,7 @@
 	</div>
 
 	<!-- Info cards  -->
-	<!-- <InfoCard question={questions[selectedQuestion]} /> -->
+	<InfoCard question={questions[selectedQuestion]} />
 </section>
 
 <GeneralBottomNav class="">

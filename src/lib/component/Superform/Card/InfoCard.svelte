@@ -52,28 +52,28 @@
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] shadow-md shadow-primary-500 rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff]"
+		class="relative hidden md:block md:w-[48%] "
 	>
-		<div class=" flex flex-col overflow-x-hidden">
-			<!-- Bulb Icon  -->
-			<div class="absolute w-full flex justify-end top-[-20px]">
-				<img src="/bulb.svg" alt="bulb" />
+		<div class=" flex flex-col overflow-x-hidden w-full">
+			<!-- Image  -->
+			<div class="absolute w-[105%] right-0 top-[0px] h-[35%]">
+				<img src={info.image_url} alt="bulb" class="w-full h-full object-center object-cover " />
 			</div>
 
 			<!-- Info card  -->
-			<div class=" w-full flex-col">
+			<div class="px-16 py-12 mt-[35%] w-full flex-col">
 				<!-- Icon and title -->
 				<div class="flex flex-col items-start justify-start gap-2 mb-2">
 					{#if info.image_url}
-						<img src={info.image_url} alt="" class="w-12 2xl:w-16 h-12 2xl:h-16" />
+						<!-- <img src={info.image_url} alt="" class="w-12 2xl:w-16 h-12 2xl:h-16" /> -->
 					{/if}
-					<div class="text-[#434350] font-[800] text-2xl 2xl:text-3xl">{info.title}</div>
+					<div class="text-[#ffffff] font-[800] text-4xl 2xl:text-5xl">{info.title}</div>
 				</div>
 
 				<!-- Description  -->
 				<textarea
 					disabled
-					class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
+					class="flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
 					id="textarea-{info.id}"
 					value={info.description}
 					rows={info.video_url ? 2 : 8}
@@ -84,7 +84,7 @@
 						selectedInfo = info.id;
 						isShowUserCard = true;
 					}}
-					class="self-end text-primary-500 font-[700] text:base 2xl:text-lg">Learn More</button
+					class="self-end text-primary-200 font-[700] text:base 2xl:text-lg">Learn More</button
 				>
 
 				<!-- Video -->
