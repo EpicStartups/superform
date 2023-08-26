@@ -59,7 +59,7 @@
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<circle cx="20.5" cy="20.5" r="20" fill="primary-500" stroke="#2E1A69" />
+				<circle cx="20.5" cy="20.5" r="20" fill="primary-500" stroke="#DAF0E7" />
 				<path
 					d="M15.1 21L22.5667 28.4667L20.6667 30.3333L10 19.6667L20.6667 9L22.5667 10.8667L15.1 18.3333H31.3333V21H15.1Z"
 					fill="black"

@@ -16,7 +16,8 @@
 	</div>
 
 	<!-- Non mobile view  -->
-	<div class="text-sm 2xl:text-base hidden md:flex px-28 2xl:px-32 justify-between items-center">
+	<div class="text-sm 2xl:text-base hidden md:flex px-28 2xl:px-32 gap-8 items-center">
+		<slot name="back-button" />
 		<img class="w-12 md:w-36 2xl:w-40" src="/project-logo.svg" alt="project-name" />
 	</div>
 </section>

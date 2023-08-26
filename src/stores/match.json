@@ -1,7 +1,7 @@
 [
     {
         "id": "e0b4b721-0f4f-4d2c-b92c-5a2ef6d8f1a1",
-        "img_url": "https://example.com/property1.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Spacious Bungalow",
         "property_price": 2800000,
         "num_bedrooms": 5,
@@ -14,7 +14,7 @@
     },
     {
         "id": "c7d80ec9-3b5e-42cd-85b2-998b5ca579e7",
-        "img_url": "https://example.com/property2.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Cosy Terrace House",
         "property_price": 750000,
         "num_bedrooms": 3,
@@ -27,7 +27,7 @@
     },
     {
         "id": "a8f6e5d3-3c14-4e77-90b3-29e6a00b80f2",
-        "img_url": "https://example.com/property3.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Modern Apartment",
         "property_price": 500000,
         "num_bedrooms": 2,
@@ -40,7 +40,7 @@
     },
     {
         "id": "b2265f7d-03e0-431b-9e7f-0f3a8a3b8a34",
-        "img_url": "https://example.com/property4.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Elegant Condo",
         "property_price": 1200000,
         "num_bedrooms": 4,
@@ -53,7 +53,7 @@
     },
     {
         "id": "de9a8cfb-19dd-4870-9820-32a6d4c39429",
-        "img_url": "https://example.com/property5.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Charming Townhouse",
         "property_price": 900000,
         "num_bedrooms": 3,
@@ -66,7 +66,7 @@
     },
     {
         "id": "fa1d7e3a-2b09-4a0f-bfce-75ee4e1d960c",
-        "img_url": "https://example.com/property6.jpg",
+        "img_url": "/building.jpg",
         "property_name": "Riverside Villa",
         "property_price": 3200000,
         "num_bedrooms": 6,
