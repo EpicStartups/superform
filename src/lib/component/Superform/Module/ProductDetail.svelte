@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import GeneralTopNav from '../GeneralTopNav.svelte';
 	import { formatNumberWithCommas } from '$lib/utils/general';
+
+	import GeneralTopNav from '../GeneralTopNav.svelte';
 	import GeneralBottomNav from '../GeneralBottomNav.svelte';
+	import { Carousel, CarouselTransition } from 'flowbite-svelte';
 
 	export let match = {};
 	let loading = true;
@@ -40,8 +42,23 @@
 	</GeneralTopNav>
 
 	<!-- Mobile view  -->
-	<div class="md:hidden flex gap-12 mt-20 mb-40">
+	<div class="md:hidden flex flex-col gap-0 mt-20 mb-40">
 		<!-- Top static pictures -->
+		<div class="w-full">
+			<CarouselTransition
+				images={match.img_urls}
+				transitionType="fade"
+				transitionParams={{ delay: 300, duration: 500 }}
+				showCaptions={false}
+				classSlide="flex items-center justify-center h-full w-full !rounded-none !bg-transparent"
+				classDiv="w-full !h-[300px] sm:!h-[400px] !rounded-none !bg-transparent"
+				imgFit="contain"
+				classImg="!bg-none !rounded-md animate-[fadeIn_.5s_ease-in-out_1] h-full"
+				classThumb="p-0 rounded-md shadow-xl hover:outline hover:outline-primary-500 hover:scale-[1.25] transform transition duration-600"
+				classThumbDiv="bg-transparent"
+				thumbBtnClass="m-2"
+			/>
+		</div>
 
 		<!-- Bottom details -->
 		<div class="flex flex-col gap-4 px-4 py-8">
@@ -108,10 +125,24 @@
 	<!-- Non mobile view -->
 	<div class="hidden md:flex gap-12 px-32 mt-24">
 		<!-- Left static pictures -->
-		<div class="w-1/2" />
+		<div class="w-1/2">
+			<CarouselTransition
+				images={match.img_urls}
+				transitionType="fade"
+				transitionParams={{ delay: 300, duration: 500 }}
+				showCaptions={false}
+				classSlide="flex items-center justify-center h-full w-full !rounded-none !bg-transparent"
+				classDiv="w-full !h-[300px] sm:!h-[400px] !rounded-none !bg-transparent"
+				imgFit="contain"
+				classImg="!bg-none !rounded-md animate-[fadeIn_.5s_ease-in-out_1] h-full"
+				classThumb="p-0 rounded-md shadow-xl hover:outline hover:outline-primary-500 hover:scale-[1.25] transform transition duration-600"
+				classThumbDiv="bg-transparent"
+				thumbBtnClass="m-2"
+			/>
+		</div>
 
 		<!-- Right details -->
-		<div class="w-1/2 flex flex-col gap-4 px-4 py-8">
+		<div class="w-1/2 flex flex-col gap-4 px-4 pb-8">
 			<!-- Name and seller -->
 			<div class="flex flex-col gap-1">
 				<p class="text-primary-900 font-[900] text-3xl">{match?.property_name}</p>
@@ -119,7 +150,7 @@
 			</div>
 
 			<!-- Price and description -->
-			<div class="flex flex-col gap-8 ">
+			<div class="flex flex-col gap-8">
 				<!-- Price -->
 				<div class="flex gap-4 text-primary-900 text-lg">
 					<p>RM</p>
@@ -147,7 +178,6 @@
 			</div>
 
 			<!-- Extra specs -->
-
 		</div>
 	</div>
 </section>

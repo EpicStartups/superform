@@ -20,7 +20,7 @@
 >
 	<!-- Image -->
 	<div class="">
-		<img class="rounded-3xl md:rounded-2xl h-54 md:h-40 2xl:h-30 w-full" src={match.img_url} alt="" />
+		<img class="rounded-3xl md:rounded-2xl h-54 md:h-40 2xl:h-30 w-full" src={match.img_urls[0].imgurl} alt="" />
 	</div>
 
 	<!-- Details -->
