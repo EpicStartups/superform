@@ -52,13 +52,13 @@
 
 <section
 	transition:fly={{ x: -1000, duration: 300 }}
-	class="relative w-[90%] mx-auto md:w-[100%] md:px-28 2xl:px-32  text-base 2xl:text-xl flex flex-col"
+	class="relative w-[90%] mx-auto lg:w-[100%] lg:px-28 2xl:px-32  text-base 2xl:text-xl flex flex-col"
 >
 	<div class="flex">
-		<div class="md:h-screen md:overflow-auto md:px-16 py-16 md:w-[80%]">
-			<h1 class="mt-8 text-5xl font-[900] text-primary-900 md:text-primary-800 md:text-center">Your Matching results</h1>
-			<p class="text-lg md:text-base font-[500] text-primary-900 md:text-center md:w-2/3 md:mx-auto md:mt-4">Here is a list of 6 matching properties based on the information you’ve provided</p>
-			<button class="hidden md:block md:mt-8 md:mx-auto md:p-3 md:bg-primary-800 md:rounded-full"
+		<div class="lg:h-screen lg:overflow-auto lg:px-16 py-16 lg:w-[80%]">
+			<h1 class="mt-8 text-5xl font-[900] text-primary-900 lg:text-primary-800 lg:text-center">Your Matching results</h1>
+			<p class="text-lg lg:text-base font-[500] text-primary-900 lg:text-center lg:w-2/3 lg:mx-auto lg:mt-4">Here is a list of 6 matching properties based on the information you’ve provided</p>
+			<button class="hidden lg:block lg:mt-8 lg:mx-auto lg:p-3 lg:bg-primary-800 lg:rounded-full"
 				><svg
 					width="24"
 					height="24"
@@ -72,7 +72,7 @@
 					/>
 				</svg>
 			</button>
-			<div class="my-14 grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-8 2xl:gap-16">
+			<div class="my-14 grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-8 2xl:gap-16">
 				{#each matches as match}
 					<MatchCard {match} />
 				{/each}

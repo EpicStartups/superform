@@ -82,7 +82,7 @@
 
 <section class="{customClass} relative">
 	{#if label}
-		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
+		<label class="text-xl lg:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>
@@ -93,7 +93,7 @@
 	<div class="relative flex gap-2 flex-wrap mt-3">
 		{#each value as tag, index}
 			<div
-				class="{tag.class} bg-[#ffffff] border-[#D0D5DD] text-base md:text-sm md:text-sm py-1 px-3 flex items-center gap-2 border rounded-full leading-[150%] font-[400]"
+				class="{tag.class} bg-[#ffffff] border-[#D0D5DD] text-base lg:text-sm lg:text-sm py-1 px-3 flex items-center gap-2 border rounded-full leading-[150%] font-[400]"
 			>
 				{tag.name}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->

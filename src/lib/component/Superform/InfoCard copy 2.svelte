@@ -72,7 +72,7 @@
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] "
+		class="relative hidden lg:block lg:w-[40%] border border-[#D5D5D5] rounded-md mt-24 h-[450px] 2xl:h-[600px] p-4 lg:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] "
 	>
 		<div class=" flex flex-col overflow-x-hidden">
 			<!-- Bulb Icon  -->

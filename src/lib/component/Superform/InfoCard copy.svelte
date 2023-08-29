@@ -53,7 +53,7 @@
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		class="relative hidden md:block md:w-[40%] border border-[#D5D5D5] rounded-md mt-8 p-4 md:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] h-fit"
+		class="relative hidden lg:block lg:w-[40%] border border-[#D5D5D5] rounded-md mt-8 p-4 lg:ml-20 2xl:ml-32 2xl:ml-20 bg-[#ffffff] h-fit"
 	>
 		<div class=" flex flex-col overflow-x-hidden">
 			<!-- Bulb Icon  -->
@@ -107,7 +107,7 @@
 
 <!-- Slider main container -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div on:pointerdown={changeClass} class="swiper md:hidden bg-[#77F8DF]">
+<div on:pointerdown={changeClass} class="swiper lg:hidden bg-[#77F8DF]">
 	<!-- Additional required wrapper -->
 	<swiper class="swiper-wrapper">
 		<!-- Slides -->

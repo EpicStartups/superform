@@ -20,7 +20,7 @@
 
 <section class="bg-primary-25 min-h-screen">
 	<!-- Before submission -->
-	<!-- {#if currentIndex >= 0}
+	{#if currentIndex >= 0}
 		{#each questions.pages as page, index (index)}
 			{#if currentIndex === index}
 				<QuestionTemplates
@@ -32,10 +32,10 @@
 				/>
 			{/if}
 		{/each}
-	{/if} -->
+	{/if}
 
 	<!-- After submission -->
 	<!-- {#if currentIndex < 0} -->
-		<MatchTemplate />
+		<!-- <MatchTemplate /> -->
 	<!-- {/if} -->
 </section>

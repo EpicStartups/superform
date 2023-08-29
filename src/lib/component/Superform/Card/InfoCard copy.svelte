@@ -70,7 +70,7 @@
 	<div
 		in:fly|global={{ x: 100, y: 0 }}
 		class="relative hidden lg:block transition-all duration-300 {isExpand
-			? 'lg:w-screen mx-auto z-[35]'
+			? 'lg:w-1/2 mx-auto z-[35]'
 			: 'lg:w-[48%]'}"
 	>
 		<div class=" flex flex-col overflow-x-hidden w-full">
@@ -87,7 +87,7 @@
 			<div
 				class="px-16 {info.video_url ? 'py-4 2xl:py-12' : 'py-12'} {info.image_url && !isExpand
 					? 'mt-[40%] lg:mt-[40%] xl:mt-[35%] 2xl:mt-[38%] 3xl:mt-[40%] w-full '
-					: 'mt-4 overflow-y-auto '} {isExpand ? 'w-1/2 mx-auto' : 'w-full'} flex flex-col"
+					: 'mt-4 overflow-y-auto '} flex flex-col border"
 			>
 				<!-- Back button when expanded -->
 				{#if isExpand}
@@ -104,7 +104,7 @@
 				{/if}
 
 				<!-- Icon and title -->
-				<div class="flex flex-col w-full justify-start gap-2 mb-2">
+				<div class="flex flex-col w-full justify-start gap-2 mb-2 border">
 					<div class="text-[#ffffff] font-[800] text-4xl 2xl:text-5xl">{info.title}</div>
 				</div>
 

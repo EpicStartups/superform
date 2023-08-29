@@ -115,7 +115,7 @@
 
 <div class={customClass}>
 	{#if label}
-		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
+		<label class="text-xl lg:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>

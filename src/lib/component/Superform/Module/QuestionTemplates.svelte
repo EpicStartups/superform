@@ -18,6 +18,7 @@
 	export let pageTitle: any;
 
 	let selectedQuestion = 0;
+	let isExpand = false;
 
 	// Function to change slider shape
 	// const changeSliderShape = (e) => {
@@ -49,7 +50,7 @@
 	};
 </script>
 
-<GeneralTopNav class="md:hidden">
+<GeneralTopNav class="lg:hidden">
 	<span class="{currentIndex > 0 ? 'block' : 'hidden'} flex items-center" slot="back-button">
 		<button on:click={prevQuestion}>
 			<svg
@@ -72,28 +73,31 @@
 <!-- Questions and Info -->
 <!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	class="md:bg-primary-800 h-screen relative w-[90%] mx-auto md:w-[100%] text-base 2xl:text-xl flex"
+	class="lg:bg-primary-800 h-screen {isExpand ? 'overflow-y-auto' : ''}
+		   relative w-[90%] mx-auto lg:w-[100%] text-base 2xl:text-xl flex"
 >
-	<div class="md:z-[10] md:px-12 bg-[#ffffff] rounded-r-[36px] md:w-[55%] flex flex-col drop-shadow-2xl">
+	<div
+		class="sideShadow lg:z-[10] lg:px-12 bg-[#ffffff] lg:rounded-r-[36px] {isExpand
+			? 'hidden'
+			: 'lg:w-[55%]'} flex flex-col"
+	>
 		<!-- Navbar -->
-		<section
-			class="hidden md:block bg-[#ffffff] fixed z-[50] w-[45%] h-fit"
-		>
+		<section class="hidden lg:block bg-[#ffffff] fixed z-[50] w-[45%] h-fit">
 			<div
-				class="text-sm 2xl:text-base hidden md:flex px-14 2xl:px-16 py-6 justify-between items-center"
+				class="text-sm 2xl:text-base hidden lg:flex px-14 2xl:px-16 py-6 justify-between items-center"
 			>
-				<img class="w-12 md:w-36 2xl:w-40" src="/project-logo.svg" alt="project-name" />
+				<img class="w-12 lg:w-36 2xl:w-40" src="/project-logo.svg" alt="project-name" />
 			</div>
 		</section>
 
 		<!-- Content -->
-		<div class="md:h-screen md:overflow-auto px-8 md:px-16 pt-14 pb-16">
+		<div class="md:h-screen md:overflow-auto px-8 lg:px-16 pt-14 pb-16">
 			<!-- Question -->
-			<form class=" mt-16 md:mt-12 mb-40 flex flex-col gap-4 jusitfy-start">
+			<form class=" mt-16 lg:mt-12 mb-40 flex flex-col gap-4 jusitfy-start">
 				<!-- on:submit={() => {
 				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
 			}} -->
-				<h1 class="w-[80%] uppercase text-primary-900 font-[700] text-3xl md:text-4xl 2xl:text-5xl">
+				<h1 class="w-[80%] uppercase text-primary-900 font-[700] text-3xl lg:text-4xl 2xl:text-5xl">
 					{pageTitle}
 				</h1>
 				{#each questions as question, index}
@@ -113,7 +117,7 @@
 						on:mouseenter={() => {
 							selectedQuestion = index;
 						}}
-						class="mt-6 md:flex md:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
+						class="mt-6 lg:flex lg:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -200,14 +204,14 @@
 	</div>
 
 	<!-- Info cards  -->
-	<InfoCard question={questions[selectedQuestion]} />
+	<InfoCard bind:isExpand question={questions[selectedQuestion]} />
 </section>
 
-<GeneralBottomNav class="">
+<GeneralBottomNav class="z-40 {isExpand ? 'hidden' : 'block'}">
 	<!-- Mobile view  -->
 	<button
 		on:click={currentIndex + 1 === totalQuestions ? submitAnswers : nextQuestion}
-		class="md:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
+		class="lg:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
 	>
 		{currentIndex + 1}/{totalQuestions} to your results
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +224,7 @@
 
 	<!-- Not mobile view  -->
 	<section
-		class="text-sm text-[#FFFFFF] 2xl:text-base hidden md:flex py-2 px-28 2xl:px-32 justify-between items-center"
+		class="text-sm text-[#FFFFFF] 2xl:text-base hidden lg:flex py-2 px-28 2xl:px-32 justify-between items-center"
 	>
 		<!-- Left section  -->
 		<div class="flex gap-4 items-center">
@@ -274,5 +278,17 @@
 	.questionFocus:hover,
 	.questionFocus:focus-within {
 		opacity: 100%;
+	}
+
+	@media only screen and (min-width: 768px) {
+		.sideShadow {
+			box-shadow: 5px 5px 20px lightblue;
+		}
+	}
+
+	@media only screen and (max-width: 765px) {
+		.sideShadow {
+			box-shadow: none;
+		}
 	}
 </style>

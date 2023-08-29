@@ -24,7 +24,7 @@
 		<span class="flex items-center" slot="back-button">
 			<button on:click={() => goto('/')}>
 				<svg
-					class="md:w-[80%]"
+					class="lg:w-[80%]"
 					width="41"
 					height="41"
 					viewBox="0 0 41 41"
@@ -42,7 +42,7 @@
 	</GeneralTopNav>
 
 	<!-- Mobile view  -->
-	<div class="md:hidden flex flex-col gap-0 mt-20 mb-40">
+	<div class="lg:hidden flex flex-col gap-0 mt-20 mb-40">
 		<!-- Top static pictures -->
 		<div class="w-full">
 			<CarouselTransition
@@ -102,7 +102,7 @@
 			<GeneralBottomNav class="">
 				<!-- Mobile view  -->
 				<button
-					class="md:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
+					class="lg:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
 				>
 					Checkout
 					<svg
@@ -123,7 +123,7 @@
 	</div>
 
 	<!-- Non mobile view -->
-	<div class="hidden md:flex gap-12 px-32 mt-24">
+	<div class="hidden lg:flex gap-12 px-32 mt-24">
 		<!-- Left static pictures -->
 		<div class="w-1/2">
 			<CarouselTransition

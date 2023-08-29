@@ -40,14 +40,14 @@
 
 <div class={customClass} >
 	{#if label}
-		<label class="text-xl md:text-base 2xl:text-lg font-[500] text-black" for={name}>
+		<label class="text-xl lg:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
 			{#if validation}
 				<span class="ml-1 text-red-500 font-bold">*</span>
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 relative flex flex-col gap-2 md:gap-2">
+	<div class="mt-4 relative flex flex-col gap-2 lg:gap-2">
 		{#each selectionArr as elem}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->

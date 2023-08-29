@@ -20,7 +20,7 @@
 		Object.keys(showMore).forEach((id) => {
 			if (showMore[id]) {
 				const textarea = document.getElementById(`myTextarea-${id}`);
-				adjustTextareaHeight(textarea, id);
+				adjustTextareaHeight(textarea);
 			}
 		});
 	});

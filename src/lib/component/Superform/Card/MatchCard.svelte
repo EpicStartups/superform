@@ -16,11 +16,11 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section
 	on:click|preventDefault={selectedProduct}
-	class="hover:scale-105 transform transition duration-600 hover:drop-shadow-lg cursor-pointer rounded-lg flex flex-col gap-4 md:gap-1"
+	class="hover:scale-105 transform transition duration-600 hover:drop-shadow-lg cursor-pointer rounded-lg flex flex-col gap-4 lg:gap-1"
 >
 	<!-- Image -->
 	<div class="">
-		<img class="rounded-3xl md:rounded-2xl h-54 md:h-40 2xl:h-30 w-full" src={match.img_urls[0].imgurl} alt="" />
+		<img class="rounded-3xl lg:rounded-2xl h-54 lg:h-40 2xl:h-30 w-full" src={match.img_urls[0].imgurl} alt="" />
 	</div>
 
 	<!-- Details -->
@@ -28,10 +28,10 @@
 		<div class="flex justify-between items-center">
 			<!-- Address -->
 			<div class="flex flex-col w-[80%]">
-				<p class="text-[#000000] font-[900] text-xl md:text-lg 2xl:text-xl">
+				<p class="text-[#000000] font-[900] text-xl lg:text-lg 2xl:text-xl">
 					{match?.property_name}
 				</p>
-				<p class="text-[#8E918F] font-[600] whitespace-nowrap truncate md:text-sm 2xl:text-base">
+				<p class="text-[#8E918F] font-[600] whitespace-nowrap truncate lg:text-sm 2xl:text-base">
 					{match?.address}
 				</p>
 			</div>
@@ -50,7 +50,7 @@
 			</div>
 
 			<!-- Three icons -->
-			<div class="flex items-center gap-3 md:gap-5 font-bold md:text-sm">
+			<div class="flex items-center gap-3 lg:gap-5 font-bold lg:text-sm">
 				<div class="flex items-center gap-1">
 					<img src={'/bed.svg'} alt="bedroom" class="w-5 h-5" />
 					<p>{match?.num_bedrooms}</p>
