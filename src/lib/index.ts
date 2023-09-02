@@ -1,7 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
 export const adjustTextareaHeight = (element: any) => {
 	if (element) {
-		element.style.height = 'auto';
+		element.style.height = '0px';
 		element.style.height = `${element.scrollHeight + 25}px`;
 	}
 

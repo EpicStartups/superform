@@ -56,8 +56,19 @@
 			question.infos.forEach((info: any) => {
 				if (textarea[info.id]) {
 					console.log(textarea, 'texarea');
+					textarea[info.id].style.height = '0px';
 					adjustTextareaHeight(textarea[info.id]);
 					console.log(textarea[info.id]?.scrollHeight);
+				}
+			});
+		}
+	});
+
+	onDestroy(() => {
+		if (isExpand) {
+			question.infos.forEach((info: any) => {
+				if (textarea[info.id]) {
+					textarea[info.id].style.height = '0px';
 				}
 			});
 		}
@@ -149,7 +160,6 @@
 	</div>
 {/each}
 
-
 <!-- Slider main container for mobile -->
 <div class="swiper h-screen">
 	<!-- Additional required wrapper -->
@@ -159,8 +169,8 @@
 			<div
 				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-2 rounded-l-full animate-pulse"
 			>
-			<img src="/bulb.svg" alt="bulb" />
-		</div>
+				<img src="/bulb.svg" alt="bulb" />
+			</div>
 		</div>
 
 		<div class="swiper-slide info-slide">
