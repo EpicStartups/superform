@@ -211,7 +211,7 @@
 	<!-- Mobile view  -->
 	<button
 		on:click={currentIndex + 1 === totalQuestions ? submitAnswers : nextQuestion}
-		class="lg:hidden w-[90%] bg-primary-500 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
+		class=" lg:hidden w-[90%] bg-primary-700 mx-auto text-[#FFFFFF] rounded-md py-4 px-12 font-[700] text-base flex items-center gap-4 justify-between"
 	>
 		{currentIndex + 1}/{totalQuestions} to your results
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

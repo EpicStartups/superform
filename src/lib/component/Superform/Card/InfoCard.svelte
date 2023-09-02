@@ -17,7 +17,7 @@
 
 	let swiper: Swiper | undefined;
 	let loading = true;
-	let selectedInfo = '';
+	let textarea: any = {};
 
 	// init Swiper:
 	onMount(() => {
@@ -50,18 +50,17 @@
 		}, 500);
 	}
 
-	// const expandTextArea = () => {
-	// 	const textarea = document.getElementById(`myTextarea-${selectedInfo}`);
-	// 	adjustTextareaHeight(textarea);
-	// 	console.log(textarea?.scrollHeight);
-	// };
-
+	$: console.log(textarea, 'texarea');
 	afterUpdate(() => {
 		if (isExpand) {
-			const textarea = document.getElementById(`myTextarea-${selectedInfo}`);
-			adjustTextareaHeight(textarea);
-			console.log(textarea?.scrollHeight);
-		} else selectedInfo = '';
+			question.infos.forEach((info: any) => {
+				if (textarea[info.id]) {
+					console.log(textarea, 'texarea');
+					adjustTextareaHeight(textarea[info.id]);
+					console.log(textarea[info.id]?.scrollHeight);
+				}
+			});
+		}
 	});
 </script>
 
@@ -127,15 +126,12 @@
 					<textarea
 						disabled
 						class="border-none flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
-						id="myTextarea-{info.id}"
 						value={info.description}
 						rows={info.video_url ? 5 : 8}
 					/>
 					<button
 						id="learnMoreButton-{info.id}"
 						on:click={() => {
-							selectedInfo = info.id;
-							// expandTextArea();
 							isExpand = true;
 						}}
 						class="self-end text-primary-200 font-[700] text:base 2xl:text-lg">Learn More</button
@@ -143,17 +139,10 @@
 				{:else}
 					<textarea
 						disabled
-						class="shadow-lg shadow-[#ffffff] rounded-lg min-h-[500px] overflow-y-auto flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full"
-						id="myTextarea-{selectedInfo}"
+						bind:this={textarea[info.id]}
+						class="p-8 shadow-lg shadow-[#ffffff] rounded-lg resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full"
 						value={info.description}
 					/>
-					<!-- <textarea
-							style="pointer-events: none;"
-							disabled
-							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis"
-							id="myTextarea-{info.id}"
-							value={info.description}
-						/> -->
 				{/if}
 			</div>
 		</div>

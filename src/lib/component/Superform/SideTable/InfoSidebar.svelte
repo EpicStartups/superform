@@ -7,107 +7,72 @@
 	const dispatch = createEventDispatcher();
 
 	export let infos: any[] = [];
-
-	let showMore: any = {};
-	let customClass = '';
 	export { customClass as class };
 
-	const toggleShowMore = (id) => {
-		showMore[id] = !showMore[id];
-	};
+	let customClass = '';
+	let textarea: any = {};
 
 	afterUpdate(() => {
-		Object.keys(showMore).forEach((id) => {
-			if (showMore[id]) {
-				const textarea = document.getElementById(`myTextarea-${id}`);
-				adjustTextareaHeight(textarea);
-			}
-		});
-	});
-
-	onMount(() => {
 		infos.forEach((info) => {
-			checkTextareaHeight(info.id);
-		});
-	});
-
-	onDestroy(() => {
-		Object.keys(showMore).forEach((id) => {
-			if (showMore[id]) {
-				const textarea = document.getElementById(`myTextarea-${id}`);
-				adjustTextareaHeight(textarea, id);
-			}
+			adjustTextareaHeight(textarea[info.id]);
+			console.log(textarea[info.id]?.scrollHeight, 'textarea elem');
 		});
 	});
 </script>
 
-<div class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 py-4 text-[#ffffff] font-bold flex animate-pulse">
+<div
+	class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 py-4 text-[#ffffff] font-bold flex animate-pulse"
+>
 	<Icon src={ChevronLeft} class="flex-shrink-0 h-6 w-6 text-gray-700 " />
 </div>
 
-<div class=" rounded-lg drop-shadow-lg w-full h-full flex justify-end">
-	<div style="overflow-y:auto; " class="w-[90%] bg-[#ffffff]">
+<div class="  w-full h-full flex justify-end overscroll-contain">
+	<div
+		style="overflow-y:auto; "
+		class="w-[90%] bg-primary-800 overscroll-contain rounded-l-3xl drop-shadow-2xl"
+	>
 		{#each infos as info}
-			<div class="relative flex flex-col px-6 py-8">
+			<div class="relative flex flex-col px-6 py-8 overscroll-contain">
 				<!-- Bulb Icon  -->
-				<div class="w-full flex justify-end">
+				<!-- <div class="w-full flex justify-end">
 					<img src="/bulb.svg" alt="bulb" />
-				</div>
+				</div> -->
 
 				<!-- Info card  -->
-				<div class="w-full flex-col">
+				<div class="w-full flex-col overscroll-contain">
 					<!-- Icon and title -->
-					<div class="flex items-center gap-2 mb-2">
-						{#if info.image_url}
-							<img src={info.image_url} alt="" class="w-12 h-12" />
-						{/if}
-						<div class="text-[#434350] font-[800] text-3xl">{info.title}</div>
+					<div class="flex-col items-center gap-2 mb-2">
+						<div
+							style="position:relative;padding-top:72%;"
+							class=" w-[115%] bg-[#000000] ml-[-24px] mr-[-100px]"
+						>
+							<!-- Image and video -->
+							{#if info.image_url}
+								<img src={info.image_url} alt="" class="absolute top-0 w-full h-full" />
+							{:else if info.video_url}
+								<iframe
+									style="position:absolute;top:0;width:100%;height:100%;"
+									src={info.video_url}
+									title="video player"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowfullscreen
+								/>
+							{/if}
+						</div>
+
+						<div class="text-white font-[800] text-5xl my-5">{info.title}</div>
 					</div>
 
 					<!-- Description  -->
-					{#if showMore[info.id]}
-						<textarea
-							style="pointer-events: none;"
-							disabled
-							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis"
-							id="myTextarea-{info.id}"
-							value={info.description}
-						/>
-						<button
-							id="showMoreButton-{info.id}"
-							on:click={() => toggleShowMore(info.id)}
-							class="self-end text-primary-500 font-[700] text-lg">Show less</button
-						>
-					{:else}
-						<textarea
-							disabled
-							class="flex-1 resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-hidden text-ellipsis"
-							id="myTextarea-{info.id}"
-							value={info.description}
-						/>
-						<button
-							id="showMoreButton-{info.id}"
-							on:click={() => toggleShowMore(info.id)}
-							class="self-end text-primary-500 font-[700] text-lg">Learn More</button
-						>
-					{/if}
-
-					<!-- Video -->
-					{#if info.video_url}
-						<div
-							style="position:relative;padding-top:72%;"
-							class=" w-[115%] bg-[#000000] mt-4 ml-[-24px] mr-[-100px]"
-						>
-							<iframe
-								style="position:absolute;top:0;width:100%;height:100%;"
-								src={info.video_url}
-								title="video player"
-								frameborder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								allowfullscreen
-							/>
-						</div>
-					{/if}
+					<textarea
+						style="pointer-events: none;"
+						bind:this={textarea[info.id]}
+						disabled
+						class="resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis overscroll-contain"
+						id="myTextarea-{info.id}"
+						value={info.description}
+					/>
 				</div>
 			</div>
 		{/each}
