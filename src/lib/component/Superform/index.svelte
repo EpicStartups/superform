@@ -2,6 +2,7 @@
 	import QuestionTemplates from '../Superform/Module/QuestionTemplates.svelte';
 	import questions from '../../../stores/questions.json';
 	import MatchTemplate from './Module/MatchTemplate.svelte';
+	import Tests from './Module/Tests.svelte';
 
 	// State variable to track the current question index
 	let currentIndex = 0;
@@ -33,6 +34,7 @@
 			{/if}
 		{/each}
 	{/if}
+	<!-- <Tests /> -->
 
 	<!-- After submission -->
 	<!-- {#if currentIndex < 0} -->

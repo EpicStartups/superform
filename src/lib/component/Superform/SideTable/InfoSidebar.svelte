@@ -15,7 +15,7 @@
 	afterUpdate(() => {
 		infos.forEach((info) => {
 			adjustTextareaHeight(textarea[info.id]);
-			console.log(textarea[info.id]?.scrollHeight, 'textarea elem');
+			// console.log(textarea[info.id]?.scrollHeight, 'textarea elem');
 		});
 	});
 </script>
@@ -29,17 +29,13 @@
 <div class="  w-full h-full flex justify-end overscroll-contain">
 	<div
 		style="overflow-y:auto; "
-		class="w-[90%] bg-primary-800 overscroll-contain rounded-l-3xl drop-shadow-2xl"
+		class="w-[90%] bg-primary-900 overscroll-contain rounded-l-3xl drop-shadow-2xl"
 	>
 		{#each infos as info}
 			<div class="relative flex flex-col px-6 py-8 overscroll-contain">
-				<!-- Bulb Icon  -->
-				<!-- <div class="w-full flex justify-end">
-					<img src="/bulb.svg" alt="bulb" />
-				</div> -->
 
 				<!-- Info card  -->
-				<div class="w-full flex-col overscroll-contain">
+				<div class="w-full flex-col overscroll-contain pb-40">
 					<!-- Icon and title -->
 					<div class="flex-col items-center gap-2 mb-2">
 						<div
@@ -69,7 +65,7 @@
 						style="pointer-events: none;"
 						bind:this={textarea[info.id]}
 						disabled
-						class="resize-none bg-[#ffffff] flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis overscroll-contain"
+						class="resize-none bg-primary-900 text-white border-none flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis overscroll-contain"
 						id="myTextarea-{info.id}"
 						value={info.description}
 					/>

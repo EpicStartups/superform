@@ -2,11 +2,11 @@
 export const adjustTextareaHeight = (element: any) => {
 	if (element) {
 		element.style.height = 'auto';
-		element.style.height = `${element.scrollHeight}px`;
+		element.style.height = `${element.scrollHeight + 25}px`;
 	}
 
-	console.log(element.scrollHeight, 'element.scrollHeight')
-	console.log(element.clientHeight,'element.clientHeight' )
+	// console.log(element.scrollHeight, 'element.scrollHeight')
+	// console.log(element.clientHeight,'element.clientHeight' )
 };
 
 export const checkTextareaHeight = async (id: any) => {

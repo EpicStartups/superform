@@ -14,9 +14,9 @@
 
 	export let question = {};
 	export let isExpand = false;
+	export let loading = true;
 
 	let swiper: Swiper | undefined;
-	let loading = true;
 	let textarea: any = {};
 
 	// init Swiper:
@@ -70,7 +70,7 @@
 		in:fly|global={{ x: 100, y: 0 }}
 		class="relative hidden lg:block transition-all duration-300 {isExpand
 			? 'lg:w-screen mx-auto z-[35]'
-			: 'lg:w-[48%]'}"
+			: 'lg:w-[100%]'}"
 	>
 		<div class=" flex flex-col overflow-x-hidden w-full">
 			<!-- Image  -->
@@ -149,12 +149,6 @@
 	</div>
 {/each}
 
-<!-- Modal for info at non mobile view -->
-<!-- {#if isShowUserCard}
-	{#await question.infos.filter((info) => info.id === selectedInfo) then information}
-		<InfoModal bind:isShowUserCard information={information[0]} />
-	{/await}
-{/if} -->
 
 <!-- Slider main container for mobile -->
 <div class="swiper h-screen">
@@ -163,10 +157,10 @@
 		<!-- Slides -->
 		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
 			<div
-				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-4 rounded-l-full animate-pulse"
+				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-2 rounded-l-full animate-pulse"
 			>
-				Info
-			</div>
+			<img src="/bulb.svg" alt="bulb" />
+		</div>
 		</div>
 
 		<div class="swiper-slide info-slide">
@@ -175,10 +169,6 @@
 		</div>
 	</swiper>
 </div>
-
-{#if loading}
-	<div class="loader" />
-{/if}
 
 <style>
 	@media only screen and (min-width: 821px) {

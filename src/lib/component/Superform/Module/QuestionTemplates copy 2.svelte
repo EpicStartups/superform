@@ -24,7 +24,6 @@
 	let isExpand = false;
 	let section: any;
 	let selectedId = '';
-	let loading = false;
 
 	// Function to change slider shape
 	// const changeSliderShape = (e) => {
@@ -68,13 +67,12 @@
 	onMount(() => {
 		// Get all input elements
 		let inputs = document.querySelectorAll('input');
-		console.log(inputs, 'inputs');
 
 		// Add a focus event listener to each input element
 		inputs.forEach(function (input) {
 			input.addEventListener('focus', function () {
 				// Get the top offset of the focused input element
-				let inputHeight = this.getBoundingClientRect().top + window.scrollY - 120;
+				let inputHeight = this.getBoundingClientRect().top + window.scrollY;
 
 				console.log(inputHeight, 'height');
 
@@ -163,7 +161,7 @@
 							console.log(e, 'scroll');
 						}}
 						id={question.id}
-						class="question h-full mt-6 lg:flex lg:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
+						class="bg-blue-400 h-full question mt-6 lg:flex lg:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -195,7 +193,7 @@
 									{:else}
 										{#each question.question_selection.selection_value as selection}
 											<button
-												class=" dropdown-toggle menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
+												class="z-[1000] dropdown-toggle menu-item w-full flex space-x-2 py-2 px-4 hover:bg-primary-100 items-center text-xl 2xl:text-2xl text-primary-500 font-[700]"
 												role="menuitem"
 												tabindex="-1"
 												id="menu-item-0"
@@ -251,8 +249,10 @@
 	</div>
 
 	<!-- Info cards  -->
-	<div style={isExpand ? '' : 'position: -webkit-fixed; position: fixed;right: 0; width: 45%; '} class="z-[100] md:z-0">
-		<InfoCard bind:loading bind:isExpand question={questions[selectedQuestion]} />
+	<div
+		style="{isExpand ? "":"position: -webkit-fixed; position: fixed;right: 0; width: 45%;"}"
+	>
+		<InfoCard bind:isExpand question={questions[selectedQuestion]} />
 	</div>
 </section>
 
@@ -318,10 +318,6 @@
 		</div>
 	</section>
 </GeneralBottomNav>
-
-{#if loading}
-	<div class="loader w-screen h-screen z-[1000]" />
-{/if}
 
 <style>
 	.questionFocus {
