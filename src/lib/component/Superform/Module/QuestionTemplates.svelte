@@ -12,7 +12,6 @@
 	import InputTag from '../Input/InputTag.svelte';
 
 	import { onMount, tick } from 'svelte';
-	import * as animateScroll from 'svelte-scrollto';
 
 	export let questions: any;
 	export let totalQuestions: number;
@@ -23,7 +22,6 @@
 	let selectedQuestion = 0;
 	let isExpand = false;
 	let section: any;
-	let selectedId = '';
 	let loading = false;
 
 	// Function to change slider shape
@@ -53,16 +51,6 @@
 		// Temporary way to indicate submission
 		currentIndex = -1;
 		window.scrollTo(0, 0);
-	};
-
-	const scroll = async (inputHeight: number, section: HTMLElement) => {
-		section.scrollTo({
-			top: inputHeight,
-			behavior: 'smooth'
-		});
-		animateScroll.scrollToBottom();
-		window.scrollTo(100, 100);
-		console.log(inputHeight, 'heigth');
 	};
 
 	onMount(() => {
@@ -147,7 +135,6 @@
 					<div
 						on:focusin|preventDefault={async () => {
 							selectedQuestion = index;
-							selectedId = question.id;
 							// let inputs = document.getElementById(question.id);
 
 							// // Get the top offset of the focused input element
