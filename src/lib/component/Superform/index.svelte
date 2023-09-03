@@ -19,7 +19,7 @@
 
 </script>
 
-<section class="bg-primary-25 min-h-screen">
+<section class="md:bg-primary-25 min-h-screen">
 	<!-- Before submission -->
 	{#if currentIndex >= 0}
 		{#each questions.pages as page, index (index)}

@@ -60,7 +60,7 @@
 
 		// Add a focus event listener to each input element
 		inputs.forEach(function (input) {
-			input.addEventListener('focus', function () {
+			input.addEventListener('focus', function (event) {
 				// Get the top offset of the focused input element
 				let inputHeight = this.getBoundingClientRect().top + window.scrollY - 120;
 
@@ -72,11 +72,26 @@
 					behavior: 'smooth'
 				});
 
+				event.preventDefault();
+
 				// Prevent the default behavior of the focus event
 				return false;
 			});
 		});
 	});
+
+	const focusNext = () => {
+		// Convert NodeList to Array with slice()
+		let inputs = Array.prototype.slice.call(document.querySelectorAll('input'));
+
+		const currInput = document.activeElement;
+
+		console.log(currInput, 'currInput');
+		const currInputIndex = inputs.indexOf(currInput);
+		const nextinputIndex = (currInputIndex + 1) % inputs.length;
+		const input = inputs[nextinputIndex];
+		input.focus();
+	};
 </script>
 
 <GeneralTopNav class="lg:hidden">
@@ -123,7 +138,12 @@
 		<!-- Content -->
 		<div class=" md:min-h-screen px-8 lg:px-16 pt-14 pb-16">
 			<!-- Question -->
-			<form class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-4 jusitfy-start">
+			<form
+				on:submit|preventDefault={() => {
+					return false;
+				}}
+				class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
+			>
 				<!-- on:submit={() => {
 				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
 			}} -->
@@ -135,13 +155,6 @@
 					<div
 						on:focusin|preventDefault={async () => {
 							selectedQuestion = index;
-							// let inputs = document.getElementById(question.id);
-
-							// // Get the top offset of the focused input element
-							// let inputHeight = inputs.getBoundingClientRect().top + window.scrollY;
-
-							// await tick();
-							// scroll(inputHeight, section);
 						}}
 						on:mouseenter={() => {
 							selectedQuestion = index;
@@ -161,7 +174,13 @@
 								bind:value={question.value}
 								class={`elem-${index}`}
 								id={question.id}
-							/>
+							>
+								<span slot="tail">
+									<button class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
+										><img src="/nextInputButton.svg" alt="nextInputButton" /></button
+									>
+								</span>
+							</Input>
 						{:else if question.question_type === 'dropdown'}
 							<Dropdown bind:showDropdown={question.showDropdown} class={`elem-${index}`}>
 								<Input
@@ -238,7 +257,10 @@
 	</div>
 
 	<!-- Info cards  -->
-	<div style={isExpand ? '' : 'position: -webkit-fixed; position: fixed;right: 0; width: 45%; '} class="z-[100] md:z-0">
+	<div
+		style={isExpand ? '' : 'position: -webkit-fixed; position: fixed;right: 0; width: 45%; '}
+		class="z-[100] md:z-0"
+	>
 		<InfoCard bind:loading bind:isExpand question={questions[selectedQuestion]} />
 	</div>
 </section>

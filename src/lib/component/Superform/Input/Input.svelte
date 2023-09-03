@@ -107,7 +107,7 @@
 				<Icon src={backIcon} class="flex-shrink-0 h-8 w-8 text-gray-700" />
 			</div>
 		{/if}
-		<div class="absolute inset-y-0 right-0 flex items-center">
+		<div class="absolute inset-y-0 -right-8 flex items-center">
 			<slot name="tail" />
 		</div>
 	</div>
