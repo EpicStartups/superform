@@ -167,14 +167,13 @@
 		<!-- Slides -->
 		<div class=" relative bg-primary-50 swiper-slide slider-1 bg-primary-500">
 			<div
-				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-4 py-2 rounded-l-full animate-pulse"
+				class="absolute top-80 right-0 slider text-[#ffffff] bg-primary-900 px-0 py-2 rounded-l-full animate-pulse"
 			>
 				<img src="/bulb.svg" alt="bulb" />
 			</div>
 		</div>
 
 		<div class="swiper-slide info-slide">
-			<!-- <div class="">Here</div> -->
 			<InfoSidebar infos={question.infos} />
 		</div>
 	</swiper>

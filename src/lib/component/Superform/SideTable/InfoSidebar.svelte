@@ -23,7 +23,7 @@
 <div
 	class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 py-4 text-[#ffffff] font-bold flex animate-pulse"
 >
-	<Icon src={ChevronLeft} class="flex-shrink-0 h-6 w-6 text-gray-700 " />
+	<Icon src={ChevronLeft} class="flex-shrink-0 h-6 w-6 text-primary-100 " />
 </div>
 
 <div class="  w-full h-full flex justify-end overscroll-contain">
@@ -65,7 +65,7 @@
 						style="pointer-events: none;"
 						bind:this={textarea[info.id]}
 						disabled
-						class="resize-none bg-primary-900 text-white border-none flex-grow text-[#191C1B] font-[400] text-lg w-full overflow-y-auto text-ellipsis overscroll-contain"
+						class="resize-none bg-primary-900 text-white border-none flex-grow text-[#191C1B] font-[400] text-lg w-full overscroll-contain"
 						id="myTextarea-{info.id}"
 						value={info.description}
 					/>
