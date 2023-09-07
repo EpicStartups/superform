@@ -23,6 +23,8 @@
 	let isExpand = false;
 	let section: any;
 	let loading = false;
+	let hideNextButton = false;
+	let focusElem = '';
 
 	// Function to change slider shape
 	// const changeSliderShape = (e) => {
@@ -55,44 +57,57 @@
 
 	onMount(() => {
 		// Get all input elements
-		let inputs = document.querySelectorAll('input');
-		console.log(inputs, 'inputs');
-
-		// Add a focus event listener to each input element
-		inputs.forEach(function (input) {
-			input.addEventListener('focus', function (event) {
-				// Get the top offset of the focused input element
-				let inputHeight = this.getBoundingClientRect().top + window.scrollY - 120;
-
-				console.log(inputHeight, 'height');
-
-				// Scroll to the input element smoothly
-				window.scrollTo({
-					top: inputHeight,
-					behavior: 'smooth'
-				});
-
-				event.preventDefault();
-
-				// Prevent the default behavior of the focus event
-				return false;
-			});
-		});
+		// let inputs = document.querySelectorAll('input');
+		// console.log(inputs, 'inputs');
+		// // Add a focus event listener to each input element
+		// inputs.forEach(function (input) {
+		// 	input.addEventListener('focus', function (event) {
+		// 		// Get the top offset of the focused input element
+		// 		let inputHeight = this.getBoundingClientRect().top + window.scrollY - 120;
+		// 		console.log(inputHeight, 'height');
+		// 		// Scroll to the input element smoothly
+		// 		window.scrollTo({
+		// 			top: inputHeight,
+		// 			behavior: 'smooth'
+		// 		});
+		// 		event.preventDefault();
+		// 		// Prevent the default behavior of the focus event
+		// 		return false;
+		// 	});
+		// });
+		// });
 	});
 
 	const focusNext = () => {
-		// Convert NodeList to Array with slice()
-		let inputs = Array.prototype.slice.call(document.querySelectorAll('input'));
+		// Focus next element when user click the button
+		let questionLength = questions.length;
+		hideNextButton = true;
 
-		const currInput = document.activeElement;
+		if (questionLength < selectedQuestion) {
+			hideNextButton = false;
+			selectedQuestion++;
+			focusElem = questions[selectedQuestion].id;
+			handleFocusElem();
+		}
+	};
 
-		console.log(currInput, 'currInput');
-		const currInputIndex = inputs.indexOf(currInput);
-		const nextinputIndex = (currInputIndex + 1) % inputs.length;
-		const input = inputs[nextinputIndex];
-		input.focus();
+	const handleFocusElem = () => {
+		// Get all input elements
+		let elem = document.getElementById(focusElem);
+		console.log(elem, 'elem');
+
+		// Get the top offset of the focused input element
+		let elemHeight = elem.getBoundingClientRect().top + window.scrollY - 120;
+
+		// Scroll to the input element smoothly
+		window.scrollTo({
+			top: elemHeight,
+			behavior: 'smooth'
+		});
 	};
 </script>
+
+<svelte:window on:click={handleFocusElem} />
 
 <GeneralTopNav class="lg:hidden">
 	<span class="{currentIndex > 0 ? 'block' : 'hidden'} flex items-center" slot="back-button">
@@ -142,7 +157,7 @@
 				on:submit|preventDefault={() => {
 					return false;
 				}}
-				class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-4 jusitfy-start"
+				class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-8 jusitfy-start"
 			>
 				<!-- on:submit={() => {
 				currentIndex + 1 === totalQuestions ? submitAnswers() : nextQuestion();
@@ -152,18 +167,24 @@
 				</h1>
 				{#each questions as question, index}
 					<!-- svelte-ignore a11y-no-static-element-interactions -->
+					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<div
-						on:focusin|preventDefault={async () => {
+						on:focusin={async () => {
 							selectedQuestion = index;
+							console.log(index, 'index');
+							// window.scrollTo();
+							// window.location.hash = `#${question.id}`;
 						}}
 						on:mouseenter={() => {
+							focusElem = question.id;
 							selectedQuestion = index;
 						}}
 						on:scroll={(e) => {
 							console.log(e, 'scroll');
 						}}
+						tabindex="1"
 						id={question.id}
-						class="question h-full mt-6 lg:flex lg:flex-col opacity-60 hover:opacity-100 focus-within:opacity-100"
+						class="question h-full mt-6 lg:flex lg:flex-col opacity-30 hover:opacity-100 focus-within:opacity-100"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -176,7 +197,9 @@
 								id={question.id}
 							>
 								<span slot="tail">
-									<button class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
+									<button
+										on:click={focusNext}
+										class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
 										><img src="/nextInputButton.svg" alt="nextInputButton" /></button
 									>
 								</span>
@@ -192,7 +215,15 @@
 									on:focus={() => (question.showDropdown = true)}
 									bind:value={question.value}
 									backIcon={ChevronDown}
-								/>
+								>
+									<span slot="tail">
+										<button
+											on:click={focusNext}
+											class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
+											><img src="/nextInputButton.svg" alt="nextInputButton" /></button
+										>
+									</span></Input
+								>
 								<span class="dropdown-toggle" slot="menu-items">
 									{#if question.question_selection.selection_value.length <= 0}
 										<p class="dropdown-toggle menu-item flex space-x-2 items-center" tabindex="-1">
@@ -344,7 +375,7 @@
 
 	@media only screen and (min-width: 768px) {
 		.sideShadow {
-			box-shadow: 5px 5px 20px lightblue;
+			box-shadow: 5px 5px 20px #31138b;
 		}
 	}
 

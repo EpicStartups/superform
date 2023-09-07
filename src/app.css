@@ -3,17 +3,23 @@
 @tailwind utilities;
 
 :root {
-	--primary-25: #F9F8FC;
-	--primary-50: #EAE7F9;
-	--primary-100: #DBD5F7;
-	--primary-200: #CCC2F4;
-	--primary-300: #BDACF2;
-	--primary-400: #AE95EF;
-	--primary-500: #9F7EEC;
-	--primary-600: #8E66FF;
-	--primary-700: #6E3DFF;
-	--primary-800: #4E14FF;
-	--primary-900: #2E1A69
+	--primary-25: #f9f8fc;
+	--primary-50: #eae7f9;
+	--primary-100: #dbd5f7;
+	--primary-200: #ccc2f4;
+	--primary-300: #bdacf2;
+	--primary-400: #ae95ef;
+	--primary-500: #9f7eec;
+	--primary-600: #8e66ff;
+	--primary-700: #6e3dff;
+	--primary-800: #4e14ff;
+	--primary-900: #2e1a69;
+}
+
+@layer base {
+	html {
+		font-family: 'Poppins', sans-serif;
+	}
 }
 
 /* Absolute Center Spinner */
@@ -178,8 +184,9 @@
 
 @media only screen and (max-width: 768px) {
 	/* For mobile phones: */
-	::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+	::-webkit-scrollbar,
+	::-webkit-scrollbar-track,
+	::-webkit-scrollbar-thumb {
 		display: none;
 	}
-
 }

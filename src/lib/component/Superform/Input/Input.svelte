@@ -116,7 +116,7 @@
 <style>
 	.hover {
 		border-bottom: 4px solid;
-		border-image: repeating-linear-gradient(135deg, #f8ca00 0 10px, #e97f02 0 20px, #bd1550 0 30px)
+		border-image: repeating-linear-gradient(135deg, #4E14FF 0 10px, #4E14FF 0 20px, #4E14FF 0 30px)
 			8;
 		-webkit-mask: conic-gradient(from 180deg at top 8px right 8px, #0000 90deg, #000 0)
 				var(--_i, 200%) 0 /200% var(--_i, 8px) border-box no-repeat,

@@ -47,7 +47,7 @@
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 relative flex flex-col lg:flex-row gap-4 lg:gap-6">
+	<div class="mt-4 p-4 lg:p-0 relative flex flex-row w-[285px] overflow-x-auto md:w-[700px] lg:w-fit lg:flex-row gap-4 lg:gap-6">
 		{#each selectionArr as elem (elem.value)}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -60,7 +60,7 @@
 								: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'
 					  ]
 					: 'box-shadow: -3px 4px 5px 0px rgba(0, 0, 0, 0.25);'}
-				class="transform transition duration-600 hover:scale-110 flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-4 lg:py-6 px-6 lg:px-4 cursor-pointer text-lg text-black font-[400] w-full border border-4 {value
+				class="transform transition duration-600 lg:hover:scale-110 flex flex-col gap-6 shadow-[-3px_4px_605px_0px_rgba(0, 0, 0.25)] rounded-md items-center py-4 lg:py-6 px-6 lg:px-4 cursor-pointer text-lg text-black font-[400] w-full border border-4 {value
 					? [
 							value.includes(elem.value)
 								? 'border-primary-800 border-2 bg-primary-25'
