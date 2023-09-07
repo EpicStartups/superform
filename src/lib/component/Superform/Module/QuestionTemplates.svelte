@@ -94,7 +94,11 @@
 	const handleFocusElem = () => {
 		// Get all input elements
 		let elem = document.getElementById(focusElem);
-		console.log(elem, 'elem');
+
+		// Special focus for dropdown type question, else not focus after option selection
+		if (questions[selectedQuestion].question_type === 'dropdown') elem?.focus();
+
+		// console.log(elem, 'elem');
 
 		// Get the top offset of the focused input element
 		let elemHeight = elem.getBoundingClientRect().top + window.scrollY - 120;
@@ -184,7 +188,7 @@
 						}}
 						tabindex="1"
 						id={question.id}
-						class="question h-full mt-6 lg:flex lg:flex-col opacity-30 hover:opacity-100 focus-within:opacity-100"
+						class="question h-full mt-6 lg:flex lg:flex-col opacity-10 hover:opacity-100 focus-within:opacity-100"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -222,9 +226,18 @@
 											class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
 											><img src="/nextInputButton.svg" alt="nextInputButton" /></button
 										>
-									</span></Input
+									</span>
+								</Input>
+								<!-- svelte-ignore a11y-click-events-have-key-events -->
+								<span
+									on:click={() => {
+										focusElem = question.id;
+										selectedQuestion = index;
+										handleFocusElem();
+									}}
+									class="dropdown-toggle"
+									slot="menu-items"
 								>
-								<span class="dropdown-toggle" slot="menu-items">
 									{#if question.question_selection.selection_value.length <= 0}
 										<p class="dropdown-toggle menu-item flex space-x-2 items-center" tabindex="-1">
 											No result
@@ -279,6 +292,7 @@
 								label={question.name}
 								bind:value={question.value}
 								class={`elem-${index}`}
+								id={question.id}
 							/>
 						{/if}
 					</div>

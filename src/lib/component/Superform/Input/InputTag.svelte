@@ -10,6 +10,7 @@
 	export let rangeArr: any[] = [];
 	export let required = false;
 	export let table: any;
+	export let id = '';
 
 	let customClass = '';
 	export { customClass as class };
@@ -55,6 +56,10 @@
 		value = value;
 		input = '';
 		showDropDown = false;
+
+		// Get all input elements
+		let elem = document.getElementById(`input-${id}`);
+		elem?.focus();
 	};
 
 	const validateInput = (selection: '') => {
@@ -133,6 +138,7 @@
 			autofocus={false}
 			bind:value={input}
 			bind:container
+			id={`input-${id}`}
 		/>
 	</div>
 

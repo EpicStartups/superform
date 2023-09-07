@@ -47,7 +47,7 @@
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 p-4 lg:p-0 relative flex flex-row w-[285px] overflow-x-auto md:w-[700px] lg:w-fit lg:flex-row gap-4 lg:gap-6">
+	<div class="mt-4 p-4 relative flex flex-row w-[285px] overflow-x-auto md:w-[700px] lg:overflow-hidden lg:w-full lg:flex-row gap-4 lg:gap-6">
 		{#each selectionArr as elem (elem.value)}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
