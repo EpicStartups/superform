@@ -81,10 +81,8 @@
 	const focusNext = () => {
 		// Focus next element when user click the button
 		let questionLength = questions.length;
-		hideNextButton = true;
 
 		if (questionLength < selectedQuestion) {
-			hideNextButton = false;
 			selectedQuestion++;
 			focusElem = questions[selectedQuestion].id;
 			handleFocusElem();
@@ -175,16 +173,11 @@
 					<div
 						on:focusin={async () => {
 							selectedQuestion = index;
-							console.log(index, 'index');
-							// window.scrollTo();
-							// window.location.hash = `#${question.id}`;
 						}}
 						on:mouseenter={() => {
+							// if (!window.navigator.userAgentData.mobile) {}
 							focusElem = question.id;
 							selectedQuestion = index;
-						}}
-						on:scroll={(e) => {
-							console.log(e, 'scroll');
 						}}
 						tabindex="1"
 						id={question.id}
@@ -201,10 +194,10 @@
 								id={question.id}
 							>
 								<span slot="tail">
-									<button
+									<div
 										on:click={focusNext}
 										class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
-										><img src="/nextInputButton.svg" alt="nextInputButton" /></button
+										><img src="/nextInputButton.svg" alt="nextInputButton" /></div
 									>
 								</span>
 							</Input>
@@ -221,10 +214,10 @@
 									backIcon={ChevronDown}
 								>
 									<span slot="tail">
-										<button
+										<div
 											on:click={focusNext}
 											class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
-											><img src="/nextInputButton.svg" alt="nextInputButton" /></button
+											><img src="/nextInputButton.svg" alt="nextInputButton" /></div
 										>
 									</span>
 								</Input>
