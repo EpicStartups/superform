@@ -230,4 +230,10 @@
 		height: 100vh;
 		overscroll-behavior: contain;
 	}
+
+	textarea {
+		-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+		mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+		padding-bottom: 150px;
+	}
 </style>
