@@ -76,6 +76,17 @@
 		// 	});
 		// });
 		// });
+
+		if (window) {
+			questions.forEach((question, index) => {
+				if (index === 0) {
+					focusElem = question.id;
+					selectedQuestion = index;
+					handleFocusElem();
+					return;
+				}
+			});
+		}
 	});
 
 	const focusNext = () => {
@@ -97,6 +108,8 @@
 		if (questions[selectedQuestion].question_type === 'dropdown') elem?.focus();
 
 		// console.log(elem, 'elem');
+		// console.log(focusElem, 'focusElem');
+		// console.log(selectedQuestion, 'selectedQuestion');
 
 		// Get the top offset of the focused input element
 		let elemHeight = elem.getBoundingClientRect().top + window.scrollY - 120;
@@ -181,7 +194,10 @@
 						}}
 						tabindex="1"
 						id={question.id}
-						class="question h-full mt-6 lg:flex lg:flex-col opacity-10 hover:opacity-100 focus-within:opacity-100"
+						class="question h-full mt-6 lg:flex lg:flex-col opacity-10 hover:opacity-100 focus-within:opacity-100 {selectedQuestion ===
+						index
+							? 'opacity-100'
+							: 'opacity-10'}"
 					>
 						<!-- Different types of questions   -->
 						{#if question.question_type === 'text_input'}
@@ -197,8 +213,9 @@
 									<div
 										on:click={focusNext}
 										class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
-										><img src="/nextInputButton.svg" alt="nextInputButton" /></div
 									>
+										<img src="/nextInputButton.svg" alt="nextInputButton" />
+									</div>
 								</span>
 							</Input>
 						{:else if question.question_type === 'dropdown'}
@@ -217,8 +234,9 @@
 										<div
 											on:click={focusNext}
 											class="md:hidden {selectedQuestion === index ? 'block' : 'hidden'}"
-											><img src="/nextInputButton.svg" alt="nextInputButton" /></div
 										>
+											<img src="/nextInputButton.svg" alt="nextInputButton" />
+										</div>
 									</span>
 								</Input>
 								<!-- svelte-ignore a11y-click-events-have-key-events -->
