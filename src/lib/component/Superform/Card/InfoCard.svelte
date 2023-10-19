@@ -79,7 +79,7 @@
 {#each question.infos as info}
 	<div
 		in:fly|global={{ x: 100, y: 0 }}
-		class="relative hidden lg:block transition-all duration-300 {isExpand
+		class="relative hidden lg:block transition-all duration-300 overflow-auto {isExpand
 			? 'lg:w-screen mx-auto z-[35]'
 			: 'lg:w-[100%]'}"
 	>
@@ -136,17 +136,17 @@
 				{#if !isExpand}
 					<textarea
 						disabled
-						class="border-none flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overflow-y-hidden text-ellipsis"
+						class="border-none flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overscroll-contain overflow-y-auto text-ellipsis"
 						value={info.description}
 						rows={info.video_url ? 5 : 8}
 					/>
-					<button
+					<!-- <button
 						id="learnMoreButton-{info.id}"
 						on:click={() => {
 							isExpand = true;
 						}}
 						class="self-end text-primary-200 font-[700] text:base 2xl:text-lg">Learn More</button
-					>
+					> -->
 				{:else}
 					<textarea
 						disabled
