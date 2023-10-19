@@ -60,7 +60,7 @@
 		if (isExpand) {
 			const textarea = document.getElementById(`myTextarea-${selectedInfo}`);
 			adjustTextareaHeight(textarea);
-			console.log(textarea?.scrollHeight);
+			// console.log(textarea?.scrollHeight);
 		} else selectedInfo = '';
 	});
 </script>

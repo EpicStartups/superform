@@ -152,7 +152,7 @@
 >
 	<div
 		bind:this={section}
-		class="h-full sideShadow lg:z-[10] lg:px-12 bg-[#ffffff] lg:rounded-r-[36px] {isExpand
+		class="h-full sideShadow lg:z-[10] lg:px-12 bg-[#ffffff] lg:rounded-r-[4px] {isExpand
 			? 'hidden'
 			: 'lg:w-[55%]'} flex flex-col"
 	>
