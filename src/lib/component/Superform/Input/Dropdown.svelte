@@ -47,7 +47,7 @@
 	{#if showDropdown}
 		<div
 			id="dropdown"
-			class=" origin-top-right absolute shadow-lg bg-white ring-1 w-full rounded-md ring-black ring-opacity-5 focus:outline-none z-[100] max-h-[100px] overflow-y-auto mt-1"
+			class=" origin-top-right absolute shadow-lg bg-white ring-1 w-full rounded-md ring-black ring-opacity-5 focus:outline-none z-[100] max-h-[400px] overflow-y-auto mt-1"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"

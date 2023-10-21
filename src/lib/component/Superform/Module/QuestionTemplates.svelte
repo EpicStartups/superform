@@ -77,11 +77,11 @@
 <!-- Questions and Info -->
 <!-- transition:fly={{ x: -1000, duration: 300 }} -->
 <section
-	class="min-h-screen lg:bg-primary-800 relative w-[90%] mx-auto lg:w-[100%] text-base 2xl:text-xl flex"
+	class="min-h-screen lg:bg-primary-800 relative w-[90%] md:w-full mx-auto lg:w-[100%] text-base 2xl:text-xl flex"
 >
 	<div
 		bind:this={section}
-		class="h-full sideShadow lg:z-[10] lg:px-12 bg-[#ffffff] lg:rounded-r-[4px] lg:w-[55%] flex flex-col"
+		class="h-full sideShadow lg:z-[10] lg:px-12 bg-[#ffffff] lg:rounded-r-[4px] md:w-full lg:w-[55%] flex flex-col"
 	>
 		<!-- Navbar -->
 		<section class="hidden lg:block bg-[#ffffff] fixed z-[50] w-[45%] h-fit">
@@ -115,13 +115,13 @@
 		</section>
 
 		<!-- Content -->
-		<div class=" md:min-h-screen px-8 lg:px-16 pt-14 pb-16 flex justfy-center items-center">
+		<div class=" min-h-screen px-8 md:px-20 lg:px-16 pt-14 pb-16 flex justfy-center items-center">
 			<!-- Question -->
 			<form
 				on:submit={() => {
 					return false;
 				}}
-				class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-8"
+				class="h-full mt-16 lg:mt-12 mb-40 flex flex-col gap-8 w-full"
 			>
 				<h1 class="w-[80%] uppercase text-primary-900 font-[700] text-3xl lg:text-4xl 2xl:text-5xl">
 					{questionData.label}
@@ -235,7 +235,7 @@
 	<!-- Info cards  -->
 	<div
 		style={'position: -webkit-fixed; position: fixed;right: 0; width: 45%; '}
-		class="z-[100] md:z-0"
+		class="z-[100] lg:z-0"
 	>
 		<InfoCard bind:loading question={questionData} />
 	</div>

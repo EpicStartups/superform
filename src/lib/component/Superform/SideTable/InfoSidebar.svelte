@@ -21,7 +21,7 @@
 </script>
 
 <div
-	class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 py-4 text-[#ffffff] font-bold flex animate-pulse"
+	class="absolute top-80 left-0 slider bg-primary-900 w-12 px-2 md:px-10 py-4 text-[#ffffff] font-bold flex animate-pulse"
 >
 	<Icon src={ChevronLeft} class="flex-shrink-0 h-6 w-6 text-primary-100 " />
 </div>
