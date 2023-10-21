@@ -5,7 +5,7 @@
 
 	export let name = '';
 	export let validation = false;
-	export let label: string;
+	export let label: string = '';
 	export let value: any;
 	export let selectionArr: any[] = [];
 	export let required = false;
@@ -38,7 +38,7 @@
 	};
 </script>
 
-<div class={customClass} >
+<div class={customClass}>
 	{#if label}
 		<label class="text-xl lg:text-base 2xl:text-lg font-[500] text-black" for={name}>
 			{label}
@@ -53,7 +53,6 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
 				id={elem.value}
-				
 				class="transform transition duration-600 hover:scale-110 flex bg-[#ffffff] items-center gap-4 px-6 cursor-pointer text-base 2xl:text-lg text-[#475467] font-[600] py-2 w-full border border-2 shadow-md {value
 					? [value.includes(elem.value) ? 'border-[#FDA31C] border-4' : ' border-[#D0D5DD]']
 					: 'border-[#D0D5DD]'} rounded-full

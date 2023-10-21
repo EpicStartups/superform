@@ -1,8 +1,4 @@
-{
-    "pages": [
         {
-            "page_title": "General Knowledge",
-            "icon": "Home",
             "questions": [
                 {
                     "question_type": "text_input",
@@ -91,18 +87,12 @@
                             "type": "text"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "page_title": "Culinary Delights",
-            "icon": "Home",
-            "questions": [
+                },
                 {
                     "question_type": "select_pill",
                     "id": "235454",
                     "name": "Select your favorite cuisines.",
-                    "label": "Unselecting any particular cuisine could potentially cause offense.",
+                    "label": "Select your favorite cuisines.",
                     "question_selection": [
                         {
                             "value": "Italian",
@@ -144,7 +134,7 @@
                     "question_type": "select_card",
                     "id": "635454",
                     "name": "Select the most beautiful continent of the world.",
-                    "label": "",
+                    "label": "Select the most beautiful continent of the world.",
                     "question_selection": [
                         {
                             "value": "Asia",
@@ -174,7 +164,7 @@
                     "question_type": "dropdown",
                     "id": "346536g",
                     "name": "Which planet is known as the 'Red Planet'?",
-                    "label": "",
+                    "label": "Which planet is known as the 'Red Planet'?",
                     "question_selection": {
                         "selection_value": [
                             "Mars",
@@ -198,7 +188,7 @@
                     "question_type": "select_card",
                     "id": "gret54y",
                     "name": "Select the least attractive continent of the world.",
-                    "label": "",
+                    "label": "Select the least attractive continent of the world.",
                     "question_selection": [
                         {
                             "value": "Asia",
@@ -223,21 +213,16 @@
                             "type": "text"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "page_title": "Personal Traits",
-            "icon": "Home",
-            "questions": [
+                },
                 {
                     "question_type": "range_slider",
                     "id": "34654b",
                     "name": "Rate your mathematical skills from 0 to 10.",
-                    "label": "",
+                    "label": "Rate your mathematical skills from 0 to 10.",
                     "question_selection": {
                         "min": 0,
-                        "max": 140
+                        "max": 10,
+                        "step": 1
                     },
                     "infos": [
                         {
@@ -255,7 +240,7 @@
                     "id": "56434b",
                     "name": "What are your favorite hobbies or interests?",
                     "table": "hobbies",
-                    "label": "",
+                    "label": "What are your favorite hobbies or interests?",
                     "infos": [
                         {
                             "title": "Tags",
@@ -293,5 +278,3 @@
                 }
             ]
         }
-    ]
-}

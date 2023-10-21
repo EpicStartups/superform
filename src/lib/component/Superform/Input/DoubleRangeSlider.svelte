@@ -2,11 +2,13 @@
 	import { clamp } from 'yootils';
 	export let name = '';
 	export let validation = false;
-	export let label: string;
+	export let label: string = '';
 	export let value: any = 0;
 	export let rangeArr: any[] = [];
 	export let required = false;
 
+	// Define the 'step' prop
+	export let step = 1; // You can set a default value if needed
 	let customClass = '';
 	export { customClass as class };
 	let disabledClass = 'cursor-not-allowed opacity-80 hover:opacity-80';
@@ -89,12 +91,17 @@
 			const parentWidth = right - left;
 
 			const p = Math.min(Math.max((evt.detail.x - left) / parentWidth, 0), 1);
+
+			// Adjust for the 'step' prop for snapping
+			const stepSize = (parentWidth * step) / 10;
+			const snappedPosition = Math.round(p / (step / 10)) * step / 10;
+
 			if (which === 'start') {
-				start = p;
-				end = Math.max(end, p);
+				start = snappedPosition;
+				end = Math.max(end, snappedPosition);
 			} else {
-				start = Math.min(p, start);
-				end = p;
+				start = Math.min(snappedPosition, start);
+				end = snappedPosition;
 			}
 		};
 	}
@@ -106,8 +113,12 @@
 		const leftHandleLeft = leftHandle.getBoundingClientRect().left;
 		const pxStart = clamp(leftHandleLeft + event.detail.dx - left, 0, parentWidth - width);
 		const pxEnd = clamp(pxStart + width, width, parentWidth);
-		const pStart = pxStart / parentWidth;
-		const pEnd = pxEnd / parentWidth;
+
+		// Calculate the positions based on the 'step' prop
+		const stepSize = (parentWidth * step) / 100; // Convert the step to a percentage of the parent width
+		const pStart = (Math.round(pxStart / stepSize) * step) / parentWidth;
+		const pEnd = (Math.round(pxEnd / stepSize) * step) / parentWidth;
+
 		start = pStart;
 		end = pEnd;
 	}
@@ -156,7 +167,7 @@
 				left: {100 * end}%
 			"
 			>
-				<div class="text-primary-900 font-[500] absolute top-3 -inset-x-4" data-which="start" >
+				<div class="text-primary-900 font-[500] absolute top-3 -inset-x-4" data-which="start">
 					{(value * end).toFixed(2)}
 				</div>
 			</div>

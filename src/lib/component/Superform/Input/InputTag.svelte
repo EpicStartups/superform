@@ -5,7 +5,7 @@
 
 	export let name = '';
 	export let validation = false;
-	export let label: string;
+	export let label: string = '';
 	export let value: any[] = [];
 	export let rangeArr: any[] = [];
 	export let required = false;

@@ -8,7 +8,7 @@
 	export let required = false;
 	export let validation = false;
 	export let autocomplete = 'off';
-	export let label: string;
+	export let label: string = '';
 	export let value: any;
 	export let placeholder = '';
 	export let type = 'input';
@@ -55,7 +55,6 @@
 		if (type === 'number' && value === undefined) placeholder = 0;
 		dispatch('blur', value);
 	});
-
 </script>
 
 <div class={`${customClass} focus:text-black  text-[#191C1B]`} bind:this={container}>
@@ -116,7 +115,7 @@
 <style>
 	.hover {
 		border-bottom: 4px solid;
-		border-image: repeating-linear-gradient(135deg, #4E14FF 0 10px, #4E14FF 0 20px, #4E14FF 0 30px)
+		border-image: repeating-linear-gradient(135deg, #4e14ff 0 10px, #4e14ff 0 20px, #4e14ff 0 30px)
 			8;
 		-webkit-mask: conic-gradient(from 180deg at top 8px right 8px, #0000 90deg, #000 0)
 				var(--_i, 200%) 0 /200% var(--_i, 8px) border-box no-repeat,
@@ -125,7 +124,8 @@
 			linear-gradient(#000 0 0) padding-box no-repeat;
 		transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
 	}
-	.hover:hover, .hover:focus {
+	.hover:hover,
+	.hover:focus {
 		--_i: 100%;
 		/* color: #cc333f; */
 		transition: 0.3s, -webkit-mask-size 0.3s 0.3s;

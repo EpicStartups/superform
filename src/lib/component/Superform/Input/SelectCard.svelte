@@ -5,7 +5,7 @@
 
 	export let name = '';
 	export let validation = false;
-	export let label: string;
+	export let label: string = '';
 	export let value: any;
 	export let selectionArr: any[] = [];
 	export let required = false;
@@ -47,7 +47,9 @@
 			{/if}</label
 		>
 	{/if}
-	<div class="mt-4 p-4 relative flex flex-row w-[285px] overflow-x-auto md:w-[700px] lg:overflow-hidden lg:w-full lg:flex-row gap-4 lg:gap-6">
+	<div
+		class="mt-4 p-4 relative flex flex-row w-[285px] overflow-x-auto md:w-[700px] lg:overflow-hidden lg:w-full lg:flex-row gap-4 lg:gap-6"
+	>
 		{#each selectionArr as elem (elem.value)}
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<!-- svelte-ignore a11y-click-events-have-key-events -->

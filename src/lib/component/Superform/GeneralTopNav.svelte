@@ -9,7 +9,7 @@
 <section class="{customClass1} fixed top-0 left-0 bg-[#ffffff] z-50 w-full h-fit pt-4 pb-4 lg:py-2">
 	<!-- Mobile view  -->
 	<div class="lg:hidden font-[700] text-base flex gap-4  w-[90%] mx-auto">
-		<div class="flex gap-12 items-center">
+		<div class="flex gap-4 items-center">
 			<slot name="back-button" />
             <img class="w-36 " src="/project-logo.svg" alt="project-name" />
 		</div>

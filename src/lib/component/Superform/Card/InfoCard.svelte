@@ -1,23 +1,20 @@
 <script lang="ts">
-	import InfoModal from '../Modal/InfoModal.svelte';
 	import InfoSidebar from '../SideTable/InfoSidebar.svelte';
-	import { adjustTextareaHeight, checkTextareaHeight, fullTextareaHeight } from '$lib';
 
 	import { afterUpdate, onDestroy, onMount } from 'svelte';
 	import Swiper from 'swiper';
 	import { register } from 'swiper/element/bundle';
 	import { FreeMode } from 'swiper/modules';
+
 	// import Swiper and modules styles
 	import 'swiper/css';
 	import 'swiper/css/free-mode';
 	import { fly } from 'svelte/transition';
 
 	export let question = {};
-	export let isExpand = false;
 	export let loading = true;
 
 	let swiper: Swiper | undefined;
-	let textarea: any = {};
 
 	// init Swiper:
 	onMount(() => {
@@ -49,70 +46,27 @@
 			loading = false;
 		}, 500);
 	}
-
-	$: console.log(textarea, 'texarea');
-	afterUpdate(() => {
-		if (isExpand) {
-			question.infos.forEach((info: any) => {
-				if (textarea[info.id]) {
-					console.log(textarea, 'texarea');
-					textarea[info.id].style.height = '0px';
-					adjustTextareaHeight(textarea[info.id]);
-					console.log(textarea[info.id]?.scrollHeight);
-				}
-			});
-		}
-	});
-
-	onDestroy(() => {
-		if (isExpand) {
-			question.infos.forEach((info: any) => {
-				if (textarea[info.id]) {
-					textarea[info.id].style.height = '0px';
-				}
-			});
-		}
-	});
 </script>
 
 <!-- Non mobile view info card  -->
 {#each question.infos as info}
 	<div
-		in:fly|global={{ x: 100, y: 0 }}
-		class="relative hidden lg:block transition-all duration-300 overflow-auto {isExpand
-			? 'lg:w-screen mx-auto z-[35]'
-			: 'lg:w-[100%]'}"
+		class="relative hidden lg:block transition-all duration-300 overflow-auto lg:w-[100%]"
 	>
 		<div class=" flex flex-col overflow-x-hidden w-full">
 			<!-- Image  -->
-			{#if info.image_url && !isExpand}
-				{#if !isExpand}
-					<div class="absolute w-[105%] right-0 top-[0px] h-[35%]">
-						<img src={info.image_url} alt="bulb" class="w-full h-full object-center object-cover" />
-					</div>
-				{/if}
+			{#if info.image_url}
+				<div class="absolute w-[105%] right-0 top-[0px] h-[35%]">
+					<img src={info.image_url} alt="bulb" class="w-full h-full object-center object-cover" />
+				</div>
 			{/if}
 
 			<!-- Info card  -->
 			<div
-				class="px-16 {info.video_url ? 'py-4 2xl:py-12' : 'py-12'} {info.image_url && !isExpand
+				class="px-16 {info.video_url ? 'py-4 2xl:py-12' : 'py-12'} {info.image_url
 					? 'mt-[40%] lg:mt-[40%] xl:mt-[35%] 2xl:mt-[38%] 3xl:mt-[40%] w-full '
-					: 'mt-4 overflow-y-auto '} {isExpand ? 'w-1/2 mx-auto' : 'w-full'} flex flex-col"
+					: 'mt-4 overflow-y-auto '} w-full flex flex-col"
 			>
-				<!-- Back button when expanded -->
-				{#if isExpand}
-					<div class="w-full flex justify-end mb-8 text-white">
-						<button on:click|preventDefault={() => (isExpand = false)}> Back </button>
-					</div>
-				{/if}
-
-				<!-- Image when expanded -->
-				{#if isExpand && info.image_url}
-					<div class="w-full h-[35%] mb-8">
-						<img src={info.image_url} alt="bulb" class="w-full h-full object-center object-cover" />
-					</div>
-				{/if}
-
 				<!-- Icon and title -->
 				<div class="flex flex-col w-full justify-start gap-2 mb-2">
 					<div class="text-[#ffffff] font-[800] text-4xl 2xl:text-5xl">{info.title}</div>
@@ -126,35 +80,19 @@
 							src={info.video_url}
 							title="video player"
 							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; "
 							allowfullscreen
 						/>
 					</div>
 				{/if}
 
 				<!-- Description  -->
-				{#if !isExpand}
-					<textarea
-						disabled
-						class="border-none flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overscroll-contain overflow-y-auto text-ellipsis"
-						value={info.description}
-						rows={info.video_url ? 5 : 8}
-					/>
-					<!-- <button
-						id="learnMoreButton-{info.id}"
-						on:click={() => {
-							isExpand = true;
-						}}
-						class="self-end text-primary-200 font-[700] text:base 2xl:text-lg">Learn More</button
-					> -->
-				{:else}
-					<textarea
-						disabled
-						bind:this={textarea[info.id]}
-						class="p-8 shadow-lg shadow-[#ffffff] rounded-lg resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full"
-						value={info.description}
-					/>
-				{/if}
+				<textarea
+					disabled
+					class="border-none flex-1 resize-none bg-primary-800 flex-grow text-[#ffffff] font-[400] text-sm 2xl:text-lg w-full overscroll-contain overflow-y-auto text-ellipsis"
+					value={info.description}
+					rows={info.video_url ? 5 : 12}
+				/>
 			</div>
 		</div>
 	</div>
@@ -229,11 +167,5 @@
 		/* width: 90%; */
 		height: 100vh;
 		overscroll-behavior: contain;
-	}
-
-	textarea {
-		-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-		mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-		padding-bottom: 150px;
 	}
 </style>
